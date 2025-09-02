@@ -10,7 +10,7 @@ namespace UTN_FRGP_ActividadII
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Primer Subida");
+            Console.WriteLine("Probando ramas");
 
         }
     }
