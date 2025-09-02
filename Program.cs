@@ -10,8 +10,7 @@ namespace UTN_FRGP_ActividadII
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Probando ramas, feature/sebastian");
-
+            Console.WriteLine("Probando ramas, featured/Mauro");
         }
     }
 }
