@@ -16,6 +16,7 @@ namespace UTN_FRGP_ActividadII
         public string Marca { get; set; }
         public string Categoria { get; set; }
         public List<Imagen> Imagenes { get; set } = new List<Imagen>();
+        public float Precio { get; set; }
 
         
     }
