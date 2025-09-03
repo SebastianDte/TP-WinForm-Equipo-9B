@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace UTN_FRGP_ActividadII
 {
-    internal class Program
+    internal class Imagen
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Probando ramas, featured/Mauro");
-        }
+        public int CodImagen { get; set; }
+        public int Tamaño { get; set; }
+        public string Formato { get; set; }
     }
 }
