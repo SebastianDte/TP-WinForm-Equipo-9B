@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UTN_FRGP_ActividadII
+namespace Dominio
 {
     internal class Imagen
     {
