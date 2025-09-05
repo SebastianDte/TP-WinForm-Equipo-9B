@@ -30,16 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cardDgv = new MaterialSkin.Controls.MaterialCard();
+            this.pnlImagen = new System.Windows.Forms.Panel();
             this.btnAtras = new MaterialSkin.Controls.MaterialButton();
             this.lblImagenes = new MaterialSkin.Controls.MaterialLabel();
             this.btnSiguiente = new MaterialSkin.Controls.MaterialButton();
             this.pctBoxListImg = new System.Windows.Forms.PictureBox();
-            this.cardFooter = new MaterialSkin.Controls.MaterialCard();
-            this.lblHora = new MaterialSkin.Controls.MaterialLabel();
-            this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
+            this.pnlDGV = new System.Windows.Forms.Panel();
+            this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.ckBoxFiltroAvanzado = new MaterialSkin.Controls.MaterialCheckbox();
@@ -47,35 +50,34 @@
             this.cbxCriterio = new MaterialSkin.Controls.MaterialComboBox();
             this.txtBuscar = new MaterialSkin.Controls.MaterialTextBox();
             this.cbxCampo = new MaterialSkin.Controls.MaterialComboBox();
+            this.pnlSeparadorDgvFooter = new System.Windows.Forms.Panel();
+            this.cardVerMas = new MaterialSkin.Controls.MaterialCard();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblCodigoVerMas = new MaterialSkin.Controls.MaterialLabel();
+            this.lblCodigoArticulo = new MaterialSkin.Controls.MaterialLabel();
+            this.pnlDescripcionVerMas = new System.Windows.Forms.Panel();
+            this.lblDescripcionVerMas = new MaterialSkin.Controls.MaterialLabel();
+            this.txtBoxDescripcion = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.btnVolver = new MaterialSkin.Controls.MaterialButton();
+            this.cardFooter = new MaterialSkin.Controls.MaterialCard();
+            this.lblHora = new MaterialSkin.Controls.MaterialLabel();
+            this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.btnVolver = new MaterialSkin.Controls.MaterialButton();
-            this.pnlDescripcionVerMas = new System.Windows.Forms.Panel();
-            this.txtBoxDescripcion = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.lblDescripcionVerMas = new MaterialSkin.Controls.MaterialLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblCodigoArticulo = new MaterialSkin.Controls.MaterialLabel();
-            this.lblCodigoVerMas = new MaterialSkin.Controls.MaterialLabel();
-            this.cardVerMas = new MaterialSkin.Controls.MaterialCard();
-            this.pnlSeparadorDgvFooter = new System.Windows.Forms.Panel();
-            this.cardDgv = new MaterialSkin.Controls.MaterialCard();
-            this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnVerMas = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pnlDGV = new System.Windows.Forms.Panel();
-            this.pnlImagen = new System.Windows.Forms.Panel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctBoxListImg)).BeginInit();
-            this.cardFooter.SuspendLayout();
-            this.pnlHeader.SuspendLayout();
-            this.pnlDescripcionVerMas.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.cardVerMas.SuspendLayout();
             this.cardDgv.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            this.pnlDGV.SuspendLayout();
             this.pnlImagen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxListImg)).BeginInit();
+            this.pnlDGV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            this.pnlHeader.SuspendLayout();
+            this.cardVerMas.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.pnlDescripcionVerMas.SuspendLayout();
+            this.cardFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -115,6 +117,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cardDgv
+            // 
+            this.cardDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cardDgv.Controls.Add(this.pnlImagen);
+            this.cardDgv.Controls.Add(this.pnlDGV);
+            this.cardDgv.Depth = 0;
+            this.cardDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cardDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cardDgv.Location = new System.Drawing.Point(3, 68);
+            this.cardDgv.Margin = new System.Windows.Forms.Padding(14);
+            this.cardDgv.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cardDgv.Name = "cardDgv";
+            this.cardDgv.Padding = new System.Windows.Forms.Padding(14);
+            this.cardDgv.Size = new System.Drawing.Size(1309, 507);
+            this.cardDgv.TabIndex = 12;
+            // 
+            // pnlImagen
+            // 
+            this.pnlImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlImagen.Controls.Add(this.btnAtras);
+            this.pnlImagen.Controls.Add(this.lblImagenes);
+            this.pnlImagen.Controls.Add(this.btnSiguiente);
+            this.pnlImagen.Controls.Add(this.pctBoxListImg);
+            this.pnlImagen.Location = new System.Drawing.Point(749, 17);
+            this.pnlImagen.Name = "pnlImagen";
+            this.pnlImagen.Size = new System.Drawing.Size(546, 473);
+            this.pnlImagen.TabIndex = 8;
             // 
             // btnAtras
             // 
@@ -183,50 +215,35 @@
             this.pctBoxListImg.TabIndex = 1;
             this.pctBoxListImg.TabStop = false;
             // 
-            // cardFooter
+            // pnlDGV
             // 
-            this.cardFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cardFooter.Controls.Add(this.lblHora);
-            this.cardFooter.Controls.Add(this.lblUsuario);
-            this.cardFooter.Depth = 0;
-            this.cardFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cardFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cardFooter.Location = new System.Drawing.Point(3, 670);
-            this.cardFooter.Margin = new System.Windows.Forms.Padding(14);
-            this.cardFooter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cardFooter.Name = "cardFooter";
-            this.cardFooter.Padding = new System.Windows.Forms.Padding(14);
-            this.cardFooter.Size = new System.Drawing.Size(1309, 60);
-            this.cardFooter.TabIndex = 9;
+            this.pnlDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDGV.Controls.Add(this.dgvArticulos);
+            this.pnlDGV.Location = new System.Drawing.Point(3, 6);
+            this.pnlDGV.Name = "pnlDGV";
+            this.pnlDGV.Size = new System.Drawing.Size(667, 484);
+            this.pnlDGV.TabIndex = 7;
             // 
-            // lblHora
+            // dgvArticulos
             // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Depth = 0;
-            this.lblHora.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblHora.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblHora.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblHora.Location = new System.Drawing.Point(1135, 14);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
-            this.lblHora.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(160, 29);
-            this.lblHora.TabIndex = 1;
-            this.lblHora.Text = "materialLabel2";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Depth = 0;
-            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblUsuario.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblUsuario.Location = new System.Drawing.Point(14, 14);
-            this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(218, 29);
-            this.lblUsuario.TabIndex = 0;
-            this.lblUsuario.Text = "Bievenido Sebastián";
+            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnEditar,
+            this.btnVerMas});
+            this.dgvArticulos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvArticulos.Location = new System.Drawing.Point(0, 0);
+            this.dgvArticulos.MultiSelect = false;
+            this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.ReadOnly = true;
+            this.dgvArticulos.RowHeadersVisible = false;
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArticulos.Size = new System.Drawing.Size(667, 484);
+            this.dgvArticulos.TabIndex = 1;
+            this.dgvArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellClick);
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pnlHeader
             // 
@@ -325,7 +342,7 @@
             this.txtBuscar.AnimateReadOnly = false;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscar.Depth = 0;
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBuscar.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtBuscar.Hint = "Buscar por nombre de artículo";
             this.txtBuscar.LeadingIcon = null;
             this.txtBuscar.Location = new System.Drawing.Point(11, 11);
@@ -362,20 +379,109 @@
             this.cbxCampo.StartIndex = 0;
             this.cbxCampo.TabIndex = 3;
             // 
-            // tabPage2
+            // pnlSeparadorDgvFooter
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 45);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1315, 733);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Administración";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pnlSeparadorDgvFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSeparadorDgvFooter.Location = new System.Drawing.Point(3, 575);
+            this.pnlSeparadorDgvFooter.Name = "pnlSeparadorDgvFooter";
+            this.pnlSeparadorDgvFooter.Size = new System.Drawing.Size(1309, 10);
+            this.pnlSeparadorDgvFooter.TabIndex = 10;
             // 
-            // timerHora
+            // cardVerMas
             // 
-            this.timerHora.Enabled = true;
-            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
+            this.cardVerMas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cardVerMas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardVerMas.Controls.Add(this.panel3);
+            this.cardVerMas.Controls.Add(this.pnlDescripcionVerMas);
+            this.cardVerMas.Controls.Add(this.btnVolver);
+            this.cardVerMas.Depth = 0;
+            this.cardVerMas.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cardVerMas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cardVerMas.Location = new System.Drawing.Point(3, 585);
+            this.cardVerMas.Margin = new System.Windows.Forms.Padding(14);
+            this.cardVerMas.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cardVerMas.Name = "cardVerMas";
+            this.cardVerMas.Padding = new System.Windows.Forms.Padding(14);
+            this.cardVerMas.Size = new System.Drawing.Size(1309, 85);
+            this.cardVerMas.TabIndex = 8;
+            this.cardVerMas.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblCodigoVerMas);
+            this.panel3.Controls.Add(this.lblCodigoArticulo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1017, 14);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 55);
+            this.panel3.TabIndex = 7;
+            // 
+            // lblCodigoVerMas
+            // 
+            this.lblCodigoVerMas.AutoSize = true;
+            this.lblCodigoVerMas.Depth = 0;
+            this.lblCodigoVerMas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblCodigoVerMas.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCodigoVerMas.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.lblCodigoVerMas.Location = new System.Drawing.Point(0, 0);
+            this.lblCodigoVerMas.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCodigoVerMas.Name = "lblCodigoVerMas";
+            this.lblCodigoVerMas.Size = new System.Drawing.Size(84, 29);
+            this.lblCodigoVerMas.TabIndex = 1;
+            this.lblCodigoVerMas.Text = "Código:";
+            // 
+            // lblCodigoArticulo
+            // 
+            this.lblCodigoArticulo.AutoSize = true;
+            this.lblCodigoArticulo.Depth = 0;
+            this.lblCodigoArticulo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblCodigoArticulo.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCodigoArticulo.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lblCodigoArticulo.Location = new System.Drawing.Point(0, 31);
+            this.lblCodigoArticulo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCodigoArticulo.Name = "lblCodigoArticulo";
+            this.lblCodigoArticulo.Size = new System.Drawing.Size(63, 24);
+            this.lblCodigoArticulo.TabIndex = 2;
+            this.lblCodigoArticulo.Text = "Código";
+            // 
+            // pnlDescripcionVerMas
+            // 
+            this.pnlDescripcionVerMas.Controls.Add(this.lblDescripcionVerMas);
+            this.pnlDescripcionVerMas.Controls.Add(this.txtBoxDescripcion);
+            this.pnlDescripcionVerMas.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlDescripcionVerMas.Location = new System.Drawing.Point(14, 14);
+            this.pnlDescripcionVerMas.Name = "pnlDescripcionVerMas";
+            this.pnlDescripcionVerMas.Size = new System.Drawing.Size(655, 55);
+            this.pnlDescripcionVerMas.TabIndex = 6;
+            // 
+            // lblDescripcionVerMas
+            // 
+            this.lblDescripcionVerMas.AutoSize = true;
+            this.lblDescripcionVerMas.Depth = 0;
+            this.lblDescripcionVerMas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDescripcionVerMas.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDescripcionVerMas.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.lblDescripcionVerMas.Location = new System.Drawing.Point(0, 0);
+            this.lblDescripcionVerMas.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDescripcionVerMas.Name = "lblDescripcionVerMas";
+            this.lblDescripcionVerMas.Size = new System.Drawing.Size(128, 29);
+            this.lblDescripcionVerMas.TabIndex = 3;
+            this.lblDescripcionVerMas.Text = "Descripción";
+            // 
+            // txtBoxDescripcion
+            // 
+            this.txtBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxDescripcion.Depth = 0;
+            this.txtBoxDescripcion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBoxDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(0, 30);
+            this.txtBoxDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(655, 25);
+            this.txtBoxDescripcion.TabIndex = 4;
+            this.txtBoxDescripcion.Text = "";
             // 
             // btnVolver
             // 
@@ -398,191 +504,106 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.Volver_Click);
             // 
-            // pnlDescripcionVerMas
+            // cardFooter
             // 
-            this.pnlDescripcionVerMas.Controls.Add(this.lblDescripcionVerMas);
-            this.pnlDescripcionVerMas.Controls.Add(this.txtBoxDescripcion);
-            this.pnlDescripcionVerMas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlDescripcionVerMas.Location = new System.Drawing.Point(14, 14);
-            this.pnlDescripcionVerMas.Name = "pnlDescripcionVerMas";
-            this.pnlDescripcionVerMas.Size = new System.Drawing.Size(655, 55);
-            this.pnlDescripcionVerMas.TabIndex = 6;
+            this.cardFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cardFooter.Controls.Add(this.lblHora);
+            this.cardFooter.Controls.Add(this.lblUsuario);
+            this.cardFooter.Depth = 0;
+            this.cardFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cardFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cardFooter.Location = new System.Drawing.Point(3, 670);
+            this.cardFooter.Margin = new System.Windows.Forms.Padding(14);
+            this.cardFooter.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cardFooter.Name = "cardFooter";
+            this.cardFooter.Padding = new System.Windows.Forms.Padding(14);
+            this.cardFooter.Size = new System.Drawing.Size(1309, 60);
+            this.cardFooter.TabIndex = 9;
             // 
-            // txtBoxDescripcion
+            // lblHora
             // 
-            this.txtBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxDescripcion.Depth = 0;
-            this.txtBoxDescripcion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBoxDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(0, 30);
-            this.txtBoxDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(655, 25);
-            this.txtBoxDescripcion.TabIndex = 4;
-            this.txtBoxDescripcion.Text = "";
+            this.lblHora.AutoSize = true;
+            this.lblHora.Depth = 0;
+            this.lblHora.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblHora.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblHora.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.lblHora.Location = new System.Drawing.Point(1135, 14);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
+            this.lblHora.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(160, 29);
+            this.lblHora.TabIndex = 1;
+            this.lblHora.Text = "materialLabel2";
             // 
-            // lblDescripcionVerMas
+            // lblUsuario
             // 
-            this.lblDescripcionVerMas.AutoSize = true;
-            this.lblDescripcionVerMas.Depth = 0;
-            this.lblDescripcionVerMas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDescripcionVerMas.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblDescripcionVerMas.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblDescripcionVerMas.Location = new System.Drawing.Point(0, 0);
-            this.lblDescripcionVerMas.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblDescripcionVerMas.Name = "lblDescripcionVerMas";
-            this.lblDescripcionVerMas.Size = new System.Drawing.Size(128, 29);
-            this.lblDescripcionVerMas.TabIndex = 3;
-            this.lblDescripcionVerMas.Text = "Descripción";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Depth = 0;
+            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblUsuario.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.lblUsuario.Location = new System.Drawing.Point(14, 14);
+            this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(218, 29);
+            this.lblUsuario.TabIndex = 0;
+            this.lblUsuario.Text = "Bievenido Sebastián";
             // 
-            // panel3
+            // tabPage2
             // 
-            this.panel3.Controls.Add(this.lblCodigoVerMas);
-            this.panel3.Controls.Add(this.lblCodigoArticulo);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1017, 14);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 55);
-            this.panel3.TabIndex = 7;
+            this.tabPage2.Location = new System.Drawing.Point(4, 45);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1315, 733);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Administración";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblCodigoArticulo
+            // timerHora
             // 
-            this.lblCodigoArticulo.AutoSize = true;
-            this.lblCodigoArticulo.Depth = 0;
-            this.lblCodigoArticulo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblCodigoArticulo.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCodigoArticulo.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblCodigoArticulo.Location = new System.Drawing.Point(0, 31);
-            this.lblCodigoArticulo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCodigoArticulo.Name = "lblCodigoArticulo";
-            this.lblCodigoArticulo.Size = new System.Drawing.Size(63, 24);
-            this.lblCodigoArticulo.TabIndex = 2;
-            this.lblCodigoArticulo.Text = "Código";
-            // 
-            // lblCodigoVerMas
-            // 
-            this.lblCodigoVerMas.AutoSize = true;
-            this.lblCodigoVerMas.Depth = 0;
-            this.lblCodigoVerMas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblCodigoVerMas.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCodigoVerMas.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblCodigoVerMas.Location = new System.Drawing.Point(0, 0);
-            this.lblCodigoVerMas.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCodigoVerMas.Name = "lblCodigoVerMas";
-            this.lblCodigoVerMas.Size = new System.Drawing.Size(84, 29);
-            this.lblCodigoVerMas.TabIndex = 1;
-            this.lblCodigoVerMas.Text = "Código:";
-            // 
-            // cardVerMas
-            // 
-            this.cardVerMas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cardVerMas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cardVerMas.Controls.Add(this.panel3);
-            this.cardVerMas.Controls.Add(this.pnlDescripcionVerMas);
-            this.cardVerMas.Controls.Add(this.btnVolver);
-            this.cardVerMas.Depth = 0;
-            this.cardVerMas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cardVerMas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cardVerMas.Location = new System.Drawing.Point(3, 585);
-            this.cardVerMas.Margin = new System.Windows.Forms.Padding(14);
-            this.cardVerMas.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cardVerMas.Name = "cardVerMas";
-            this.cardVerMas.Padding = new System.Windows.Forms.Padding(14);
-            this.cardVerMas.Size = new System.Drawing.Size(1309, 85);
-            this.cardVerMas.TabIndex = 8;
-            this.cardVerMas.Visible = false;
-            // 
-            // pnlSeparadorDgvFooter
-            // 
-            this.pnlSeparadorDgvFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSeparadorDgvFooter.Location = new System.Drawing.Point(3, 575);
-            this.pnlSeparadorDgvFooter.Name = "pnlSeparadorDgvFooter";
-            this.pnlSeparadorDgvFooter.Size = new System.Drawing.Size(1309, 10);
-            this.pnlSeparadorDgvFooter.TabIndex = 10;
-            // 
-            // cardDgv
-            // 
-            this.cardDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cardDgv.Controls.Add(this.pnlImagen);
-            this.cardDgv.Controls.Add(this.pnlDGV);
-            this.cardDgv.Depth = 0;
-            this.cardDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cardDgv.Location = new System.Drawing.Point(3, 68);
-            this.cardDgv.Margin = new System.Windows.Forms.Padding(14);
-            this.cardDgv.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cardDgv.Name = "cardDgv";
-            this.cardDgv.Padding = new System.Windows.Forms.Padding(14);
-            this.cardDgv.Size = new System.Drawing.Size(1309, 507);
-            this.cardDgv.TabIndex = 12;
-            // 
-            // dgvArticulos
-            // 
-            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnEditar,
-            this.btnVerMas});
-            this.dgvArticulos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvArticulos.Location = new System.Drawing.Point(0, 0);
-            this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.ReadOnly = true;
-            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(667, 484);
-            this.dgvArticulos.TabIndex = 1;
-            this.dgvArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellClick);
-            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            this.timerHora.Enabled = true;
+            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
             // btnEditar
             // 
             this.btnEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle1;
             this.btnEditar.FillWeight = 118.7817F;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.HeaderText = "";
             this.btnEditar.MinimumWidth = 80;
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.ReadOnly = true;
+            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.UseColumnTextForButtonValue = true;
             this.btnEditar.Width = 80;
             // 
             // btnVerMas
             // 
             this.btnVerMas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GhostWhite;
+            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle2;
             this.btnVerMas.FillWeight = 81.21828F;
             this.btnVerMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerMas.HeaderText = "";
             this.btnVerMas.MinimumWidth = 80;
             this.btnVerMas.Name = "btnVerMas";
             this.btnVerMas.ReadOnly = true;
+            this.btnVerMas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.btnVerMas.Text = "Ver más";
+            this.btnVerMas.UseColumnTextForButtonValue = true;
             this.btnVerMas.Width = 80;
-            // 
-            // pnlDGV
-            // 
-            this.pnlDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDGV.Controls.Add(this.dgvArticulos);
-            this.pnlDGV.Location = new System.Drawing.Point(3, 6);
-            this.pnlDGV.Name = "pnlDGV";
-            this.pnlDGV.Size = new System.Drawing.Size(667, 484);
-            this.pnlDGV.TabIndex = 7;
-            // 
-            // pnlImagen
-            // 
-            this.pnlImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlImagen.Controls.Add(this.btnAtras);
-            this.pnlImagen.Controls.Add(this.lblImagenes);
-            this.pnlImagen.Controls.Add(this.btnSiguiente);
-            this.pnlImagen.Controls.Add(this.pctBoxListImg);
-            this.pnlImagen.Location = new System.Drawing.Point(749, 17);
-            this.pnlImagen.Name = "pnlImagen";
-            this.pnlImagen.Size = new System.Drawing.Size(546, 473);
-            this.pnlImagen.TabIndex = 8;
             // 
             // Form1
             // 
@@ -600,22 +621,22 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctBoxListImg)).EndInit();
-            this.cardFooter.ResumeLayout(false);
-            this.cardFooter.PerformLayout();
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.pnlDescripcionVerMas.ResumeLayout(false);
-            this.pnlDescripcionVerMas.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.cardVerMas.ResumeLayout(false);
-            this.cardVerMas.PerformLayout();
             this.cardDgv.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            this.pnlDGV.ResumeLayout(false);
             this.pnlImagen.ResumeLayout(false);
             this.pnlImagen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxListImg)).EndInit();
+            this.pnlDGV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.cardVerMas.ResumeLayout(false);
+            this.cardVerMas.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.pnlDescripcionVerMas.ResumeLayout(false);
+            this.pnlDescripcionVerMas.PerformLayout();
+            this.cardFooter.ResumeLayout(false);
+            this.cardFooter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -651,10 +672,10 @@
         private System.Windows.Forms.Panel pnlSeparadorDgvFooter;
         private MaterialSkin.Controls.MaterialCard cardDgv;
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnVerMas;
         private System.Windows.Forms.Panel pnlDGV;
         private System.Windows.Forms.Panel pnlImagen;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnVerMas;
     }
 }
 

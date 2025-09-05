@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,7 @@ namespace Vista
         private ArticuloNegocio articulosNegocio = new ArticuloNegocio();
         private ImagenNegocio imagenesNegocio = new ImagenNegocio();
 
+        private bool usoFallback;
         private int indiceImagenActual = 0;
         public Form1()
         {
@@ -43,25 +45,20 @@ namespace Vista
                 dgvArticulos.Columns["id"].Visible = false;
                 dgvArticulos.Columns["descripcion"].Visible = false;
                 dgvArticulos.Columns["codigo"].Visible = false;
+
+                //Esto es para mandar los botones al final de la DGV
                 dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
                 dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
 
-                // Buscar la columna por nombre
-                var colEditar = (DataGridViewButtonColumn)dgvArticulos.Columns["btnEditar"];
-                colEditar.UseColumnTextForButtonValue = true;
-                colEditar.Text = "Editar";
-
-                var colVerMas = (DataGridViewButtonColumn)dgvArticulos.Columns["btnVerMas"];
-                colVerMas.UseColumnTextForButtonValue = true;
-                colVerMas.Text = "Ver más";
-
-
                 if (listaArticulos.Count > 0)
                 {
-                    // Cargar imágenes del primer artículo
                     listaArticulos[0].Imagenes = imagenesNegocio.listarImagenes(listaArticulos[0].id);
-                    if (listaArticulos[0].Imagenes.Count > 0)
-                        pctBoxListImg.Load(listaArticulos[0].Imagenes[0].imageUrl);
+
+                    string urlPrimerImagen = listaArticulos[0].Imagenes.Count > 0
+                        ? listaArticulos[0].Imagenes[0].imageUrl
+                        : null; 
+
+                    pctBoxListImg.Image = CargarImagenDesdeUrl(urlPrimerImagen);
                 }
             }
             catch (Exception ex)
@@ -69,15 +66,11 @@ namespace Vista
                 MessageBox.Show("Error al cargar los datos: " + ex.Message);
             }
         }
-
-       
-
+ 
         private void timerHora_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
-
-        
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -123,23 +116,22 @@ namespace Vista
             }
         }
 
-
-        private bool usoFallback;
         private Image CargarImagenDesdeUrl(string url)
         {
             // URL de la imagen por defecto si no hay o falla
             string fallbackUrl = "https://www.shutterstock.com/image-vector/no-photo-image-viewer-thumbnail-260nw-2495883211.jpg";
             usoFallback = false;
-            // Si la URL es null o vacía, usamos el fallback
+            // Si la URL es null o vacía, usa el fallback
             if (string.IsNullOrEmpty(url))
                 url = fallbackUrl;
 
+            
             try
             {
                 using (var client = new System.Net.WebClient())
                 {
-                    client.Headers.Add("user-agent", "Mozilla/5.0"); // simula navegador
-                    byte[] data = client.DownloadData(url);
+                    client.Headers.Add("user-agent", "Mozilla/5.0"); // simula ser un navegador.
+                    byte[] data = client.DownloadData(url);   //Acá descarga la imagen.
                     using (var ms = new System.IO.MemoryStream(data))
                     {
                         return Image.FromStream(ms);
