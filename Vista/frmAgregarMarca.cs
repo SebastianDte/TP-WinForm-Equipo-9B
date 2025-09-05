@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmCategorias : Form
+    public partial class frmAgregarMarca : Form
     {
-        public frmCategorias()
+        public frmAgregarMarca()
         {
             InitializeComponent();
         }

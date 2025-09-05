@@ -33,19 +33,23 @@
             this.colDescripcion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.lbFiltroRapido = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.lbFiltroRapido = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colMarca,
             this.colDescripcion});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(47, 74);
+            this.listView1.Location = new System.Drawing.Point(47, 82);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(710, 231);
+            this.listView1.Size = new System.Drawing.Size(766, 231);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -62,50 +66,76 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(223, 311);
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAgregar.BackColor = System.Drawing.Color.Beige;
+            this.btnAgregar.Location = new System.Drawing.Point(62, 319);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(506, 311);
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEliminar.BackColor = System.Drawing.Color.Beige;
+            this.btnEliminar.Location = new System.Drawing.Point(279, 319);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // lbFiltroRapido
-            // 
-            this.lbFiltroRapido.AutoSize = true;
-            this.lbFiltroRapido.Location = new System.Drawing.Point(210, 47);
-            this.lbFiltroRapido.Name = "lbFiltroRapido";
-            this.lbFiltroRapido.Size = new System.Drawing.Size(66, 13);
-            this.lbFiltroRapido.TabIndex = 3;
-            this.lbFiltroRapido.Text = "Filtro Rápido";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(311, 44);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(295, 52);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 20);
+            this.textBox1.Size = new System.Drawing.Size(264, 20);
             this.textBox1.TabIndex = 4;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnModificar.BackColor = System.Drawing.Color.Beige;
+            this.btnModificar.Location = new System.Drawing.Point(172, 319);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // lbFiltroRapido
+            // 
+            this.lbFiltroRapido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbFiltroRapido.AutoSize = true;
+            this.lbFiltroRapido.Location = new System.Drawing.Point(212, 55);
+            this.lbFiltroRapido.Name = "lbFiltroRapido";
+            this.lbFiltroRapido.Size = new System.Drawing.Size(66, 13);
+            this.lbFiltroRapido.TabIndex = 7;
+            this.lbFiltroRapido.Tag = "";
+            this.lbFiltroRapido.Text = "Filtro Rapido";
             // 
             // frmMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(837, 503);
             this.Controls.Add(this.lbFiltroRapido);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.listView1);
+            this.IsMdiContainer = true;
+            this.MinimumSize = new System.Drawing.Size(853, 522);
             this.Name = "frmMarcas";
-            this.Text = "frmMarcas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Marcas";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,7 +148,8 @@
         private System.Windows.Forms.ColumnHeader colDescripcion;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label lbFiltroRapido;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label lbFiltroRapido;
     }
 }
