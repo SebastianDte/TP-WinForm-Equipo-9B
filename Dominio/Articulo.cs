@@ -20,8 +20,7 @@ namespace Dominio
         public string descripcion { get; set; }
         [DisplayName("Precio")]
         public decimal precio { get; set; }
-        public string urlImagen { get; set; }
-        [DisplayName("Categoría")]
+        [DisplayName("Categoria")]
         public Categoria categoria { get; set; }
         [DisplayName("Marca")]
         public Marca marca { get; set; }
