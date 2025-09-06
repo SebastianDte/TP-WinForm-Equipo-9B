@@ -33,6 +33,12 @@ namespace Vista
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             
             CargarArticulos();
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+
+
+            
 
         }
 
@@ -42,13 +48,7 @@ namespace Vista
             {
                 listaArticulos = articulosNegocio.lista(); 
                 dgvArticulos.DataSource = listaArticulos;
-                dgvArticulos.Columns["id"].Visible = false;
-                dgvArticulos.Columns["descripcion"].Visible = false;
-                dgvArticulos.Columns["codigo"].Visible = false;
-
-                //Esto es para mandar los botones al final de la DGV
-                dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
-                dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+                OcultarColumnasDgv();
 
                 if (listaArticulos.Count > 0)
                 {
@@ -189,9 +189,25 @@ namespace Vista
 
         private void ckBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
-            cbxCampo.Enabled = ckBoxFiltroAvanzado.Checked;
-            cbxCriterio.Enabled = ckBoxFiltroAvanzado.Checked;
+            cboCampo.Enabled = ckBoxFiltroAvanzado.Checked;
+            cboCriterio.Enabled = ckBoxFiltroAvanzado.Checked;
             btnBuscar.Enabled = ckBoxFiltroAvanzado.Checked;
+
+            if(ckBoxFiltroAvanzado.Checked)
+            {
+                txtBuscar.Visible = false;
+                txtBoxFiltroAvanzado.Visible = true;
+                picBoxLimpiar.Visible = true;
+            }
+            else
+            {
+                txtBuscar.Visible = true;
+                txtBoxFiltroAvanzado.Visible = false;
+                picBoxLimpiar.Visible = false;
+
+            }
+
+
         }
 
         private void Volver_Click(object sender, EventArgs e)
@@ -223,6 +239,151 @@ namespace Vista
             // Cargar datos en los controles dentro de la card
             lblCodigoArticulo.Text = seleccionado.codigo;          // Label para el código
             txtBoxDescripcion.Text = seleccionado.descripcion; // TextBox multilinea para la descripción
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim();
+            List<Articulo> listaFiltrada;
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                listaFiltrada = listaArticulos.FindAll(a => a.nombre.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            OcultarColumnasDgv();
+
+            
+
+        }
+
+        private void OcultarColumnasDgv()
+        {
+            dgvArticulos.Columns["id"].Visible = false;
+            dgvArticulos.Columns["descripcion"].Visible = false;
+            dgvArticulos.Columns["codigo"].Visible = false;
+
+            //Esto es para mandar los botones al final de la DGV
+            dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+            dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+        }
+
+        private void cbxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (validarFiltro(cboCampo, cboCriterio, txtBoxFiltroAvanzado))
+                    return;
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtBoxFiltroAvanzado.Text;
+                dgvArticulos.DataSource = articulosNegocio.filtrar(campo, criterio, filtro);
+
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void LimpiarFiltros()
+        {
+            // Desactivo el evento para que no rompa
+            cboCampo.SelectedIndexChanged -= cbxCampo_SelectedIndexChanged;
+
+            // Limpio combos y textbox
+            cboCampo.SelectedIndex = -1;
+            cboCriterio.Items.Clear();
+            cboCriterio.SelectedIndex = -1;
+            txtBoxFiltroAvanzado.Text = string.Empty;
+
+            // Vuelvo a activar el evento
+            cboCampo.SelectedIndexChanged += cbxCampo_SelectedIndexChanged;
+
+            // Forzar refresco visual
+            cboCampo.Refresh();
+            cboCriterio.Refresh();
+        }
+
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!char.IsNumber(caracter))
+                    return false;
+            }
+            return true;
+        }
+        public bool validarFiltro(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox txtFiltroAvanzado)
+        {
+            if (cboCampo.SelectedItem != null && cboCriterio.SelectedItem != null)
+            {
+                if (cboCampo.SelectedItem.ToString() == "Precio")
+                {
+                    if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                    {
+                        MessageBox.Show("Cargue el Precio");
+                        return true;
+                    }
+                    if ((!soloNumeros(txtFiltroAvanzado.Text)))
+                    {
+                        MessageBox.Show("Esta en el campo de Precio, asegúrese de ingresar solo Números");
+                        return true;
+                    }
+
+                }
+                return false;
+            }
+            else
+            {
+                MessageBox.Show("Compruebe que Campo y Criterio esten seleccionados");
+                return true;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LimpiarFiltros();
+            dgvArticulos.DataSource = null;
+            CargarArticulos();
+        }
+
+        private void picBoxLimpiar_MouseEnter(object sender, EventArgs e)
+        {
+            picBoxLimpiar.BackColor = Color.LightGray;
+        }
+
+        private void picBoxLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            picBoxLimpiar.BackColor = Color.Transparent;
         }
     }
 }
