@@ -24,6 +24,7 @@ namespace Vista
 
         private bool usoFallback;
         private int indiceImagenActual = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -33,12 +34,8 @@ namespace Vista
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             
             CargarArticulos();
-            cboCampo.Items.Add("Categoria");
-            cboCampo.Items.Add("Marca");
-            cboCampo.Items.Add("Precio");
+            CargarComboxFiltro();
 
-
-            
 
         }
 
@@ -66,7 +63,14 @@ namespace Vista
                 MessageBox.Show("Error al cargar los datos: " + ex.Message);
             }
         }
- 
+        
+        private void CargarComboxFiltro()
+        {
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+        }
+
         private void timerHora_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -77,11 +81,9 @@ namespace Vista
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-                // Resetear índice al cambiar de artículo
+                
                 indiceImagenActual = 0;
-
-                // Traer imágenes si no están cargadas
+               
                 if (seleccionado.Imagenes == null || seleccionado.Imagenes.Count == 0)
                     seleccionado.Imagenes = imagenesNegocio.listarImagenes(seleccionado.id);
 
@@ -91,7 +93,6 @@ namespace Vista
 
                 // Actualizar botones según índice y cantidad de imágenes
                 ActualizarBotones(seleccionado);
-
 
                 // Actualizar label de índice
                 lblImagenes.Text = seleccionado.Imagenes.Count > 0
@@ -124,7 +125,6 @@ namespace Vista
             // Si la URL es null o vacía, usa el fallback
             if (string.IsNullOrEmpty(url))
                 url = fallbackUrl;
-
             
             try
             {
@@ -189,22 +189,20 @@ namespace Vista
 
         private void ckBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
-            cboCampo.Enabled = ckBoxFiltroAvanzado.Checked;
-            cboCriterio.Enabled = ckBoxFiltroAvanzado.Checked;
-            btnBuscar.Enabled = ckBoxFiltroAvanzado.Checked;
+            bool activado = ckBoxFiltroAvanzado.Checked;
 
-            if(ckBoxFiltroAvanzado.Checked)
-            {
-                txtBuscar.Visible = false;
-                txtBoxFiltroAvanzado.Visible = true;
-                picBoxLimpiar.Visible = true;
-            }
-            else
-            {
-                txtBuscar.Visible = true;
-                txtBoxFiltroAvanzado.Visible = false;
-                picBoxLimpiar.Visible = false;
+            cboCampo.Enabled = activado;
+            cboCriterio.Enabled = activado;
+            btnBuscar.Enabled = activado;
 
+            txtBuscar.Visible = !activado;
+            txtBoxFiltroAvanzado.Visible = activado;
+            picBoxLimpiar.Visible = activado;
+
+            if (!activado)
+            {              
+                dgvArticulos.DataSource = null;
+                CargarArticulos();
             }
 
 
@@ -232,35 +230,14 @@ namespace Vista
         }
 
         private void MostrarDetalles(Articulo seleccionado)
-        {
-            // Hacer visible la card
+        {      
             cardVerMas.Visible = true;
 
-            // Cargar datos en los controles dentro de la card
-            lblCodigoArticulo.Text = seleccionado.codigo;          // Label para el código
-            txtBoxDescripcion.Text = seleccionado.descripcion; // TextBox multilinea para la descripción
+            lblCodigoArticulo.Text = seleccionado.codigo;         
+            txtBoxDescripcion.Text = seleccionado.descripcion; 
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = txtBuscar.Text.Trim();
-            List<Articulo> listaFiltrada;
-            if (!string.IsNullOrEmpty(filtro))
-            {
-                listaFiltrada = listaArticulos.FindAll(a => a.nombre.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0);
-            }
-            else
-            {
-                listaFiltrada = listaArticulos;
-            }
-
-            dgvArticulos.DataSource = null;
-            dgvArticulos.DataSource = listaFiltrada;
-            OcultarColumnasDgv();
-
-            
-
-        }
+        
 
         private void OcultarColumnasDgv()
         {
@@ -295,6 +272,8 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            txtBoxFiltroAvanzado.SetErrorState(false);
+            txtBoxFiltroAvanzado.Hint = "Filtro avanzado";
             try
             {
                 if (validarFiltro(cboCampo, cboCriterio, txtBoxFiltroAvanzado))
@@ -302,9 +281,7 @@ namespace Vista
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtBoxFiltroAvanzado.Text;
-                dgvArticulos.DataSource = articulosNegocio.filtrar(campo, criterio, filtro);
-
-                
+                dgvArticulos.DataSource = articulosNegocio.filtrar(campo, criterio, filtro);                
             }
             catch (Exception ex)
             {
@@ -315,23 +292,19 @@ namespace Vista
 
         private void LimpiarFiltros()
         {
-            // Desactivo el evento para que no rompa
             cboCampo.SelectedIndexChanged -= cbxCampo_SelectedIndexChanged;
 
-            // Limpio combos y textbox
+
             cboCampo.SelectedIndex = -1;
             cboCriterio.Items.Clear();
             cboCriterio.SelectedIndex = -1;
             txtBoxFiltroAvanzado.Text = string.Empty;
 
-            // Vuelvo a activar el evento
             cboCampo.SelectedIndexChanged += cbxCampo_SelectedIndexChanged;
 
-            // Forzar refresco visual
             cboCampo.Refresh();
             cboCriterio.Refresh();
         }
-
 
         private bool soloNumeros(string cadena)
         {
@@ -342,31 +315,51 @@ namespace Vista
             }
             return true;
         }
-        public bool validarFiltro(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox txtFiltroAvanzado)
-        {
-            if (cboCampo.SelectedItem != null && cboCriterio.SelectedItem != null)
-            {
-                if (cboCampo.SelectedItem.ToString() == "Precio")
-                {
-                    if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
-                    {
-                        MessageBox.Show("Cargue el Precio");
-                        return true;
-                    }
-                    if ((!soloNumeros(txtFiltroAvanzado.Text)))
-                    {
-                        MessageBox.Show("Esta en el campo de Precio, asegúrese de ingresar solo Números");
-                        return true;
-                    }
 
-                }
-                return false;
+        public bool validarFiltro(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox2 txtFiltroAvanzado)
+        {
+            bool error = false;
+           
+            if (cboCampo.SelectedItem == null)
+            {
+                lblErrorCampo.Visible = true;
+                lblErrorCampo.Text = "Seleccionar campo";
+                error = true;
             }
             else
             {
-                MessageBox.Show("Compruebe que Campo y Criterio esten seleccionados");
-                return true;
+                lblErrorCampo.Visible = false;
             }
+
+            if (cboCriterio.SelectedItem == null)
+            {
+                lblErrorCriterio.Visible = true;
+                lblErrorCriterio.Text = "Seleccionar criterio";
+                error = true;
+            }
+            else
+            {
+                lblErrorCriterio.Visible = false;
+            }
+
+            
+            if (!error && cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    txtFiltroAvanzado.SetErrorState(true);
+                    txtFiltroAvanzado.Hint = "El campo Precio es obligatorio";
+                    error = true;
+                }
+                else if (!soloNumeros(txtFiltroAvanzado.Text))
+                {
+                    txtFiltroAvanzado.SetErrorState(true);
+                    txtFiltroAvanzado.Hint = "Ingrese solo números. Sin puntos ni comas.";
+                    error = true;
+                }
+            }
+
+            return error;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -385,5 +378,26 @@ namespace Vista
         {
             picBoxLimpiar.BackColor = Color.Transparent;
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            string filtro = txtBuscar.Text.Trim();
+            List<Articulo> listaFiltrada;
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                listaFiltrada = listaArticulos.FindAll(a => a.nombre.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            OcultarColumnasDgv();
+        }
+
+        
     }
 }

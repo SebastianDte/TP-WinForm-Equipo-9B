@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -46,13 +46,13 @@
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnVerMas = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.txtBoxFiltroAvanzado = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtBuscar = new MaterialSkin.Controls.MaterialTextBox2();
             this.picBoxLimpiar = new System.Windows.Forms.PictureBox();
-            this.txtBoxFiltroAvanzado = new MaterialSkin.Controls.MaterialTextBox();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.ckBoxFiltroAvanzado = new MaterialSkin.Controls.MaterialCheckbox();
             this.btnBuscar = new MaterialSkin.Controls.MaterialButton();
             this.cboCriterio = new MaterialSkin.Controls.MaterialComboBox();
-            this.txtBuscar = new MaterialSkin.Controls.MaterialTextBox();
             this.cboCampo = new MaterialSkin.Controls.MaterialComboBox();
             this.pnlSeparadorDgvFooter = new System.Windows.Forms.Panel();
             this.cardVerMas = new MaterialSkin.Controls.MaterialCard();
@@ -69,6 +69,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblErrorCampo = new MaterialSkin.Controls.MaterialLabel();
+            this.lblErrorCriterio = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cardDgv.SuspendLayout();
@@ -97,14 +99,13 @@
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl1.ImageList = this.imageList1;
-            this.materialTabControl1.Location = new System.Drawing.Point(0, 98);
-            this.materialTabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.materialTabControl1.Location = new System.Drawing.Point(0, 64);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.Padding = new System.Drawing.Point(6, 6);
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1946, 1008);
+            this.materialTabControl1.Size = new System.Drawing.Size(1297, 534);
             this.materialTabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -116,10 +117,9 @@
             this.tabPage1.Controls.Add(this.cardFooter);
             this.tabPage1.ImageKey = "Admin.png";
             this.tabPage1.Location = new System.Drawing.Point(4, 45);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1938, 959);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1289, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -132,12 +132,12 @@
             this.cardDgv.Depth = 0;
             this.cardDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cardDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cardDgv.Location = new System.Drawing.Point(4, 105);
-            this.cardDgv.Margin = new System.Windows.Forms.Padding(21, 22, 21, 22);
+            this.cardDgv.Location = new System.Drawing.Point(3, 79);
+            this.cardDgv.Margin = new System.Windows.Forms.Padding(14);
             this.cardDgv.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardDgv.Name = "cardDgv";
-            this.cardDgv.Padding = new System.Windows.Forms.Padding(21, 22, 21, 22);
-            this.cardDgv.Size = new System.Drawing.Size(1930, 612);
+            this.cardDgv.Padding = new System.Windows.Forms.Padding(14);
+            this.cardDgv.Size = new System.Drawing.Size(1283, 248);
             this.cardDgv.TabIndex = 12;
             // 
             // pnlImagen
@@ -149,10 +149,9 @@
             this.pnlImagen.Controls.Add(this.lblImagenes);
             this.pnlImagen.Controls.Add(this.btnSiguiente);
             this.pnlImagen.Controls.Add(this.pctBoxListImg);
-            this.pnlImagen.Location = new System.Drawing.Point(1124, 26);
-            this.pnlImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlImagen.Location = new System.Drawing.Point(749, 17);
             this.pnlImagen.Name = "pnlImagen";
-            this.pnlImagen.Size = new System.Drawing.Size(785, 560);
+            this.pnlImagen.Size = new System.Drawing.Size(519, 214);
             this.pnlImagen.TabIndex = 8;
             // 
             // btnAtras
@@ -163,8 +162,8 @@
             this.btnAtras.Depth = 0;
             this.btnAtras.HighEmphasis = true;
             this.btnAtras.Icon = null;
-            this.btnAtras.Location = new System.Drawing.Point(6, 514);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnAtras.Location = new System.Drawing.Point(4, 171);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAtras.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -184,8 +183,7 @@
             this.lblImagenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblImagenes.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblImagenes.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.lblImagenes.Location = new System.Drawing.Point(686, 0);
-            this.lblImagenes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImagenes.Location = new System.Drawing.Point(420, 0);
             this.lblImagenes.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblImagenes.Name = "lblImagenes";
             this.lblImagenes.Size = new System.Drawing.Size(99, 17);
@@ -200,8 +198,8 @@
             this.btnSiguiente.Depth = 0;
             this.btnSiguiente.HighEmphasis = true;
             this.btnSiguiente.Icon = null;
-            this.btnSiguiente.Location = new System.Drawing.Point(683, 514);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnSiguiente.Location = new System.Drawing.Point(419, 171);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSiguiente.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -217,9 +215,8 @@
             // 
             this.pctBoxListImg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pctBoxListImg.Location = new System.Drawing.Point(0, 0);
-            this.pctBoxListImg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pctBoxListImg.Name = "pctBoxListImg";
-            this.pctBoxListImg.Size = new System.Drawing.Size(785, 560);
+            this.pctBoxListImg.Size = new System.Drawing.Size(519, 214);
             this.pctBoxListImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctBoxListImg.TabIndex = 1;
             this.pctBoxListImg.TabStop = false;
@@ -230,29 +227,29 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDGV.Controls.Add(this.dgvArticulos);
-            this.pnlDGV.Location = new System.Drawing.Point(4, 9);
-            this.pnlDGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlDGV.Location = new System.Drawing.Point(3, 6);
             this.pnlDGV.Name = "pnlDGV";
-            this.pnlDGV.Size = new System.Drawing.Size(966, 577);
+            this.pnlDGV.Size = new System.Drawing.Size(640, 225);
             this.pnlDGV.TabIndex = 7;
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvArticulos.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvArticulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnEditar,
             this.btnVerMas});
             this.dgvArticulos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvArticulos.Location = new System.Drawing.Point(0, 0);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.RowHeadersVisible = false;
             this.dgvArticulos.RowHeadersWidth = 62;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(966, 577);
+            this.dgvArticulos.Size = new System.Drawing.Size(640, 225);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
@@ -260,13 +257,13 @@
             // btnEditar
             // 
             this.btnEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle31;
             this.btnEditar.FillWeight = 118.7817F;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.HeaderText = "";
@@ -281,12 +278,12 @@
             // btnVerMas
             // 
             this.btnVerMas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GhostWhite;
-            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.GhostWhite;
+            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle32;
             this.btnVerMas.FillWeight = 81.21828F;
             this.btnVerMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerMas.HeaderText = "";
@@ -300,28 +297,94 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.Controls.Add(this.picBoxLimpiar);
+            this.pnlHeader.Controls.Add(this.lblErrorCriterio);
+            this.pnlHeader.Controls.Add(this.lblErrorCampo);
             this.pnlHeader.Controls.Add(this.txtBoxFiltroAvanzado);
+            this.pnlHeader.Controls.Add(this.txtBuscar);
+            this.pnlHeader.Controls.Add(this.picBoxLimpiar);
             this.pnlHeader.Controls.Add(this.materialDivider1);
             this.pnlHeader.Controls.Add(this.ckBoxFiltroAvanzado);
             this.pnlHeader.Controls.Add(this.btnBuscar);
             this.pnlHeader.Controls.Add(this.cboCriterio);
-            this.pnlHeader.Controls.Add(this.txtBuscar);
             this.pnlHeader.Controls.Add(this.cboCampo);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(4, 5);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlHeader.Location = new System.Drawing.Point(3, 3);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1930, 100);
+            this.pnlHeader.Size = new System.Drawing.Size(1283, 76);
             this.pnlHeader.TabIndex = 2;
+            // 
+            // txtBoxFiltroAvanzado
+            // 
+            this.txtBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxFiltroAvanzado.AnimateReadOnly = false;
+            this.txtBoxFiltroAvanzado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtBoxFiltroAvanzado.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtBoxFiltroAvanzado.Depth = 0;
+            this.txtBoxFiltroAvanzado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBoxFiltroAvanzado.HideSelection = true;
+            this.txtBoxFiltroAvanzado.Hint = "Filtro avanzado";
+            this.txtBoxFiltroAvanzado.LeadingIcon = null;
+            this.txtBoxFiltroAvanzado.Location = new System.Drawing.Point(4, 22);
+            this.txtBoxFiltroAvanzado.MaxLength = 32767;
+            this.txtBoxFiltroAvanzado.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtBoxFiltroAvanzado.Name = "txtBoxFiltroAvanzado";
+            this.txtBoxFiltroAvanzado.PasswordChar = '\0';
+            this.txtBoxFiltroAvanzado.PrefixSuffixText = null;
+            this.txtBoxFiltroAvanzado.ReadOnly = false;
+            this.txtBoxFiltroAvanzado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBoxFiltroAvanzado.SelectedText = "";
+            this.txtBoxFiltroAvanzado.SelectionLength = 0;
+            this.txtBoxFiltroAvanzado.SelectionStart = 0;
+            this.txtBoxFiltroAvanzado.ShortcutsEnabled = true;
+            this.txtBoxFiltroAvanzado.Size = new System.Drawing.Size(639, 48);
+            this.txtBoxFiltroAvanzado.TabIndex = 10;
+            this.txtBoxFiltroAvanzado.TabStop = false;
+            this.txtBoxFiltroAvanzado.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBoxFiltroAvanzado.TrailingIcon = null;
+            this.txtBoxFiltroAvanzado.UseSystemPasswordChar = false;
+            this.txtBoxFiltroAvanzado.Visible = false;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscar.AnimateReadOnly = false;
+            this.txtBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtBuscar.Depth = 0;
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBuscar.HideSelection = true;
+            this.txtBuscar.Hint = "Buscar por nombre de artículo";
+            this.txtBuscar.LeadingIcon = null;
+            this.txtBuscar.Location = new System.Drawing.Point(4, 22);
+            this.txtBuscar.MaxLength = 32767;
+            this.txtBuscar.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.PasswordChar = '\0';
+            this.txtBuscar.PrefixSuffixText = null;
+            this.txtBuscar.ReadOnly = false;
+            this.txtBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBuscar.SelectedText = "";
+            this.txtBuscar.SelectionLength = 0;
+            this.txtBuscar.SelectionStart = 0;
+            this.txtBuscar.ShortcutsEnabled = true;
+            this.txtBuscar.Size = new System.Drawing.Size(639, 48);
+            this.txtBuscar.TabIndex = 8;
+            this.txtBuscar.TabStop = false;
+            this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBuscar.TrailingIcon = null;
+            this.txtBuscar.UseSystemPasswordChar = false;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // picBoxLimpiar
             // 
-            this.picBoxLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.picBoxLimpiar.BackColor = System.Drawing.Color.Transparent;
             this.picBoxLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBoxLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxLimpiar.Image")));
-            this.picBoxLimpiar.Location = new System.Drawing.Point(977, 36);
+            this.picBoxLimpiar.Location = new System.Drawing.Point(647, 38);
+            this.picBoxLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.picBoxLimpiar.Name = "picBoxLimpiar";
             this.picBoxLimpiar.Size = new System.Drawing.Size(32, 32);
             this.picBoxLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -333,48 +396,25 @@
             this.picBoxLimpiar.MouseEnter += new System.EventHandler(this.picBoxLimpiar_MouseEnter);
             this.picBoxLimpiar.MouseLeave += new System.EventHandler(this.picBoxLimpiar_MouseLeave);
             // 
-            // txtBoxFiltroAvanzado
-            // 
-            this.txtBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxFiltroAvanzado.AnimateReadOnly = false;
-            this.txtBoxFiltroAvanzado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxFiltroAvanzado.Depth = 0;
-            this.txtBoxFiltroAvanzado.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBoxFiltroAvanzado.Hint = "Filtro avanzado";
-            this.txtBoxFiltroAvanzado.LeadingIcon = null;
-            this.txtBoxFiltroAvanzado.Location = new System.Drawing.Point(16, 18);
-            this.txtBoxFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBoxFiltroAvanzado.MaxLength = 50;
-            this.txtBoxFiltroAvanzado.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtBoxFiltroAvanzado.Multiline = false;
-            this.txtBoxFiltroAvanzado.Name = "txtBoxFiltroAvanzado";
-            this.txtBoxFiltroAvanzado.Size = new System.Drawing.Size(954, 50);
-            this.txtBoxFiltroAvanzado.TabIndex = 7;
-            this.txtBoxFiltroAvanzado.Text = "";
-            this.txtBoxFiltroAvanzado.TrailingIcon = null;
-            this.txtBoxFiltroAvanzado.Visible = false;
-            // 
             // materialDivider1
             // 
             this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(1115, 0);
-            this.materialDivider1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.materialDivider1.Location = new System.Drawing.Point(739, 0);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(39, 100);
+            this.materialDivider1.Size = new System.Drawing.Size(26, 65);
             this.materialDivider1.TabIndex = 6;
             this.materialDivider1.Text = "materialDivider1";
             this.materialDivider1.Visible = false;
             // 
             // ckBoxFiltroAvanzado
             // 
-            this.ckBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ckBoxFiltroAvanzado.AutoSize = true;
             this.ckBoxFiltroAvanzado.Depth = 0;
-            this.ckBoxFiltroAvanzado.Location = new System.Drawing.Point(1196, 35);
+            this.ckBoxFiltroAvanzado.Location = new System.Drawing.Point(768, 23);
             this.ckBoxFiltroAvanzado.Margin = new System.Windows.Forms.Padding(0);
             this.ckBoxFiltroAvanzado.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckBoxFiltroAvanzado.MouseState = MaterialSkin.MouseState.HOVER;
@@ -390,15 +430,16 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBuscar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnBuscar.Depth = 0;
             this.btnBuscar.Enabled = false;
             this.btnBuscar.HighEmphasis = true;
             this.btnBuscar.Icon = null;
-            this.btnBuscar.Location = new System.Drawing.Point(1832, 28);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnBuscar.Location = new System.Drawing.Point(1191, 29);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -426,36 +467,13 @@
             this.cboCriterio.FormattingEnabled = true;
             this.cboCriterio.IntegralHeight = false;
             this.cboCriterio.ItemHeight = 43;
-            this.cboCriterio.Location = new System.Drawing.Point(1552, 17);
-            this.cboCriterio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboCriterio.Location = new System.Drawing.Point(1031, 22);
             this.cboCriterio.MaxDropDownItems = 4;
             this.cboCriterio.MouseState = MaterialSkin.MouseState.OUT;
             this.cboCriterio.Name = "cboCriterio";
-            this.cboCriterio.Size = new System.Drawing.Size(229, 49);
+            this.cboCriterio.Size = new System.Drawing.Size(154, 49);
             this.cboCriterio.StartIndex = 0;
             this.cboCriterio.TabIndex = 4;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscar.AnimateReadOnly = false;
-            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBuscar.Depth = 0;
-            this.txtBuscar.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBuscar.Hint = "Buscar por nombre de artículo";
-            this.txtBuscar.LeadingIcon = null;
-            this.txtBuscar.Location = new System.Drawing.Point(16, 17);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBuscar.MaxLength = 50;
-            this.txtBuscar.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtBuscar.Multiline = false;
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(954, 50);
-            this.txtBuscar.TabIndex = 0;
-            this.txtBuscar.Text = "";
-            this.txtBuscar.TrailingIcon = null;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // cboCampo
             // 
@@ -473,12 +491,11 @@
             this.cboCampo.FormattingEnabled = true;
             this.cboCampo.IntegralHeight = false;
             this.cboCampo.ItemHeight = 43;
-            this.cboCampo.Location = new System.Drawing.Point(1312, 17);
-            this.cboCampo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboCampo.Location = new System.Drawing.Point(871, 22);
             this.cboCampo.MaxDropDownItems = 4;
             this.cboCampo.MouseState = MaterialSkin.MouseState.OUT;
             this.cboCampo.Name = "cboCampo";
-            this.cboCampo.Size = new System.Drawing.Size(229, 49);
+            this.cboCampo.Size = new System.Drawing.Size(154, 49);
             this.cboCampo.StartIndex = 0;
             this.cboCampo.TabIndex = 3;
             this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cbxCampo_SelectedIndexChanged);
@@ -486,10 +503,9 @@
             // pnlSeparadorDgvFooter
             // 
             this.pnlSeparadorDgvFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSeparadorDgvFooter.Location = new System.Drawing.Point(4, 717);
-            this.pnlSeparadorDgvFooter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlSeparadorDgvFooter.Location = new System.Drawing.Point(3, 327);
             this.pnlSeparadorDgvFooter.Name = "pnlSeparadorDgvFooter";
-            this.pnlSeparadorDgvFooter.Size = new System.Drawing.Size(1930, 15);
+            this.pnlSeparadorDgvFooter.Size = new System.Drawing.Size(1283, 10);
             this.pnlSeparadorDgvFooter.TabIndex = 10;
             // 
             // cardVerMas
@@ -502,12 +518,12 @@
             this.cardVerMas.Depth = 0;
             this.cardVerMas.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cardVerMas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cardVerMas.Location = new System.Drawing.Point(4, 732);
-            this.cardVerMas.Margin = new System.Windows.Forms.Padding(21, 22, 21, 22);
+            this.cardVerMas.Location = new System.Drawing.Point(3, 337);
+            this.cardVerMas.Margin = new System.Windows.Forms.Padding(14);
             this.cardVerMas.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardVerMas.Name = "cardVerMas";
-            this.cardVerMas.Padding = new System.Windows.Forms.Padding(21, 22, 21, 22);
-            this.cardVerMas.Size = new System.Drawing.Size(1930, 130);
+            this.cardVerMas.Padding = new System.Windows.Forms.Padding(14);
+            this.cardVerMas.Size = new System.Drawing.Size(1283, 85);
             this.cardVerMas.TabIndex = 8;
             this.cardVerMas.Visible = false;
             // 
@@ -516,10 +532,9 @@
             this.panel3.Controls.Add(this.lblCodigoVerMas);
             this.panel3.Controls.Add(this.lblCodigoArticulo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1531, 22);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel3.Location = new System.Drawing.Point(991, 14);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 84);
+            this.panel3.Size = new System.Drawing.Size(200, 55);
             this.panel3.TabIndex = 7;
             // 
             // lblCodigoVerMas
@@ -530,7 +545,6 @@
             this.lblCodigoVerMas.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblCodigoVerMas.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
             this.lblCodigoVerMas.Location = new System.Drawing.Point(0, 0);
-            this.lblCodigoVerMas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigoVerMas.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCodigoVerMas.Name = "lblCodigoVerMas";
             this.lblCodigoVerMas.Size = new System.Drawing.Size(84, 29);
@@ -544,8 +558,7 @@
             this.lblCodigoArticulo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCodigoArticulo.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblCodigoArticulo.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblCodigoArticulo.Location = new System.Drawing.Point(0, 60);
-            this.lblCodigoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigoArticulo.Location = new System.Drawing.Point(0, 31);
             this.lblCodigoArticulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCodigoArticulo.Name = "lblCodigoArticulo";
             this.lblCodigoArticulo.Size = new System.Drawing.Size(63, 24);
@@ -557,10 +570,9 @@
             this.pnlDescripcionVerMas.Controls.Add(this.lblDescripcionVerMas);
             this.pnlDescripcionVerMas.Controls.Add(this.txtBoxDescripcion);
             this.pnlDescripcionVerMas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlDescripcionVerMas.Location = new System.Drawing.Point(21, 22);
-            this.pnlDescripcionVerMas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlDescripcionVerMas.Location = new System.Drawing.Point(14, 14);
             this.pnlDescripcionVerMas.Name = "pnlDescripcionVerMas";
-            this.pnlDescripcionVerMas.Size = new System.Drawing.Size(982, 84);
+            this.pnlDescripcionVerMas.Size = new System.Drawing.Size(655, 55);
             this.pnlDescripcionVerMas.TabIndex = 6;
             // 
             // lblDescripcionVerMas
@@ -571,7 +583,6 @@
             this.lblDescripcionVerMas.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblDescripcionVerMas.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
             this.lblDescripcionVerMas.Location = new System.Drawing.Point(0, 0);
-            this.lblDescripcionVerMas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcionVerMas.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDescripcionVerMas.Name = "lblDescripcionVerMas";
             this.lblDescripcionVerMas.Size = new System.Drawing.Size(128, 29);
@@ -586,11 +597,10 @@
             this.txtBoxDescripcion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtBoxDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(0, 46);
-            this.txtBoxDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(0, 30);
             this.txtBoxDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(982, 38);
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(655, 25);
             this.txtBoxDescripcion.TabIndex = 4;
             this.txtBoxDescripcion.Text = "";
             // 
@@ -602,12 +612,12 @@
             this.btnVolver.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnVolver.HighEmphasis = true;
             this.btnVolver.Icon = null;
-            this.btnVolver.Location = new System.Drawing.Point(1831, 22);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnVolver.Location = new System.Drawing.Point(1191, 14);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnVolver.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnVolver.Size = new System.Drawing.Size(76, 84);
+            this.btnVolver.Size = new System.Drawing.Size(76, 55);
             this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "Volver";
             this.btnVolver.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -623,12 +633,12 @@
             this.cardFooter.Depth = 0;
             this.cardFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cardFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cardFooter.Location = new System.Drawing.Point(4, 862);
-            this.cardFooter.Margin = new System.Windows.Forms.Padding(21, 22, 21, 22);
+            this.cardFooter.Location = new System.Drawing.Point(3, 422);
+            this.cardFooter.Margin = new System.Windows.Forms.Padding(14);
             this.cardFooter.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardFooter.Name = "cardFooter";
-            this.cardFooter.Padding = new System.Windows.Forms.Padding(21, 22, 21, 22);
-            this.cardFooter.Size = new System.Drawing.Size(1930, 92);
+            this.cardFooter.Padding = new System.Windows.Forms.Padding(14);
+            this.cardFooter.Size = new System.Drawing.Size(1283, 60);
             this.cardFooter.TabIndex = 9;
             // 
             // lblHora
@@ -638,8 +648,8 @@
             this.lblHora.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblHora.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblHora.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblHora.Location = new System.Drawing.Point(1749, 22);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 30, 0);
+            this.lblHora.Location = new System.Drawing.Point(1109, 14);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lblHora.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(160, 29);
@@ -653,8 +663,7 @@
             this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblUsuario.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblUsuario.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblUsuario.Location = new System.Drawing.Point(21, 22);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(14, 14);
             this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(218, 29);
@@ -664,10 +673,9 @@
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 45);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1938, 959);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1289, 485);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Administración";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -677,17 +685,50 @@
             this.timerHora.Enabled = true;
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
+            // lblErrorCampo
+            // 
+            this.lblErrorCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCampo.AutoSize = true;
+            this.lblErrorCampo.Depth = 0;
+            this.lblErrorCampo.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblErrorCampo.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
+            this.lblErrorCampo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCampo.Location = new System.Drawing.Point(878, 5);
+            this.lblErrorCampo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblErrorCampo.Name = "lblErrorCampo";
+            this.lblErrorCampo.Size = new System.Drawing.Size(80, 14);
+            this.lblErrorCampo.TabIndex = 11;
+            this.lblErrorCampo.Text = "lblErrorCampo";
+            this.lblErrorCampo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblErrorCampo.Visible = false;
+            // 
+            // lblErrorCriterio
+            // 
+            this.lblErrorCriterio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCriterio.AutoSize = true;
+            this.lblErrorCriterio.Depth = 0;
+            this.lblErrorCriterio.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblErrorCriterio.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
+            this.lblErrorCriterio.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCriterio.Location = new System.Drawing.Point(1037, 5);
+            this.lblErrorCriterio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblErrorCriterio.Name = "lblErrorCriterio";
+            this.lblErrorCriterio.Size = new System.Drawing.Size(82, 14);
+            this.lblErrorCriterio.TabIndex = 12;
+            this.lblErrorCriterio.Text = "materialLabel1";
+            this.lblErrorCriterio.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblErrorCriterio.Visible = false;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1946, 1106);
+            this.ClientSize = new System.Drawing.Size(1297, 598);
             this.Controls.Add(this.materialTabControl1);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(0, 98, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(0, 64, 0, 0);
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -721,7 +762,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnlHeader;
-        private MaterialSkin.Controls.MaterialTextBox txtBuscar;
         private MaterialSkin.Controls.MaterialComboBox cboCriterio;
         private MaterialSkin.Controls.MaterialComboBox cboCampo;
         private MaterialSkin.Controls.MaterialButton btnBuscar;
@@ -750,9 +790,12 @@
         private System.Windows.Forms.Panel pnlImagen;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
         private System.Windows.Forms.DataGridViewButtonColumn btnVerMas;
-        private MaterialSkin.Controls.MaterialTextBox txtBoxFiltroAvanzado;
         private System.Windows.Forms.PictureBox picBoxLimpiar;
         private System.Windows.Forms.ToolTip toolTip1;
+        private MaterialSkin.Controls.MaterialTextBox2 txtBuscar;
+        private MaterialSkin.Controls.MaterialTextBox2 txtBoxFiltroAvanzado;
+        private MaterialSkin.Controls.MaterialLabel lblErrorCampo;
+        private MaterialSkin.Controls.MaterialLabel lblErrorCriterio;
     }
 }
 
