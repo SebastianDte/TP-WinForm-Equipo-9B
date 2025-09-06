@@ -16,7 +16,7 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMarcas());
+            Application.Run(new Form1());
         }
     }
 }
