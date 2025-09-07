@@ -50,9 +50,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(137, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(255, 72);
+            this.materialLabel1.Size = new System.Drawing.Size(288, 72);
             this.materialLabel1.TabIndex = 1;
-            this.materialLabel1.Text = "Bievenido";
+            this.materialLabel1.Text = "Bienvenido";
             this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtNombre
