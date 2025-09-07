@@ -25,14 +25,15 @@ namespace Vista
         private bool usoFallback;
         private int indiceImagenActual = 0;
 
-        public Form1()
+        public Form1(string usuario)
         {
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            
+
+            lblUsuario.Text = "Bienvenido " + usuario;
             CargarArticulos();
             CargarComboxFiltro();
 
