@@ -37,8 +37,32 @@ namespace Vista
             CargarArticulos();
             CargarComboxFiltro();
 
+            InicializarTabs();
+
 
         }
+
+        //Cargar Formularios en los tabs.
+        //--------------++-------------------------------------------------//
+        private void InicializarTabs()
+        {
+           
+            CargarFormularioEnTab(tabPage2, new frmCategorias());
+            
+        }
+        private void CargarFormularioEnTab(TabPage tab, Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            tab.Controls.Clear();
+            tab.Controls.Add(form);
+
+            form.Show();
+        }
+
+        //--------------++-----------------------------------------------//
 
         private void CargarArticulos()
         {
@@ -399,6 +423,77 @@ namespace Vista
             OcultarColumnasDgv();
         }
 
-        
+       
+
+
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            pnlAgregarArticulo.Visible = false;
+            pnlAgregarArticulo.Controls.Clear();
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            
+            pnlArticulos.Visible = false;           
+            pnlAgregarArticulo.Controls.Clear();
+          
+            pnlAgregarArticulo.Parent = tabPage1;
+            pnlAgregarArticulo.Dock = DockStyle.Fill;
+
+           
+            var agregar = new frmAgregarArticulo();
+            agregar.TopLevel = false;
+            agregar.FormBorderStyle = FormBorderStyle.None;
+            agregar.Dock = DockStyle.Fill;
+
+            // Asignamos el evento Cancelado
+            agregar.Cancelado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+            };
+
+            // Lo agregamos al panel
+            pnlAgregarArticulo.Controls.Add(agregar);
+
+            // Mostramos el panel y el form
+            pnlAgregarArticulo.Visible = true;
+            agregar.Show();
+            pnlAgregarArticulo.BringToFront();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            pnlArticulos.Visible = false;
+            pnlAgregarArticulo.Controls.Clear();
+
+            pnlAgregarArticulo.Parent = tabPage1;
+            pnlAgregarArticulo.Dock = DockStyle.Fill;
+
+
+            var agregar = new frmAgregarArticulo();
+            agregar.TopLevel = false;
+            agregar.FormBorderStyle = FormBorderStyle.None;
+            agregar.Dock = DockStyle.Fill;
+
+            // Asignamos el evento Cancelado
+            agregar.Cancelado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+            };
+
+            // Lo agregamos al panel
+            pnlAgregarArticulo.Controls.Add(agregar);
+
+            // Mostramos el panel y el form
+            pnlAgregarArticulo.Visible = true;
+            agregar.Show();
+            pnlAgregarArticulo.BringToFront();
+        }
     }
 }

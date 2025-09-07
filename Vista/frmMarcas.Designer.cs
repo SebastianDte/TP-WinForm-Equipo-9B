@@ -131,7 +131,6 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.listView1);
-            this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(853, 522);
             this.Name = "frmMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

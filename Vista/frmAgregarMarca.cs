@@ -17,6 +17,10 @@ namespace Vista
             InitializeComponent();
         }
 
+        public event Action Cancelado;
 
+       
+
+        
     }
 }
