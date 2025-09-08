@@ -58,7 +58,7 @@ namespace Negocio
             }
         }
 
-        public void eliminarImagenes(int idArticulo)
+        public void EliminarImagenes(int idArticulo)
         {
             try
             {

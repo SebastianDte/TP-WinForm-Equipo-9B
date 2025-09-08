@@ -197,10 +197,8 @@ namespace Negocio
             {
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
 
-                // 1. Borrar imágenes asociadas
-                imagenNegocio.eliminarImagenes(id);
-
-                // 2. Borrar el artículo
+                imagenNegocio.EliminarImagenes(id);
+ 
                 datos.setearConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();

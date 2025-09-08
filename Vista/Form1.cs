@@ -18,83 +18,24 @@ namespace Vista
 {
     public partial class Form1 : MaterialForm
     {
-        private List<Articulo> listaArticulos; 
+        private List<Articulo> listaArticulos;
         private ArticuloNegocio articulosNegocio = new ArticuloNegocio();
         private ImagenNegocio imagenesNegocio = new ImagenNegocio();
         private ImagenHelper imagenHelper = new ImagenHelper();
 
-
-       
-
         public Form1(string usuario)
         {
             InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-
-            lblUsuario.Text = "Bienvenido " + usuario;
+            ConfigurarMaterialSkin();
             CargarArticulos();
             CargarComboxFiltro();
-
             InicializarTabs();
 
-
+            lblUsuario.Text = "Bienvenido " + usuario;
         }
 
-        //Cargar Formularios en los tabs.
-        //--------------++-------------------------------------------------//
-        private void InicializarTabs()
-        {
-           
-            CargarFormularioEnTab(tabPage2, new frmCategorias());
-            
-        }
-        private void CargarFormularioEnTab(TabPage tab, Form form)
-        {
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
 
-            tab.Controls.Clear();
-            tab.Controls.Add(form);
-
-            form.Show();
-        }
-
-        //--------------++-----------------------------------------------//
-
-        private void CargarArticulos()
-        {
-            try
-            {
-                listaArticulos = articulosNegocio.lista(); 
-                dgvArticulos.DataSource = listaArticulos;
-                OcultarColumnasDgv();
-
-                if (listaArticulos.Count > 0)
-                {
-                    // Traemos las imágenes del primer artículo
-                    listaArticulos[0].Imagenes = imagenesNegocio.listarImagenes(listaArticulos[0].id);
-
-                    ActualizarImagenArticulo(listaArticulos[0]);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los datos: " + ex.Message);
-            }
-        }
-        
-        private void CargarComboxFiltro()
-        {
-            cboCampo.Items.Add("Categoria");
-            cboCampo.Items.Add("Marca");
-            cboCampo.Items.Add("Precio");
-        }
-
+        //--------------------------DGV------------------------------------------------------//
         private void timerHora_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -145,7 +86,7 @@ namespace Vista
             picBoxLimpiar.Visible = activado;
 
             if (!activado)
-            {              
+            {
                 dgvArticulos.DataSource = null;
                 CargarArticulos();
             }
@@ -163,66 +104,23 @@ namespace Vista
 
         private void dgvArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return; // Ignorar clicks en el header
+            if (e.RowIndex < 0) return;
 
-            // Verifico si la columna clickeada es "VerMás"
             if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnVerMas")
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
-                // Abrir la card y mostrar los detalles
+
                 MostrarDetalles(seleccionado);
-            }else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEliminar")
+            }
+            else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEliminar")
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
                 Eliminar(seleccionado);
             }
         }
 
-        private void Eliminar(Articulo seleccionado)
-        {
-           
-            
-            try
-            {
-                if (dgvArticulos.CurrentRow != null)
-                {
-                    DialogResult respuesta = MessageBox.Show("¿Seguro que quieres eliminarlo?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (respuesta == DialogResult.Yes)
-                    {
-                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                        articulosNegocio.eliminar(seleccionado.id);
 
-                        CargarArticulos();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error al eliminar el artículo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void MostrarDetalles(Articulo seleccionado)
-        {      
-            cardVerMas.Visible = true;
-
-            lblCodigoArticulo.Text = seleccionado.codigo;         
-            txtBoxDescripcion.Text = seleccionado.descripcion; 
-        }
-       
-        private void OcultarColumnasDgv()
-        {
-            dgvArticulos.Columns["id"].Visible = false;
-            dgvArticulos.Columns["descripcion"].Visible = false;
-            dgvArticulos.Columns["codigo"].Visible = false;
-
-            //Esto es para mandar los botones al final de la DGV
-            dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
-            dgvArticulos.Columns["btnEliminar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
-            dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
-        }
-
+        //-----------------Metodos Referidos a Filtros------------------------------------------------
         private void cbxCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -254,7 +152,7 @@ namespace Vista
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtBoxFiltroAvanzado.Text;
-                dgvArticulos.DataSource = articulosNegocio.filtrar(campo, criterio, filtro);                
+                dgvArticulos.DataSource = articulosNegocio.filtrar(campo, criterio, filtro);
             }
             catch (Exception ex)
             {
@@ -263,81 +161,9 @@ namespace Vista
             }
         }
 
-        private void LimpiarFiltros()
-        {
-            cboCampo.SelectedIndexChanged -= cbxCampo_SelectedIndexChanged;
-
-
-            cboCampo.SelectedIndex = -1;
-            cboCriterio.Items.Clear();
-            cboCriterio.SelectedIndex = -1;
-            txtBoxFiltroAvanzado.Text = string.Empty;
-
-            cboCampo.SelectedIndexChanged += cbxCampo_SelectedIndexChanged;
-
-            cboCampo.Refresh();
-            cboCriterio.Refresh();
-        }
-
-        private bool soloNumeros(string cadena)
-        {
-            foreach (char caracter in cadena)
-            {
-                if (!char.IsNumber(caracter))
-                    return false;
-            }
-            return true;
-        }
-
-        public bool validarFiltro(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox2 txtFiltroAvanzado)
-        {
-            bool error = false;
-           
-            if (cboCampo.SelectedItem == null)
-            {
-                lblErrorCampo.Visible = true;
-                lblErrorCampo.Text = "Seleccionar campo";
-                error = true;
-            }
-            else
-            {
-                lblErrorCampo.Visible = false;
-            }
-
-            if (cboCriterio.SelectedItem == null)
-            {
-                lblErrorCriterio.Visible = true;
-                lblErrorCriterio.Text = "Seleccionar criterio";
-                error = true;
-            }
-            else
-            {
-                lblErrorCriterio.Visible = false;
-            }
-
-            
-            if (!error && cboCampo.SelectedItem.ToString() == "Precio")
-            {
-                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
-                {
-                    txtFiltroAvanzado.SetErrorState(true);
-                    txtFiltroAvanzado.Hint = "El campo Precio es obligatorio";
-                    error = true;
-                }
-                else if (!soloNumeros(txtFiltroAvanzado.Text))
-                {
-                    txtFiltroAvanzado.SetErrorState(true);
-                    txtFiltroAvanzado.Hint = "Ingrese solo números. Sin puntos ni comas.";
-                    error = true;
-                }
-            }
-
-            return error;
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            LimpiarFiltros();
+            InputHelper.LimpiarFiltros(cboCampo, cboCriterio, txtBoxFiltroAvanzado, cbxCampo_SelectedIndexChanged);
             dgvArticulos.DataSource = null;
             CargarArticulos();
         }
@@ -371,6 +197,50 @@ namespace Vista
             OcultarColumnasDgv();
         }
 
+        //------------------Manejo del Tab - Menú--------------------------------------------------------------------
+        private void InicializarTabs()
+        {
+
+            CargarFormularioEnTab(tabPage2, new frmCategorias());
+
+        }
+        private void CargarFormularioEnTab(TabPage tab, Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            tab.Controls.Clear();
+            tab.Controls.Add(form);
+
+            form.Show();
+        }
+
+
+        //----------------------CRUD-----------------------------------------------------------------------------------------
+        private void Eliminar(Articulo seleccionado)
+        {
+
+            try
+            {
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Seguro que quieres eliminarlo?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        articulosNegocio.eliminar(seleccionado.id);
+
+                        CargarArticulos();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al eliminar el artículo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void pxbAgregar_Click(object sender, EventArgs e)
         {
             pnlArticulos.Visible = false;
@@ -414,12 +284,7 @@ namespace Vista
         }
 
 
-
-
-
-
-
-        //Metodo auxiliares
+        //Metodo auxiliares-------------------------------------------------------------------------------------------------
 
         private void ActualizarImagenArticulo(Articulo seleccionado, bool reiniciarIndice = true)
         {
@@ -428,6 +293,101 @@ namespace Vista
 
             imagenHelper.RefrescarUI(pctBoxListImg, seleccionado.Imagenes, btnAtras, btnSiguiente, lblImagenes);
         }
+        public bool validarFiltro(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox2 txtFiltroAvanzado)
+        {
+            bool error = false;
 
+            // Validamos combos
+            if (cboCampo.SelectedItem == null)
+            {
+                lblErrorCampo.Visible = true;
+                lblErrorCampo.Text = "Seleccionar campo";
+                error = true;
+            }
+            else
+                lblErrorCampo.Visible = false;
+
+            if (cboCriterio.SelectedItem == null)
+            {
+                lblErrorCriterio.Visible = true;
+                lblErrorCriterio.Text = "Seleccionar criterio";
+                error = true;
+            }
+            else
+                lblErrorCriterio.Visible = false;
+
+
+            if (!error && cboCampo.SelectedItem.ToString() == "Precio")
+            {
+
+                if (!InputHelper.Validar(txtFiltroAvanzado, minLength: 1, soloNumeros: true))
+                {
+                    txtFiltroAvanzado.SetErrorState(true);
+                    txtFiltroAvanzado.Hint = "Ingrese solo números. Sin puntos ni comas.";
+                    error = true;
+                }
+            }
+
+            return error;
+        }
+        private void OcultarColumnasDgv()
+        {
+            dgvArticulos.Columns["id"].Visible = false;
+            dgvArticulos.Columns["descripcion"].Visible = false;
+            dgvArticulos.Columns["codigo"].Visible = false;
+
+            //Esto es para mandar los botones al final de la DGV
+            dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+            dgvArticulos.Columns["btnEliminar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+            dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+        }
+        private void CargarComboxFiltro()
+        {
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+        }
+        private void MostrarDetalles(Articulo seleccionado)
+        {
+            cardVerMas.Visible = true;
+
+            lblCodigoArticulo.Text = seleccionado.codigo;
+            txtBoxDescripcion.Text = seleccionado.descripcion;
+        }
+        private void CargarArticulos()
+        {
+            try
+            {
+                listaArticulos = articulosNegocio.lista();
+                dgvArticulos.DataSource = listaArticulos;
+                OcultarColumnasDgv();
+
+                if (listaArticulos.Count > 0)
+                {
+                    // Traemos las imágenes del primer artículo
+                    listaArticulos[0].Imagenes = imagenesNegocio.listarImagenes(listaArticulos[0].id);
+
+                    ActualizarImagenArticulo(listaArticulos[0]);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos: " + ex.Message);
+            }
+        }
+        private void ConfigurarMaterialSkin()
+        {
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue200,
+                TextShade.WHITE
+            );
+        }
     }
 }
