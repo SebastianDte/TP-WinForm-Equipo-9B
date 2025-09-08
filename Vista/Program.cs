@@ -16,13 +16,13 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Loguin login = new Loguin();
+            //Loguin login = new Loguin();
 
-            if (login.ShowDialog() == DialogResult.OK)
-            {
+            //if (login.ShowDialog() == DialogResult.OK)
+            //{
 
-                Application.Run(new Form1(login.NombreUsuario));
-            }
+                Application.Run(new frmAgregarMarca());
+            //}
         }
     }
 }
