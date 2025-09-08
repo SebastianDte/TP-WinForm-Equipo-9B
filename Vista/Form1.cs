@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,18 +22,47 @@ namespace Vista
         private ArticuloNegocio articulosNegocio = new ArticuloNegocio();
         private ImagenNegocio imagenesNegocio = new ImagenNegocio();
 
+        private bool usoFallback;
         private int indiceImagenActual = 0;
-        public Form1()
+
+        public Form1(string usuario)
         {
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            
+
+            lblUsuario.Text = "Bienvenido " + usuario;
             CargarArticulos();
+            CargarComboxFiltro();
+
+            InicializarTabs();
+
 
         }
+
+        //Cargar Formularios en los tabs.
+        //--------------++-------------------------------------------------//
+        private void InicializarTabs()
+        {
+           
+            CargarFormularioEnTab(tabPage2, new frmCategorias());
+            
+        }
+        private void CargarFormularioEnTab(TabPage tab, Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            tab.Controls.Clear();
+            tab.Controls.Add(form);
+
+            form.Show();
+        }
+
+        //--------------++-----------------------------------------------//
 
         private void CargarArticulos()
         {
@@ -40,28 +70,17 @@ namespace Vista
             {
                 listaArticulos = articulosNegocio.lista(); 
                 dgvArticulos.DataSource = listaArticulos;
-                dgvArticulos.Columns["id"].Visible = false;
-                dgvArticulos.Columns["descripcion"].Visible = false;
-                dgvArticulos.Columns["codigo"].Visible = false;
-                dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
-                dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
-
-                // Buscar la columna por nombre
-                var colEditar = (DataGridViewButtonColumn)dgvArticulos.Columns["btnEditar"];
-                colEditar.UseColumnTextForButtonValue = true;
-                colEditar.Text = "Editar";
-
-                var colVerMas = (DataGridViewButtonColumn)dgvArticulos.Columns["btnVerMas"];
-                colVerMas.UseColumnTextForButtonValue = true;
-                colVerMas.Text = "Ver más";
-
+                OcultarColumnasDgv();
 
                 if (listaArticulos.Count > 0)
                 {
-                    // Cargar imágenes del primer artículo
                     listaArticulos[0].Imagenes = imagenesNegocio.listarImagenes(listaArticulos[0].id);
-                    if (listaArticulos[0].Imagenes.Count > 0)
-                        pctBoxListImg.Load(listaArticulos[0].Imagenes[0].imageUrl);
+
+                    string urlPrimerImagen = listaArticulos[0].Imagenes.Count > 0
+                        ? listaArticulos[0].Imagenes[0].imageUrl
+                        : null; 
+
+                    pctBoxListImg.Image = CargarImagenDesdeUrl(urlPrimerImagen);
                 }
             }
             catch (Exception ex)
@@ -69,26 +88,27 @@ namespace Vista
                 MessageBox.Show("Error al cargar los datos: " + ex.Message);
             }
         }
-
-       
+        
+        private void CargarComboxFiltro()
+        {
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+        }
 
         private void timerHora_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
-        
-
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-                // Resetear índice al cambiar de artículo
+                
                 indiceImagenActual = 0;
-
-                // Traer imágenes si no están cargadas
+               
                 if (seleccionado.Imagenes == null || seleccionado.Imagenes.Count == 0)
                     seleccionado.Imagenes = imagenesNegocio.listarImagenes(seleccionado.id);
 
@@ -98,7 +118,6 @@ namespace Vista
 
                 // Actualizar botones según índice y cantidad de imágenes
                 ActualizarBotones(seleccionado);
-
 
                 // Actualizar label de índice
                 lblImagenes.Text = seleccionado.Imagenes.Count > 0
@@ -123,23 +142,21 @@ namespace Vista
             }
         }
 
-
-        private bool usoFallback;
         private Image CargarImagenDesdeUrl(string url)
         {
             // URL de la imagen por defecto si no hay o falla
             string fallbackUrl = "https://www.shutterstock.com/image-vector/no-photo-image-viewer-thumbnail-260nw-2495883211.jpg";
             usoFallback = false;
-            // Si la URL es null o vacía, usamos el fallback
+            // Si la URL es null o vacía, usa el fallback
             if (string.IsNullOrEmpty(url))
                 url = fallbackUrl;
-
+            
             try
             {
                 using (var client = new System.Net.WebClient())
                 {
-                    client.Headers.Add("user-agent", "Mozilla/5.0"); // simula navegador
-                    byte[] data = client.DownloadData(url);
+                    client.Headers.Add("user-agent", "Mozilla/5.0"); // simula ser un navegador.
+                    byte[] data = client.DownloadData(url);   //Acá descarga la imagen.
                     using (var ms = new System.IO.MemoryStream(data))
                     {
                         return Image.FromStream(ms);
@@ -197,9 +214,23 @@ namespace Vista
 
         private void ckBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
-            cbxCampo.Enabled = ckBoxFiltroAvanzado.Checked;
-            cbxCriterio.Enabled = ckBoxFiltroAvanzado.Checked;
-            btnBuscar.Enabled = ckBoxFiltroAvanzado.Checked;
+            bool activado = ckBoxFiltroAvanzado.Checked;
+
+            cboCampo.Enabled = activado;
+            cboCriterio.Enabled = activado;
+            btnBuscar.Enabled = activado;
+
+            txtBuscar.Visible = !activado;
+            txtBoxFiltroAvanzado.Visible = activado;
+            picBoxLimpiar.Visible = activado;
+
+            if (!activado)
+            {              
+                dgvArticulos.DataSource = null;
+                CargarArticulos();
+            }
+
+
         }
 
         private void Volver_Click(object sender, EventArgs e)
@@ -223,14 +254,219 @@ namespace Vista
             }
         }
 
-        private void MostrarDetalles(Articulo seleccionado)
+        private void Eliminar(Articulo seleccionado)
         {
-            // Hacer visible la card
+            
+        }
+
+        private void MostrarDetalles(Articulo seleccionado)
+        {      
             cardVerMas.Visible = true;
 
-            // Cargar datos en los controles dentro de la card
-            lblCodigoArticulo.Text = seleccionado.codigo;          // Label para el código
-            txtBoxDescripcion.Text = seleccionado.descripcion; // TextBox multilinea para la descripción
+            lblCodigoArticulo.Text = seleccionado.codigo;         
+            txtBoxDescripcion.Text = seleccionado.descripcion; 
+        }
+       
+        private void OcultarColumnasDgv()
+        {
+            dgvArticulos.Columns["id"].Visible = false;
+            dgvArticulos.Columns["descripcion"].Visible = false;
+            dgvArticulos.Columns["codigo"].Visible = false;
+
+            //Esto es para mandar los botones al final de la DGV
+            dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+            dgvArticulos.Columns["btnEliminar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+            dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+        }
+
+        private void cbxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtBoxFiltroAvanzado.SetErrorState(false);
+            txtBoxFiltroAvanzado.Hint = "Filtro avanzado";
+            try
+            {
+                if (validarFiltro(cboCampo, cboCriterio, txtBoxFiltroAvanzado))
+                    return;
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtBoxFiltroAvanzado.Text;
+                dgvArticulos.DataSource = articulosNegocio.filtrar(campo, criterio, filtro);                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void LimpiarFiltros()
+        {
+            cboCampo.SelectedIndexChanged -= cbxCampo_SelectedIndexChanged;
+
+
+            cboCampo.SelectedIndex = -1;
+            cboCriterio.Items.Clear();
+            cboCriterio.SelectedIndex = -1;
+            txtBoxFiltroAvanzado.Text = string.Empty;
+
+            cboCampo.SelectedIndexChanged += cbxCampo_SelectedIndexChanged;
+
+            cboCampo.Refresh();
+            cboCriterio.Refresh();
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!char.IsNumber(caracter))
+                    return false;
+            }
+            return true;
+        }
+
+        public bool validarFiltro(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox2 txtFiltroAvanzado)
+        {
+            bool error = false;
+           
+            if (cboCampo.SelectedItem == null)
+            {
+                lblErrorCampo.Visible = true;
+                lblErrorCampo.Text = "Seleccionar campo";
+                error = true;
+            }
+            else
+            {
+                lblErrorCampo.Visible = false;
+            }
+
+            if (cboCriterio.SelectedItem == null)
+            {
+                lblErrorCriterio.Visible = true;
+                lblErrorCriterio.Text = "Seleccionar criterio";
+                error = true;
+            }
+            else
+            {
+                lblErrorCriterio.Visible = false;
+            }
+
+            
+            if (!error && cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    txtFiltroAvanzado.SetErrorState(true);
+                    txtFiltroAvanzado.Hint = "El campo Precio es obligatorio";
+                    error = true;
+                }
+                else if (!soloNumeros(txtFiltroAvanzado.Text))
+                {
+                    txtFiltroAvanzado.SetErrorState(true);
+                    txtFiltroAvanzado.Hint = "Ingrese solo números. Sin puntos ni comas.";
+                    error = true;
+                }
+            }
+
+            return error;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LimpiarFiltros();
+            dgvArticulos.DataSource = null;
+            CargarArticulos();
+        }
+
+        private void picBoxLimpiar_MouseEnter(object sender, EventArgs e)
+        {
+            picBoxLimpiar.BackColor = Color.LightGray;
+        }
+
+        private void picBoxLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            picBoxLimpiar.BackColor = Color.Transparent;
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            string filtro = txtBuscar.Text.Trim();
+            List<Articulo> listaFiltrada;
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                listaFiltrada = listaArticulos.FindAll(a => a.nombre.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            OcultarColumnasDgv();
+        }
+
+        private void pxbAgregar_Click(object sender, EventArgs e)
+        {
+            pnlArticulos.Visible = false;
+            pnlAgregarArticulo.Controls.Clear();
+
+            pnlAgregarArticulo.Parent = tabPage1;
+            pnlAgregarArticulo.Dock = DockStyle.Fill;
+
+
+            var agregar = new frmAgregarArticulo();
+            agregar.TopLevel = false;
+            agregar.FormBorderStyle = FormBorderStyle.None;
+            agregar.Dock = DockStyle.Fill;
+
+            // Asignamos el evento Cancelado
+            agregar.Cancelado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+            };
+
+            agregar.ArticuloAgregado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+
+                // Refrescamos la lista de artículos
+                CargarArticulos();
+            };
+
+
+            // Lo agregamos al panel
+            pnlAgregarArticulo.Controls.Add(agregar);
+
+            // Mostramos el panel y el form
+            pnlAgregarArticulo.Visible = true;
+            agregar.Show();
+            pnlAgregarArticulo.BringToFront();
         }
     }
 }
