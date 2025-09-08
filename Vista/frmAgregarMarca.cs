@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Negocio;
+using Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,28 @@ namespace Vista
             InitializeComponent();
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void btnAgregarNuevaMarca_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio negocio = new MarcaNegocio();
+            Marca nuevaMarca = new Marca();
+
+            try
+            {
+                nuevaMarca.descripcion = txtbDescripcion.Text;
+                negocio.agregar(nuevaMarca);
+                MessageBox.Show("Marca agregada exitosamente");
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
