@@ -21,9 +21,10 @@ namespace Vista
         private List<Articulo> listaArticulos; 
         private ArticuloNegocio articulosNegocio = new ArticuloNegocio();
         private ImagenNegocio imagenesNegocio = new ImagenNegocio();
+        private ImagenHelper imagenHelper = new ImagenHelper();
 
-        private bool usoFallback;
-        private int indiceImagenActual = 0;
+
+       
 
         public Form1(string usuario)
         {
@@ -74,13 +75,11 @@ namespace Vista
 
                 if (listaArticulos.Count > 0)
                 {
+                    // Traemos las imágenes del primer artículo
                     listaArticulos[0].Imagenes = imagenesNegocio.listarImagenes(listaArticulos[0].id);
 
-                    string urlPrimerImagen = listaArticulos[0].Imagenes.Count > 0
-                        ? listaArticulos[0].Imagenes[0].imageUrl
-                        : null; 
+                    ActualizarImagenArticulo(listaArticulos[0]);
 
-                    pctBoxListImg.Image = CargarImagenDesdeUrl(urlPrimerImagen);
                 }
             }
             catch (Exception ex)
@@ -106,110 +105,31 @@ namespace Vista
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                
-                indiceImagenActual = 0;
-               
+
                 if (seleccionado.Imagenes == null || seleccionado.Imagenes.Count == 0)
                     seleccionado.Imagenes = imagenesNegocio.listarImagenes(seleccionado.id);
 
-                // Cargar la primera imagen
-                string urlImagen = seleccionado.Imagenes.Count > 0 ? seleccionado.Imagenes[0].imageUrl : null;
-                pctBoxListImg.Image = CargarImagenDesdeUrl(urlImagen);
+                ActualizarImagenArticulo(seleccionado);
 
-                // Actualizar botones según índice y cantidad de imágenes
-                ActualizarBotones(seleccionado);
-
-                // Actualizar label de índice
-                lblImagenes.Text = seleccionado.Imagenes.Count > 0
-                    ? $"Imagen {indiceImagenActual + 1} / {seleccionado.Imagenes.Count}"
-                    : "Sin imágenes";
-            }
-
-
-        }
-
-        private void ActualizarBotones(Articulo seleccionado)
-        {
-            if (seleccionado.Imagenes.Count <= 1)
-            {
-                btnSiguiente.Enabled = false;
-                btnAtras.Enabled = false;
-            }
-            else
-            {
-                btnAtras.Enabled = indiceImagenActual > 0;
-                btnSiguiente.Enabled = indiceImagenActual < seleccionado.Imagenes.Count - 1;
             }
         }
 
-        private Image CargarImagenDesdeUrl(string url)
-        {
-            // URL de la imagen por defecto si no hay o falla
-            string fallbackUrl = "https://www.shutterstock.com/image-vector/no-photo-image-viewer-thumbnail-260nw-2495883211.jpg";
-            usoFallback = false;
-            // Si la URL es null o vacía, usa el fallback
-            if (string.IsNullOrEmpty(url))
-                url = fallbackUrl;
-            
-            try
-            {
-                using (var client = new System.Net.WebClient())
-                {
-                    client.Headers.Add("user-agent", "Mozilla/5.0"); // simula ser un navegador.
-                    byte[] data = client.DownloadData(url);   //Acá descarga la imagen.
-                    using (var ms = new System.IO.MemoryStream(data))
-                    {
-                        return Image.FromStream(ms);
-                    }
-                }
-            }
-            catch
-            {
-                usoFallback = true;
-                using (var client = new System.Net.WebClient())
-                {
-                    client.Headers.Add("user-agent", "Mozilla/5.0");
-                    byte[] data = client.DownloadData(fallbackUrl);
-                    using (var ms = new System.IO.MemoryStream(data))
-                    {
-                        return Image.FromStream(ms);
-                    }
-                }
-            }
-        }
-        
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (dgvArticulos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                if (indiceImagenActual < seleccionado.Imagenes.Count - 1)
-                {
-                    indiceImagenActual++;
-                    pctBoxListImg.Image = CargarImagenDesdeUrl(seleccionado.Imagenes[indiceImagenActual].imageUrl);
-                    ActualizarBotones(seleccionado);
+            if (dgvArticulos.CurrentRow == null) return;
 
-                    lblImagenes.Text = $"Imagen {indiceImagenActual + 1} / {seleccionado.Imagenes.Count}";
-
-                }
-            }
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            imagenHelper.Siguiente(seleccionado.Imagenes);
+            ActualizarImagenArticulo(seleccionado, reiniciarIndice: false);
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            if (dgvArticulos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                if (indiceImagenActual > 0)
-                {
-                    indiceImagenActual--;
-                    pctBoxListImg.Image = CargarImagenDesdeUrl(seleccionado.Imagenes[indiceImagenActual].imageUrl);
-                    ActualizarBotones(seleccionado);
+            if (dgvArticulos.CurrentRow == null) return;
 
-                    // Actualizar label
-                    lblImagenes.Text = $"Imagen {indiceImagenActual + 1} / {seleccionado.Imagenes.Count}";
-                }
-            }
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            imagenHelper.Anterior(seleccionado.Imagenes);
+            ActualizarImagenArticulo(seleccionado, reiniciarIndice: false);
         }
 
         private void ckBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
@@ -492,5 +412,22 @@ namespace Vista
             agregar.Show();
             pnlAgregarArticulo.BringToFront();
         }
+
+
+
+
+
+
+
+        //Metodo auxiliares
+
+        private void ActualizarImagenArticulo(Articulo seleccionado, bool reiniciarIndice = true)
+        {
+            if (reiniciarIndice)
+                imagenHelper.ReiniciarIndice();
+
+            imagenHelper.RefrescarUI(pctBoxListImg, seleccionado.Imagenes, btnAtras, btnSiguiente, lblImagenes);
+        }
+
     }
 }
