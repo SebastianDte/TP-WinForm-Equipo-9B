@@ -30,6 +30,7 @@ namespace Vista
             CargarArticulos();
             CargarComboxFiltro();
             InicializarTabs();
+            CargarTituloForm();
 
             lblUsuario.Text = "Bienvenido " + usuario;
         }
@@ -215,7 +216,15 @@ namespace Vista
 
             form.Show();
         }
-
+        private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Text = materialTabControl1.SelectedTab.Text;
+        }
+        private void CargarTituloForm()
+        {
+            this.Text = materialTabControl1.SelectedTab.Text;
+            materialTabControl1.SelectedIndexChanged += materialTabControl1_SelectedIndexChanged;
+        }
 
         //----------------------CRUD-----------------------------------------------------------------------------------------
         private void Eliminar(Articulo seleccionado)
@@ -389,5 +398,7 @@ namespace Vista
                 TextShade.WHITE
             );
         }
+
+        
     }
 }
