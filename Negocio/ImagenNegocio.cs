@@ -38,5 +38,33 @@ namespace Negocio
             }
         }
 
+
+        public void AgregarImagen(Imagen img)
+        {
+            try
+            {
+                datos.setearConsulta("INSERT INTO IMAGENES(IdArticulo, imagenUrl) VALUES(@IdArticulo, @ImagenUrl)");
+                datos.setearParametro("@IdArticulo", img.idArticulo);
+                datos.setearParametro("@ImagenUrl", img.imageUrl);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void AgregarImagenes(List<Imagen> imagenes)
+        {
+            foreach (var img in imagenes)
+            {
+                AgregarImagen(img);
+            }
+        }
+
     }
 }
