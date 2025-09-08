@@ -191,6 +191,29 @@ namespace Negocio
             }
         }
 
+        public void eliminar(int id)
+        {
+            try
+            {
+                ImagenNegocio imagenNegocio = new ImagenNegocio();
+
+                // 1. Borrar imágenes asociadas
+                imagenNegocio.eliminarImagenes(id);
+
+                // 2. Borrar el artículo
+                datos.setearConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
     }
 }

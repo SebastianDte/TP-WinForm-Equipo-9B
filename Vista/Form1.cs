@@ -251,12 +251,36 @@ namespace Vista
                 Articulo seleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
                 // Abrir la card y mostrar los detalles
                 MostrarDetalles(seleccionado);
+            }else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
+                Eliminar(seleccionado);
             }
         }
 
         private void Eliminar(Articulo seleccionado)
         {
+           
             
+            try
+            {
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Seguro que quieres eliminarlo?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        articulosNegocio.eliminar(seleccionado.id);
+
+                        CargarArticulos();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al eliminar el artículo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void MostrarDetalles(Articulo seleccionado)
