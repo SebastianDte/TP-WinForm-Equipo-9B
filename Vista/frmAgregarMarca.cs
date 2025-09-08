@@ -38,7 +38,6 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
