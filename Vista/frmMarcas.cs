@@ -23,15 +23,29 @@ namespace Vista
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAgregarMarca ventanaAgregar = new frmAgregarMarca();
-            ventanaAgregar.Show();
+            ventanaAgregar.ShowDialog();
+            cargar();
+            
         }
 
-        private void frmMarcas_Load(object sender, EventArgs e)
+        private void cargar()
         {
             MarcaNegocio negocio = new MarcaNegocio();
-            ListaMarca = negocio.listar();
-            dgvMarcas.DataSource = ListaMarca;
-            
+
+            try
+            {
+                ListaMarca = negocio.listar();
+                dgvMarcas.DataSource = ListaMarca;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void frmMarcas_Load(object sender, EventArgs e)
+        {
+            cargar(); 
         }
     }
 }
