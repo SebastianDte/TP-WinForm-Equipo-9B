@@ -254,6 +254,11 @@ namespace Vista
             }
         }
 
+        private void Eliminar(Articulo seleccionado)
+        {
+            
+        }
+
         private void MostrarDetalles(Articulo seleccionado)
         {      
             cardVerMas.Visible = true;
@@ -261,9 +266,7 @@ namespace Vista
             lblCodigoArticulo.Text = seleccionado.codigo;         
             txtBoxDescripcion.Text = seleccionado.descripcion; 
         }
-
-        
-
+       
         private void OcultarColumnasDgv()
         {
             dgvArticulos.Columns["id"].Visible = false;
@@ -272,6 +275,7 @@ namespace Vista
 
             //Esto es para mandar los botones al final de la DGV
             dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
+            dgvArticulos.Columns["btnEliminar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
             dgvArticulos.Columns["btnVerMas"].DisplayIndex = dgvArticulos.Columns.Count - 1;
         }
 
@@ -423,49 +427,7 @@ namespace Vista
             OcultarColumnasDgv();
         }
 
-       
-
-
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            pnlAgregarArticulo.Visible = false;
-            pnlAgregarArticulo.Controls.Clear();
-        }
-
-        private void btnAgregar_Click_1(object sender, EventArgs e)
-        {
-            
-            pnlArticulos.Visible = false;           
-            pnlAgregarArticulo.Controls.Clear();
-          
-            pnlAgregarArticulo.Parent = tabPage1;
-            pnlAgregarArticulo.Dock = DockStyle.Fill;
-
-           
-            var agregar = new frmAgregarArticulo();
-            agregar.TopLevel = false;
-            agregar.FormBorderStyle = FormBorderStyle.None;
-            agregar.Dock = DockStyle.Fill;
-
-            // Asignamos el evento Cancelado
-            agregar.Cancelado += () =>
-            {
-                pnlAgregarArticulo.Controls.Clear();
-                pnlAgregarArticulo.Visible = false;
-                pnlArticulos.Visible = true;
-            };
-
-            // Lo agregamos al panel
-            pnlAgregarArticulo.Controls.Add(agregar);
-
-            // Mostramos el panel y el form
-            pnlAgregarArticulo.Visible = true;
-            agregar.Show();
-            pnlAgregarArticulo.BringToFront();
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void pxbAgregar_Click(object sender, EventArgs e)
         {
             pnlArticulos.Visible = false;
             pnlAgregarArticulo.Controls.Clear();
@@ -486,6 +448,17 @@ namespace Vista
                 pnlAgregarArticulo.Visible = false;
                 pnlArticulos.Visible = true;
             };
+
+            agregar.ArticuloAgregado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+
+                // Refrescamos la lista de artículos
+                CargarArticulos();
+            };
+
 
             // Lo agregamos al panel
             pnlAgregarArticulo.Controls.Add(agregar);

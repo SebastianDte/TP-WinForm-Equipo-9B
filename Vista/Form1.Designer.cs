@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pnlArticulos = new System.Windows.Forms.Panel();
@@ -44,15 +45,13 @@
             this.pctBoxListImg = new System.Windows.Forms.PictureBox();
             this.pnlDGV = new System.Windows.Forms.Panel();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnVerMas = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.btnAgregar = new MaterialSkin.Controls.MaterialButton();
-            this.lblErrorCriterio = new MaterialSkin.Controls.MaterialLabel();
+            this.pxbAgregar = new System.Windows.Forms.PictureBox();
+            this.picBoxLimpiar = new System.Windows.Forms.PictureBox();
             this.txtBoxFiltroAvanzado = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblErrorCriterio = new MaterialSkin.Controls.MaterialLabel();
             this.lblErrorCampo = new MaterialSkin.Controls.MaterialLabel();
             this.txtBuscar = new MaterialSkin.Controls.MaterialTextBox2();
-            this.picBoxLimpiar = new System.Windows.Forms.PictureBox();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.ckBoxFiltroAvanzado = new MaterialSkin.Controls.MaterialCheckbox();
             this.btnBuscar = new MaterialSkin.Controls.MaterialButton();
@@ -76,7 +75,9 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnEliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnVerMas = new System.Windows.Forms.DataGridViewImageColumn();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlArticulos.SuspendLayout();
@@ -86,12 +87,12 @@
             this.pnlDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLimpiar)).BeginInit();
             this.cardVerMas.SuspendLayout();
             this.pnlCodigo.SuspendLayout();
             this.pnlDescripcionVerMas.SuspendLayout();
             this.cardFooter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -259,6 +260,7 @@
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnEditar,
+            this.btnEliminar,
             this.btnVerMas});
             this.dgvArticulos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvArticulos.Location = new System.Drawing.Point(0, 0);
@@ -273,52 +275,10 @@
             this.dgvArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
-            // btnEditar
-            // 
-            this.btnEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle1;
-            this.btnEditar.FillWeight = 118.7817F;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.HeaderText = "";
-            this.btnEditar.MinimumWidth = 80;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.ReadOnly = true;
-            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseColumnTextForButtonValue = true;
-            this.btnEditar.Width = 80;
-            // 
-            // btnVerMas
-            // 
-            this.btnVerMas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GhostWhite;
-            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle2;
-            this.btnVerMas.FillWeight = 81.21828F;
-            this.btnVerMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerMas.HeaderText = "";
-            this.btnVerMas.MinimumWidth = 80;
-            this.btnVerMas.Name = "btnVerMas";
-            this.btnVerMas.ReadOnly = true;
-            this.btnVerMas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnVerMas.Text = "Ver más";
-            this.btnVerMas.UseColumnTextForButtonValue = true;
-            this.btnVerMas.Width = 80;
-            // 
             // pnlHeader
             // 
-            this.pnlHeader.Controls.Add(this.pictureBox1);
+            this.pnlHeader.Controls.Add(this.pxbAgregar);
             this.pnlHeader.Controls.Add(this.picBoxLimpiar);
-            this.pnlHeader.Controls.Add(this.btnAgregar);
             this.pnlHeader.Controls.Add(this.txtBoxFiltroAvanzado);
             this.pnlHeader.Controls.Add(this.lblErrorCriterio);
             this.pnlHeader.Controls.Add(this.lblErrorCampo);
@@ -334,26 +294,71 @@
             this.pnlHeader.Size = new System.Drawing.Size(1283, 76);
             this.pnlHeader.TabIndex = 13;
             // 
-            // btnAgregar
+            // pxbAgregar
             // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAgregar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAgregar.Depth = 0;
-            this.btnAgregar.HighEmphasis = true;
-            this.btnAgregar.Icon = null;
-            this.btnAgregar.Location = new System.Drawing.Point(566, 29);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAgregar.Size = new System.Drawing.Size(88, 36);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAgregar.UseAccentColor = false;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
+            this.pxbAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pxbAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.pxbAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pxbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pxbAgregar.Image")));
+            this.pxbAgregar.Location = new System.Drawing.Point(619, 30);
+            this.pxbAgregar.Margin = new System.Windows.Forms.Padding(2);
+            this.pxbAgregar.Name = "pxbAgregar";
+            this.pxbAgregar.Size = new System.Drawing.Size(35, 35);
+            this.pxbAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pxbAgregar.TabIndex = 14;
+            this.pxbAgregar.TabStop = false;
+            this.toolTip1.SetToolTip(this.pxbAgregar, "Limpiar filtros");
+            this.pxbAgregar.Click += new System.EventHandler(this.pxbAgregar_Click);
+            // 
+            // picBoxLimpiar
+            // 
+            this.picBoxLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.picBoxLimpiar.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBoxLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxLimpiar.Image")));
+            this.picBoxLimpiar.Location = new System.Drawing.Point(570, 33);
+            this.picBoxLimpiar.Margin = new System.Windows.Forms.Padding(2);
+            this.picBoxLimpiar.Name = "picBoxLimpiar";
+            this.picBoxLimpiar.Size = new System.Drawing.Size(32, 32);
+            this.picBoxLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBoxLimpiar.TabIndex = 9;
+            this.picBoxLimpiar.TabStop = false;
+            this.toolTip1.SetToolTip(this.picBoxLimpiar, "Limpiar filtros");
+            this.picBoxLimpiar.Visible = false;
+            this.picBoxLimpiar.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picBoxLimpiar.MouseEnter += new System.EventHandler(this.picBoxLimpiar_MouseEnter);
+            this.picBoxLimpiar.MouseLeave += new System.EventHandler(this.picBoxLimpiar_MouseLeave);
+            // 
+            // txtBoxFiltroAvanzado
+            // 
+            this.txtBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBoxFiltroAvanzado.AnimateReadOnly = false;
+            this.txtBoxFiltroAvanzado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtBoxFiltroAvanzado.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtBoxFiltroAvanzado.Depth = 0;
+            this.txtBoxFiltroAvanzado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBoxFiltroAvanzado.HideSelection = true;
+            this.txtBoxFiltroAvanzado.Hint = "Filtro avanzado";
+            this.txtBoxFiltroAvanzado.LeadingIcon = null;
+            this.txtBoxFiltroAvanzado.Location = new System.Drawing.Point(14, 22);
+            this.txtBoxFiltroAvanzado.MaxLength = 32767;
+            this.txtBoxFiltroAvanzado.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtBoxFiltroAvanzado.Name = "txtBoxFiltroAvanzado";
+            this.txtBoxFiltroAvanzado.PasswordChar = '\0';
+            this.txtBoxFiltroAvanzado.PrefixSuffixText = null;
+            this.txtBoxFiltroAvanzado.ReadOnly = false;
+            this.txtBoxFiltroAvanzado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtBoxFiltroAvanzado.SelectedText = "";
+            this.txtBoxFiltroAvanzado.SelectionLength = 0;
+            this.txtBoxFiltroAvanzado.SelectionStart = 0;
+            this.txtBoxFiltroAvanzado.ShortcutsEnabled = true;
+            this.txtBoxFiltroAvanzado.Size = new System.Drawing.Size(551, 48);
+            this.txtBoxFiltroAvanzado.TabIndex = 10;
+            this.txtBoxFiltroAvanzado.TabStop = false;
+            this.txtBoxFiltroAvanzado.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBoxFiltroAvanzado.TrailingIcon = null;
+            this.txtBoxFiltroAvanzado.UseSystemPasswordChar = false;
+            this.txtBoxFiltroAvanzado.Visible = false;
             // 
             // lblErrorCriterio
             // 
@@ -371,37 +376,6 @@
             this.lblErrorCriterio.Text = "materialLabel1";
             this.lblErrorCriterio.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.lblErrorCriterio.Visible = false;
-            // 
-            // txtBoxFiltroAvanzado
-            // 
-            this.txtBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtBoxFiltroAvanzado.AnimateReadOnly = false;
-            this.txtBoxFiltroAvanzado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtBoxFiltroAvanzado.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtBoxFiltroAvanzado.Depth = 0;
-            this.txtBoxFiltroAvanzado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBoxFiltroAvanzado.HideSelection = true;
-            this.txtBoxFiltroAvanzado.Hint = "Filtro avanzado";
-            this.txtBoxFiltroAvanzado.LeadingIcon = null;
-            this.txtBoxFiltroAvanzado.Location = new System.Drawing.Point(3, 25);
-            this.txtBoxFiltroAvanzado.MaxLength = 32767;
-            this.txtBoxFiltroAvanzado.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtBoxFiltroAvanzado.Name = "txtBoxFiltroAvanzado";
-            this.txtBoxFiltroAvanzado.PasswordChar = '\0';
-            this.txtBoxFiltroAvanzado.PrefixSuffixText = null;
-            this.txtBoxFiltroAvanzado.ReadOnly = false;
-            this.txtBoxFiltroAvanzado.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtBoxFiltroAvanzado.SelectedText = "";
-            this.txtBoxFiltroAvanzado.SelectionLength = 0;
-            this.txtBoxFiltroAvanzado.SelectionStart = 0;
-            this.txtBoxFiltroAvanzado.ShortcutsEnabled = true;
-            this.txtBoxFiltroAvanzado.Size = new System.Drawing.Size(297, 48);
-            this.txtBoxFiltroAvanzado.TabIndex = 10;
-            this.txtBoxFiltroAvanzado.TabStop = false;
-            this.txtBoxFiltroAvanzado.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxFiltroAvanzado.TrailingIcon = null;
-            this.txtBoxFiltroAvanzado.UseSystemPasswordChar = false;
-            this.txtBoxFiltroAvanzado.Visible = false;
             // 
             // lblErrorCampo
             // 
@@ -431,7 +405,7 @@
             this.txtBuscar.HideSelection = true;
             this.txtBuscar.Hint = "Buscar por nombre de artículo";
             this.txtBuscar.LeadingIcon = null;
-            this.txtBuscar.Location = new System.Drawing.Point(3, 22);
+            this.txtBuscar.Location = new System.Drawing.Point(14, 23);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBuscar.Name = "txtBuscar";
@@ -443,32 +417,13 @@
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
             this.txtBuscar.ShortcutsEnabled = true;
-            this.txtBuscar.Size = new System.Drawing.Size(297, 48);
+            this.txtBuscar.Size = new System.Drawing.Size(551, 48);
             this.txtBuscar.TabIndex = 8;
             this.txtBuscar.TabStop = false;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtBuscar.TrailingIcon = null;
             this.txtBuscar.UseSystemPasswordChar = false;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // picBoxLimpiar
-            // 
-            this.picBoxLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.picBoxLimpiar.BackColor = System.Drawing.Color.Transparent;
-            this.picBoxLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBoxLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxLimpiar.Image")));
-            this.picBoxLimpiar.Location = new System.Drawing.Point(305, 33);
-            this.picBoxLimpiar.Margin = new System.Windows.Forms.Padding(2);
-            this.picBoxLimpiar.Name = "picBoxLimpiar";
-            this.picBoxLimpiar.Size = new System.Drawing.Size(32, 32);
-            this.picBoxLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picBoxLimpiar.TabIndex = 9;
-            this.picBoxLimpiar.TabStop = false;
-            this.toolTip1.SetToolTip(this.picBoxLimpiar, "Limpiar filtros");
-            this.picBoxLimpiar.Visible = false;
-            this.picBoxLimpiar.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.picBoxLimpiar.MouseEnter += new System.EventHandler(this.picBoxLimpiar_MouseEnter);
-            this.picBoxLimpiar.MouseLeave += new System.EventHandler(this.picBoxLimpiar_MouseLeave);
             // 
             // materialDivider1
             // 
@@ -488,7 +443,7 @@
             this.ckBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ckBoxFiltroAvanzado.AutoSize = true;
             this.ckBoxFiltroAvanzado.Depth = 0;
-            this.ckBoxFiltroAvanzado.Location = new System.Drawing.Point(768, 22);
+            this.ckBoxFiltroAvanzado.Location = new System.Drawing.Point(777, 28);
             this.ckBoxFiltroAvanzado.Margin = new System.Windows.Forms.Padding(0);
             this.ckBoxFiltroAvanzado.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckBoxFiltroAvanzado.MouseState = MaterialSkin.MouseState.HOVER;
@@ -783,21 +738,62 @@
             this.timerHora.Enabled = true;
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
-            // pictureBox1
+            // btnEditar
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(506, 33);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Limpiar filtros");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            this.btnEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle1;
+            this.btnEditar.FillWeight = 118.7817F;
+            this.btnEditar.HeaderText = "";
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.MinimumWidth = 40;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.ReadOnly = true;
+            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnEditar.Width = 40;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.btnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnEliminar.HeaderText = "";
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.MinimumWidth = 40;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.ReadOnly = true;
+            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnEliminar.Width = 40;
+            // 
+            // btnVerMas
+            // 
+            this.btnVerMas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.btnVerMas.FillWeight = 81.21828F;
+            this.btnVerMas.HeaderText = "";
+            this.btnVerMas.Image = ((System.Drawing.Image)(resources.GetObject("btnVerMas.Image")));
+            this.btnVerMas.MinimumWidth = 40;
+            this.btnVerMas.Name = "btnVerMas";
+            this.btnVerMas.ReadOnly = true;
+            this.btnVerMas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnVerMas.Width = 40;
             // 
             // Form1
             // 
@@ -824,6 +820,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLimpiar)).EndInit();
             this.cardVerMas.ResumeLayout(false);
             this.cardVerMas.PerformLayout();
@@ -833,7 +830,6 @@
             this.pnlDescripcionVerMas.PerformLayout();
             this.cardFooter.ResumeLayout(false);
             this.cardFooter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -858,8 +854,6 @@
         private System.Windows.Forms.PictureBox pctBoxListImg;
         private System.Windows.Forms.Panel pnlDGV;
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnVerMas;
         private System.Windows.Forms.Panel pnlHeader;
         private MaterialSkin.Controls.MaterialLabel lblErrorCriterio;
         private MaterialSkin.Controls.MaterialLabel lblErrorCampo;
@@ -883,8 +877,10 @@
         private MaterialSkin.Controls.MaterialCard cardFooter;
         private MaterialSkin.Controls.MaterialLabel lblHora;
         private MaterialSkin.Controls.MaterialLabel lblUsuario;
-        private MaterialSkin.Controls.MaterialButton btnAgregar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pxbAgregar;
+        private System.Windows.Forms.DataGridViewImageColumn btnEditar;
+        private System.Windows.Forms.DataGridViewImageColumn btnEliminar;
+        private System.Windows.Forms.DataGridViewImageColumn btnVerMas;
     }
 }
 
