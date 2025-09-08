@@ -118,12 +118,12 @@ namespace Negocio
                 {
                     int idArticulo = (int)datos.Lector["articuloId"];
 
-                    
+
                     Articulo auxiliar = lista.FirstOrDefault(a => a.id == idArticulo);
 
                     if (auxiliar == null)
                     {
-                        
+
                         auxiliar = new Articulo();
                         auxiliar.id = idArticulo;
                         auxiliar.codigo = (string)datos.Lector["Codigo"];
@@ -144,7 +144,7 @@ namespace Negocio
                         lista.Add(auxiliar);
                     }
 
-                    
+
                     if (!(datos.Lector["imagenId"] is DBNull))
                     {
                         Imagen img = new Imagen
@@ -165,9 +165,37 @@ namespace Negocio
             }
         }
 
+        public int agregar(Articulo nuevo)
+        {
+            try
+            {
+                datos.setearConsulta("INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) " +
+                                     "VALUES(@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria); SELECT SCOPE_IDENTITY();");
+                datos.setearParametro("@Codigo", nuevo.codigo);
+                datos.setearParametro("@Nombre", nuevo.nombre);
+                datos.setearParametro("@Descripcion", nuevo.descripcion);
+                datos.setearParametro("@Precio", nuevo.precio);
+                datos.setearParametro("@IdMarca", nuevo.marca.id);
+                datos.setearParametro("@IdCategoria", nuevo.categoria.id);
+
+                int idGenerado = Convert.ToInt32(datos.ejecutarScalar()); 
+                return idGenerado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
     }
 }
-      
 
 
-  
+
+
+
