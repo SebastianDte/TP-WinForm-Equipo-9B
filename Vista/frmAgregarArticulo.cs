@@ -109,5 +109,10 @@ namespace Vista
         {
 
         }
+
+        private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
