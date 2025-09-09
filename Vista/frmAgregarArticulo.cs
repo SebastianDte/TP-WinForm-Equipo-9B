@@ -49,9 +49,6 @@ namespace Vista
             }
         }
 
-
-
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
@@ -108,6 +105,9 @@ namespace Vista
             }
         }
 
-       
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

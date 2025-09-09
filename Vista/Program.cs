@@ -22,6 +22,8 @@ namespace Vista
             {
                 Application.Run(new Form1(login.NombreUsuario));
             }
+
+
         }
     }
 }
