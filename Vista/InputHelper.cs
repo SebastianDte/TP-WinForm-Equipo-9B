@@ -70,6 +70,8 @@ namespace Vista
             return true;
         }
 
+        
+
         //Quita los errores de los Texbox
         public static void QuitarErrorAlEscribir(MaterialTextBox2 txtBox)
         {

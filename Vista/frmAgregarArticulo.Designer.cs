@@ -32,17 +32,6 @@
             this.pnlBase = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBaseIzquierdo = new System.Windows.Forms.Panel();
-            this.pnlBaseDrecho = new System.Windows.Forms.Panel();
-            this.pnlBotones = new System.Windows.Forms.Panel();
-            this.txtUrlImagen = new MaterialSkin.Controls.MaterialTextBox2();
-            this.pnlPixtureBox = new System.Windows.Forms.Panel();
-            this.pxbSiguiente = new System.Windows.Forms.PictureBox();
-            this.lblUrlImagen = new MaterialSkin.Controls.MaterialLabel();
-            this.pxbAtras = new System.Windows.Forms.PictureBox();
-            this.pxbImagenCarga = new System.Windows.Forms.PictureBox();
-            this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
-            this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.txtDescripcion = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -56,17 +45,32 @@
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblMarca = new MaterialSkin.Controls.MaterialLabel();
             this.lblCodigo = new MaterialSkin.Controls.MaterialLabel();
+            this.pnlBaseDrecho = new System.Windows.Forms.Panel();
+            this.pnlPixtureBox = new System.Windows.Forms.Panel();
+            this.btnAgregarImagen = new System.Windows.Forms.PictureBox();
+            this.lblIndice = new MaterialSkin.Controls.MaterialLabel();
+            this.pxbImagen = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtUrlImagen = new MaterialSkin.Controls.MaterialTextBox2();
+            this.pnlBotones = new System.Windows.Forms.Panel();
+            this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
+            this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
+            this.btnSiguiente = new System.Windows.Forms.PictureBox();
+            this.btnEliminarImagen = new System.Windows.Forms.PictureBox();
             this.pnlBase.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlBaseIzquierdo.SuspendLayout();
-            this.pnlBaseDrecho.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            this.pnlPixtureBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbSiguiente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbAtras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbImagenCarga)).BeginInit();
-            this.panel1.SuspendLayout();
             this.materialCard1.SuspendLayout();
+            this.pnlBaseDrecho.SuspendLayout();
+            this.pnlPixtureBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.pnlBotones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBase
@@ -98,7 +102,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 441F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1047, 571);
             this.tableLayoutPanel1.TabIndex = 1;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // pnlBaseIzquierdo
             // 
@@ -107,172 +110,8 @@
             this.pnlBaseIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlBaseIzquierdo.Location = new System.Drawing.Point(3, 3);
             this.pnlBaseIzquierdo.Name = "pnlBaseIzquierdo";
-            this.pnlBaseIzquierdo.Size = new System.Drawing.Size(579, 565);
+            this.pnlBaseIzquierdo.Size = new System.Drawing.Size(578, 565);
             this.pnlBaseIzquierdo.TabIndex = 0;
-            // 
-            // pnlBaseDrecho
-            // 
-            this.pnlBaseDrecho.Controls.Add(this.pnlPixtureBox);
-            this.pnlBaseDrecho.Controls.Add(this.panel1);
-            this.pnlBaseDrecho.Controls.Add(this.pnlBotones);
-            this.pnlBaseDrecho.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBaseDrecho.Location = new System.Drawing.Point(588, 3);
-            this.pnlBaseDrecho.Name = "pnlBaseDrecho";
-            this.pnlBaseDrecho.Size = new System.Drawing.Size(456, 565);
-            this.pnlBaseDrecho.TabIndex = 1;
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Controls.Add(this.btnCancelar);
-            this.pnlBotones.Controls.Add(this.btnAceptar);
-            this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotones.Location = new System.Drawing.Point(0, 481);
-            this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(456, 84);
-            this.pnlBotones.TabIndex = 139;
-            // 
-            // txtUrlImagen
-            // 
-            this.txtUrlImagen.AnimateReadOnly = false;
-            this.txtUrlImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtUrlImagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtUrlImagen.Depth = 0;
-            this.txtUrlImagen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtUrlImagen.HideSelection = true;
-            this.txtUrlImagen.LeadingIcon = null;
-            this.txtUrlImagen.Location = new System.Drawing.Point(0, 0);
-            this.txtUrlImagen.MaxLength = 32767;
-            this.txtUrlImagen.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtUrlImagen.Name = "txtUrlImagen";
-            this.txtUrlImagen.PasswordChar = '\0';
-            this.txtUrlImagen.PrefixSuffixText = null;
-            this.txtUrlImagen.ReadOnly = false;
-            this.txtUrlImagen.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtUrlImagen.SelectedText = "";
-            this.txtUrlImagen.SelectionLength = 0;
-            this.txtUrlImagen.SelectionStart = 0;
-            this.txtUrlImagen.ShortcutsEnabled = true;
-            this.txtUrlImagen.Size = new System.Drawing.Size(456, 48);
-            this.txtUrlImagen.TabIndex = 128;
-            this.txtUrlImagen.TabStop = false;
-            this.txtUrlImagen.Text = "Ingrese la URL de la imagen";
-            this.txtUrlImagen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtUrlImagen.TrailingIcon = null;
-            this.txtUrlImagen.UseSystemPasswordChar = false;
-            // 
-            // pnlPixtureBox
-            // 
-            this.pnlPixtureBox.Controls.Add(this.pxbSiguiente);
-            this.pnlPixtureBox.Controls.Add(this.lblUrlImagen);
-            this.pnlPixtureBox.Controls.Add(this.pxbAtras);
-            this.pnlPixtureBox.Controls.Add(this.pxbImagenCarga);
-            this.pnlPixtureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPixtureBox.Location = new System.Drawing.Point(0, 53);
-            this.pnlPixtureBox.Name = "pnlPixtureBox";
-            this.pnlPixtureBox.Size = new System.Drawing.Size(456, 428);
-            this.pnlPixtureBox.TabIndex = 138;
-            // 
-            // pxbSiguiente
-            // 
-            this.pxbSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pxbSiguiente.BackColor = System.Drawing.Color.Transparent;
-            this.pxbSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("pxbSiguiente.Image")));
-            this.pxbSiguiente.InitialImage = ((System.Drawing.Image)(resources.GetObject("pxbSiguiente.InitialImage")));
-            this.pxbSiguiente.Location = new System.Drawing.Point(421, 209);
-            this.pxbSiguiente.Name = "pxbSiguiente";
-            this.pxbSiguiente.Size = new System.Drawing.Size(32, 32);
-            this.pxbSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pxbSiguiente.TabIndex = 138;
-            this.pxbSiguiente.TabStop = false;
-            // 
-            // lblUrlImagen
-            // 
-            this.lblUrlImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUrlImagen.AutoSize = true;
-            this.lblUrlImagen.Depth = 0;
-            this.lblUrlImagen.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblUrlImagen.Location = new System.Drawing.Point(376, 0);
-            this.lblUrlImagen.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblUrlImagen.Name = "lblUrlImagen";
-            this.lblUrlImagen.Size = new System.Drawing.Size(77, 19);
-            this.lblUrlImagen.TabIndex = 135;
-            this.lblUrlImagen.Text = "Url Imagen";
-            // 
-            // pxbAtras
-            // 
-            this.pxbAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pxbAtras.BackColor = System.Drawing.Color.Transparent;
-            this.pxbAtras.Image = ((System.Drawing.Image)(resources.GetObject("pxbAtras.Image")));
-            this.pxbAtras.Location = new System.Drawing.Point(3, 209);
-            this.pxbAtras.Name = "pxbAtras";
-            this.pxbAtras.Size = new System.Drawing.Size(32, 32);
-            this.pxbAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pxbAtras.TabIndex = 136;
-            this.pxbAtras.TabStop = false;
-            // 
-            // pxbImagenCarga
-            // 
-            this.pxbImagenCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pxbImagenCarga.Image = ((System.Drawing.Image)(resources.GetObject("pxbImagenCarga.Image")));
-            this.pxbImagenCarga.Location = new System.Drawing.Point(0, 0);
-            this.pxbImagenCarga.Name = "pxbImagenCarga";
-            this.pxbImagenCarga.Size = new System.Drawing.Size(456, 428);
-            this.pxbImagenCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pxbImagenCarga.TabIndex = 140;
-            this.pxbImagenCarga.TabStop = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnCancelar.Depth = 0;
-            this.btnCancelar.HighEmphasis = true;
-            this.btnCancelar.Icon = null;
-            this.btnCancelar.Location = new System.Drawing.Point(111, 9);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancelar.Size = new System.Drawing.Size(96, 36);
-            this.btnCancelar.TabIndex = 140;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnCancelar.UseAccentColor = false;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAceptar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAceptar.Depth = 0;
-            this.btnAceptar.HighEmphasis = true;
-            this.btnAceptar.Icon = null;
-            this.btnAceptar.Location = new System.Drawing.Point(251, 9);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAceptar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAceptar.Size = new System.Drawing.Size(86, 36);
-            this.btnAceptar.TabIndex = 139;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAceptar.UseAccentColor = false;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.txtUrlImagen);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(456, 53);
-            this.panel1.TabIndex = 140;
             // 
             // materialCard1
             // 
@@ -297,9 +136,8 @@
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(577, 563);
+            this.materialCard1.Size = new System.Drawing.Size(576, 563);
             this.materialCard1.TabIndex = 0;
-            this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
             // 
             // txtDescripcion
             // 
@@ -320,7 +158,7 @@
             this.txtDescripcion.SelectionLength = 0;
             this.txtDescripcion.SelectionStart = 0;
             this.txtDescripcion.ShortcutsEnabled = true;
-            this.txtDescripcion.Size = new System.Drawing.Size(365, 102);
+            this.txtDescripcion.Size = new System.Drawing.Size(412, 102);
             this.txtDescripcion.TabIndex = 139;
             this.txtDescripcion.TabStop = false;
             this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -336,9 +174,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(71, 323);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(84, 19);
             this.materialLabel1.TabIndex = 140;
-            this.materialLabel1.Text = "Categoria";
+            this.materialLabel1.Text = "Descripción";
             // 
             // txtNombre
             // 
@@ -362,7 +200,7 @@
             this.txtNombre.SelectionLength = 0;
             this.txtNombre.SelectionStart = 0;
             this.txtNombre.ShortcutsEnabled = true;
-            this.txtNombre.Size = new System.Drawing.Size(365, 48);
+            this.txtNombre.Size = new System.Drawing.Size(412, 48);
             this.txtNombre.TabIndex = 134;
             this.txtNombre.TabStop = false;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -403,7 +241,7 @@
             this.txtPrecio.SelectionLength = 0;
             this.txtPrecio.SelectionStart = 0;
             this.txtPrecio.ShortcutsEnabled = true;
-            this.txtPrecio.Size = new System.Drawing.Size(170, 48);
+            this.txtPrecio.Size = new System.Drawing.Size(205, 48);
             this.txtPrecio.TabIndex = 135;
             this.txtPrecio.TabStop = false;
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -452,7 +290,7 @@
             this.cboCategoria.MaxDropDownItems = 4;
             this.cboCategoria.MouseState = MaterialSkin.MouseState.OUT;
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(175, 49);
+            this.cboCategoria.Size = new System.Drawing.Size(210, 49);
             this.cboCategoria.StartIndex = 0;
             this.cboCategoria.TabIndex = 137;
             // 
@@ -470,7 +308,7 @@
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.IntegralHeight = false;
             this.cboMarca.ItemHeight = 43;
-            this.cboMarca.Location = new System.Drawing.Point(264, 244);
+            this.cboMarca.Location = new System.Drawing.Point(311, 244);
             this.cboMarca.MaxDropDownItems = 4;
             this.cboMarca.MouseState = MaterialSkin.MouseState.OUT;
             this.cboMarca.Name = "cboMarca";
@@ -487,7 +325,7 @@
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtCodigo.HideSelection = true;
             this.txtCodigo.LeadingIcon = null;
-            this.txtCodigo.Location = new System.Drawing.Point(264, 146);
+            this.txtCodigo.Location = new System.Drawing.Point(311, 146);
             this.txtCodigo.MaxLength = 32767;
             this.txtCodigo.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCodigo.Name = "txtCodigo";
@@ -511,7 +349,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Depth = 0;
             this.lblMarca.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblMarca.Location = new System.Drawing.Point(261, 222);
+            this.lblMarca.Location = new System.Drawing.Point(313, 222);
             this.lblMarca.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(46, 19);
@@ -523,12 +361,206 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Depth = 0;
             this.lblCodigo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCodigo.Location = new System.Drawing.Point(261, 124);
+            this.lblCodigo.Location = new System.Drawing.Point(308, 124);
             this.lblCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(51, 19);
             this.lblCodigo.TabIndex = 132;
             this.lblCodigo.Text = "Código";
+            // 
+            // pnlBaseDrecho
+            // 
+            this.pnlBaseDrecho.Controls.Add(this.pnlPixtureBox);
+            this.pnlBaseDrecho.Controls.Add(this.panel1);
+            this.pnlBaseDrecho.Controls.Add(this.pnlBotones);
+            this.pnlBaseDrecho.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlBaseDrecho.Location = new System.Drawing.Point(588, 3);
+            this.pnlBaseDrecho.Name = "pnlBaseDrecho";
+            this.pnlBaseDrecho.Size = new System.Drawing.Size(456, 565);
+            this.pnlBaseDrecho.TabIndex = 1;
+            // 
+            // pnlPixtureBox
+            // 
+            this.pnlPixtureBox.Controls.Add(this.btnSiguiente);
+            this.pnlPixtureBox.Controls.Add(this.lblIndice);
+            this.pnlPixtureBox.Controls.Add(this.btnAtras);
+            this.pnlPixtureBox.Controls.Add(this.pxbImagen);
+            this.pnlPixtureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPixtureBox.Location = new System.Drawing.Point(0, 53);
+            this.pnlPixtureBox.Name = "pnlPixtureBox";
+            this.pnlPixtureBox.Size = new System.Drawing.Size(456, 428);
+            this.pnlPixtureBox.TabIndex = 138;
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarImagen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAgregarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.Image")));
+            this.btnAgregarImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.InitialImage")));
+            this.btnAgregarImagen.Location = new System.Drawing.Point(424, 0);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(32, 53);
+            this.btnAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnAgregarImagen.TabIndex = 138;
+            this.btnAgregarImagen.TabStop = false;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
+            // lblIndice
+            // 
+            this.lblIndice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIndice.AutoSize = true;
+            this.lblIndice.Depth = 0;
+            this.lblIndice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblIndice.Location = new System.Drawing.Point(376, 0);
+            this.lblIndice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblIndice.Name = "lblIndice";
+            this.lblIndice.Size = new System.Drawing.Size(77, 19);
+            this.lblIndice.TabIndex = 135;
+            this.lblIndice.Text = "Url Imagen";
+            // 
+            // pxbImagen
+            // 
+            this.pxbImagen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pxbImagen.Location = new System.Drawing.Point(0, 0);
+            this.pxbImagen.Name = "pxbImagen";
+            this.pxbImagen.Size = new System.Drawing.Size(456, 428);
+            this.pxbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pxbImagen.TabIndex = 140;
+            this.pxbImagen.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnEliminarImagen);
+            this.panel1.Controls.Add(this.btnAgregarImagen);
+            this.panel1.Controls.Add(this.txtUrlImagen);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(456, 53);
+            this.panel1.TabIndex = 140;
+            // 
+            // txtUrlImagen
+            // 
+            this.txtUrlImagen.AnimateReadOnly = false;
+            this.txtUrlImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtUrlImagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtUrlImagen.Depth = 0;
+            this.txtUrlImagen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUrlImagen.HideSelection = true;
+            this.txtUrlImagen.Hint = "Ingrese la URl de la Imagen";
+            this.txtUrlImagen.LeadingIcon = null;
+            this.txtUrlImagen.Location = new System.Drawing.Point(0, 0);
+            this.txtUrlImagen.MaxLength = 32767;
+            this.txtUrlImagen.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtUrlImagen.Name = "txtUrlImagen";
+            this.txtUrlImagen.PasswordChar = '\0';
+            this.txtUrlImagen.PrefixSuffixText = null;
+            this.txtUrlImagen.ReadOnly = false;
+            this.txtUrlImagen.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtUrlImagen.SelectedText = "";
+            this.txtUrlImagen.SelectionLength = 0;
+            this.txtUrlImagen.SelectionStart = 0;
+            this.txtUrlImagen.ShortcutsEnabled = true;
+            this.txtUrlImagen.Size = new System.Drawing.Size(418, 48);
+            this.txtUrlImagen.TabIndex = 128;
+            this.txtUrlImagen.TabStop = false;
+            this.txtUrlImagen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUrlImagen.TrailingIcon = null;
+            this.txtUrlImagen.UseSystemPasswordChar = false;
+            // 
+            // pnlBotones
+            // 
+            this.pnlBotones.Controls.Add(this.btnCancelar);
+            this.pnlBotones.Controls.Add(this.btnAceptar);
+            this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotones.Location = new System.Drawing.Point(0, 481);
+            this.pnlBotones.Name = "pnlBotones";
+            this.pnlBotones.Size = new System.Drawing.Size(456, 84);
+            this.pnlBotones.TabIndex = 139;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCancelar.Depth = 0;
+            this.btnCancelar.HighEmphasis = true;
+            this.btnCancelar.Icon = null;
+            this.btnCancelar.Location = new System.Drawing.Point(111, 9);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCancelar.Size = new System.Drawing.Size(96, 36);
+            this.btnCancelar.TabIndex = 140;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancelar.UseAccentColor = false;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAceptar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAceptar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAceptar.Depth = 0;
+            this.btnAceptar.HighEmphasis = true;
+            this.btnAceptar.Icon = null;
+            this.btnAceptar.Location = new System.Drawing.Point(251, 9);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAceptar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAceptar.Size = new System.Drawing.Size(86, 36);
+            this.btnAceptar.TabIndex = 139;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAceptar.UseAccentColor = false;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.Location = new System.Drawing.Point(3, 209);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(32, 32);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnAtras.TabIndex = 136;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSiguiente.BackColor = System.Drawing.Color.Transparent;
+            this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
+            this.btnSiguiente.Location = new System.Drawing.Point(421, 209);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(32, 32);
+            this.btnSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnSiguiente.TabIndex = 141;
+            this.btnSiguiente.TabStop = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // btnEliminarImagen
+            // 
+            this.btnEliminarImagen.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminarImagen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEliminarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.Image")));
+            this.btnEliminarImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.InitialImage")));
+            this.btnEliminarImagen.Location = new System.Drawing.Point(392, 0);
+            this.btnEliminarImagen.Name = "btnEliminarImagen";
+            this.btnEliminarImagen.Size = new System.Drawing.Size(32, 53);
+            this.btnEliminarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnEliminarImagen.TabIndex = 139;
+            this.btnEliminarImagen.TabStop = false;
+            this.btnEliminarImagen.Click += new System.EventHandler(this.btnEliminarImagen_Click);
             // 
             // frmAgregarArticulo
             // 
@@ -543,17 +575,20 @@
             this.pnlBase.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlBaseIzquierdo.ResumeLayout(false);
-            this.pnlBaseDrecho.ResumeLayout(false);
-            this.pnlBotones.ResumeLayout(false);
-            this.pnlBotones.PerformLayout();
-            this.pnlPixtureBox.ResumeLayout(false);
-            this.pnlPixtureBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbSiguiente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbAtras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbImagenCarga)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.pnlBaseDrecho.ResumeLayout(false);
+            this.pnlPixtureBox.ResumeLayout(false);
+            this.pnlPixtureBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pnlBotones.ResumeLayout(false);
+            this.pnlBotones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,12 +600,11 @@
         private System.Windows.Forms.Panel pnlBaseDrecho;
         private MaterialSkin.Controls.MaterialTextBox2 txtUrlImagen;
         private System.Windows.Forms.Panel pnlBaseIzquierdo;
-        private System.Windows.Forms.PictureBox pxbSiguiente;
-        private System.Windows.Forms.PictureBox pxbAtras;
-        private MaterialSkin.Controls.MaterialLabel lblUrlImagen;
+        private System.Windows.Forms.PictureBox btnAgregarImagen;
+        private MaterialSkin.Controls.MaterialLabel lblIndice;
         private System.Windows.Forms.Panel pnlPixtureBox;
         private System.Windows.Forms.Panel pnlBotones;
-        private System.Windows.Forms.PictureBox pxbImagenCarga;
+        private System.Windows.Forms.PictureBox pxbImagen;
         private MaterialSkin.Controls.MaterialButton btnCancelar;
         private MaterialSkin.Controls.MaterialButton btnAceptar;
         private System.Windows.Forms.Panel panel1;
@@ -587,5 +621,8 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtCodigo;
         private MaterialSkin.Controls.MaterialLabel lblMarca;
         private MaterialSkin.Controls.MaterialLabel lblCodigo;
+        private System.Windows.Forms.PictureBox btnSiguiente;
+        private System.Windows.Forms.PictureBox btnAtras;
+        private System.Windows.Forms.PictureBox btnEliminarImagen;
     }
 }

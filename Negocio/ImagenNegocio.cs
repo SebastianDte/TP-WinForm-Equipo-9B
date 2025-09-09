@@ -41,6 +41,7 @@ namespace Negocio
 
         public void AgregarImagen(Imagen img)
         {
+            AccesoDato datos = new AccesoDato(); // nueva instancia cada vez
             try
             {
                 datos.setearConsulta("INSERT INTO IMAGENES(IdArticulo, imagenUrl) VALUES(@IdArticulo, @ImagenUrl)");
