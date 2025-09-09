@@ -70,6 +70,11 @@ namespace Vista
             return true;
         }
 
+        //Quita los errores de los Texbox
+        public static void QuitarErrorAlEscribir(MaterialTextBox2 txtBox)
+        {
+            txtBox.TextChanged += (s, e) => txtBox.SetErrorState(false);
+        }
         public static void LimpiarFiltros(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox2 txtFiltro,EventHandler eventoCambio = null)
         {
             if (eventoCambio != null)

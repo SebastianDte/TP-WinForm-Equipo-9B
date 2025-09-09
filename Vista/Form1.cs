@@ -22,19 +22,26 @@ namespace Vista
         private ArticuloNegocio articulosNegocio = new ArticuloNegocio();
         private ImagenNegocio imagenesNegocio = new ImagenNegocio();
         private ImagenHelper imagenHelper = new ImagenHelper();
+        private string usuarioActual;
 
         public Form1(string usuario)
         {
             InitializeComponent();
             ConfigurarMaterialSkin();
+            this.Load += Form1_Load;
+            usuarioActual = usuario;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblUsuario.Text = "Bienvenido " + usuarioActual;
             CargarArticulos();
             CargarComboxFiltro();
             InicializarTabs();
             CargarTituloForm();
-
-            lblUsuario.Text = "Bienvenido " + usuario;
+            InicializarEventosDgv();
+            this.AcceptButton = btnBuscar;
         }
-
 
         //--------------------------DGV------------------------------------------------------//
         private void timerHora_Tick(object sender, EventArgs e)
@@ -120,6 +127,35 @@ namespace Vista
             }
         }
 
+        private void dgvArticulos_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && EsColumnaBoton(e.ColumnIndex))
+                dgvArticulos.Cursor = Cursors.Hand;
+        }
+
+        private void dgvArticulos_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvArticulos.Cursor = Cursors.Default;
+        }
+
+        private bool EsColumnaBoton(int columnIndex)
+        {
+            string name = dgvArticulos.Columns[columnIndex].Name;
+            return name == "btnEditar" || name == "btnEliminar" || name == "btnVerMas";
+        }
+
+        private void dgvArticulos_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEditar")
+                    e.ToolTipText = "Modificar";
+                else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEliminar")
+                    e.ToolTipText = "Eliminar";
+                else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnVerMas")
+                    e.ToolTipText = "Ver más detalles";
+            }
+        }
 
         //-----------------Metodos Referidos a Filtros------------------------------------------------
         private void cbxCampo_SelectedIndexChanged(object sender, EventArgs e)
@@ -394,11 +430,19 @@ namespace Vista
                 Primary.BlueGrey800,
                 Primary.BlueGrey900,
                 Primary.BlueGrey500,
-                Accent.LightBlue200,
+                Accent.LightBlue700,
                 TextShade.WHITE
             );
         }
-
-        
+        private void InicializarEventosDgv()
+        {
+            dgvArticulos.CellMouseEnter += dgvArticulos_CellMouseEnter;
+            dgvArticulos.CellMouseLeave += dgvArticulos_CellMouseLeave;
+            dgvArticulos.CellToolTipTextNeeded += dgvArticulos_CellToolTipTextNeeded;
+        }
+        private void txtBoxFiltroAvanzado_TextChanged(object sender, EventArgs e)
+        {
+            InputHelper.QuitarErrorAlEscribir(txtBoxFiltroAvanzado);
+        }
     }
 }

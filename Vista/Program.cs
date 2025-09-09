@@ -20,7 +20,6 @@ namespace Vista
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-
                 Application.Run(new Form1(login.NombreUsuario));
             }
         }
