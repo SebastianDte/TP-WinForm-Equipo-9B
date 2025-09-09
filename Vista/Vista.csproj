@@ -86,6 +86,8 @@
     <Compile Include="frmModificarMarca.Designer.cs">
       <DependentUpon>frmModificarMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImagenHelper.cs" />
+    <Compile Include="InputHelper.cs" />
     <Compile Include="Loguin.cs">
       <SubType>Form</SubType>
     </Compile>

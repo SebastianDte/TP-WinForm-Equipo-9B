@@ -191,6 +191,27 @@ namespace Negocio
             }
         }
 
+        public void eliminar(int id)
+        {
+            try
+            {
+                ImagenNegocio imagenNegocio = new ImagenNegocio();
+
+                imagenNegocio.EliminarImagenes(id);
+ 
+                datos.setearConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
     }
 }

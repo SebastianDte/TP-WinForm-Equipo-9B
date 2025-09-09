@@ -58,6 +58,26 @@ namespace Negocio
             }
         }
 
+        public void EliminarImagenes(int idArticulo)
+        {
+            try
+            {
+                datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @idArticulo");
+                datos.setearParametro("@idArticulo", idArticulo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
         public void AgregarImagenes(List<Imagen> imagenes)
         {
             foreach (var img in imagenes)
@@ -65,6 +85,8 @@ namespace Negocio
                 AgregarImagen(img);
             }
         }
+
+
 
     }
 }
