@@ -51,12 +51,12 @@ namespace Vista
                 if ( marca.id != 0)
                 {
                     negocio.modificar(marca);
-                    MessageBox.Show("Marca modifiacada exitosamente");
+                    MessageBox.Show("Marca modifiacada exitosamente.");
                 }
                 else
                 {
                     negocio.agregar(marca);
-                    MessageBox.Show("Marca agregada exitosamente");
+                    MessageBox.Show("Marca agregada exitosamente.");
                 }
 
                 Close();

@@ -65,9 +65,24 @@ namespace Vista
         {
             MarcaNegocio negocio = new MarcaNegocio();
             Marca seleccionada;
+            seleccionada = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+            ArticuloNegocio negocioArticulo = new ArticuloNegocio();
+            List<Articulo> listaArticulos; 
+            listaArticulos= negocioArticulo.lista();
+
+
 
             try
             {
+
+                foreach (Articulo item in listaArticulos)
+                {
+                    if (item.id == seleccionada.id)
+                    {
+                        MessageBox.Show("La marca seleccionada no se puede eliminar debido a que tiene registros de articulos relacionados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Close();
+                    }
+                }
 
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro de eliminar definitivamente esta marca?","Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if( respuesta == DialogResult.Yes)
@@ -75,7 +90,6 @@ namespace Vista
                     seleccionada = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
                     negocio.eliminar(seleccionada.id);
                     cargar();
-
                 }
                 
 
