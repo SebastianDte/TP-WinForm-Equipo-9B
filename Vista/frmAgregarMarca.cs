@@ -51,7 +51,7 @@ namespace Vista
                 if ( marca.id != 0)
                 {
                     negocio.modificar(marca);
-                    MessageBox.Show("Marca modifiacada exitosamente"+ marca.id);
+                    MessageBox.Show("Marca modifiacada exitosamente");
                 }
                 else
                 {

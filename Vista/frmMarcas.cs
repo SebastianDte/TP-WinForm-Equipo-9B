@@ -60,5 +60,31 @@ namespace Vista
             cargar();
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio negocio = new MarcaNegocio();
+            Marca seleccionada;
+
+            try
+            {
+
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de eliminar definitivamente esta marca?","Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if( respuesta == DialogResult.Yes)
+                {
+                    seleccionada = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionada.id);
+                    cargar();
+
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            } 
+        }
     }
 }
