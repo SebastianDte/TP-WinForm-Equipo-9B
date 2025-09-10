@@ -14,6 +14,8 @@ namespace Vista
 {
     public partial class frmMarcas : Form
     {
+        
+
         private List<Marca> ListaMarca;
         public frmMarcas()
         {
@@ -36,7 +38,7 @@ namespace Vista
             {
                 ListaMarca = negocio.listar();
                 dgvMarcas.DataSource = ListaMarca;
-
+                dgvMarcas.Columns["Id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -44,8 +46,19 @@ namespace Vista
             }
         }
         private void frmMarcas_Load(object sender, EventArgs e)
-        {
+        {   
             cargar(); 
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Marca seleccionada;
+            seleccionada = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+
+            frmAgregarMarca modificar = new frmAgregarMarca(seleccionada);
+            modificar.ShowDialog();
+            cargar();
+
         }
     }
 }

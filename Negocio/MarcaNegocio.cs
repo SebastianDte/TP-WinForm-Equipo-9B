@@ -10,6 +10,7 @@ namespace Negocio
     public class MarcaNegocio
     {
         public List<Marca> listar()
+
         {
             List<Marca> lista = new List<Marca>();
             AccesoDato datos = new AccesoDato();
@@ -61,6 +62,31 @@ namespace Negocio
             }
 
         }
+    
+        public void modificar(Marca marcaMod)
+        {
+            AccesoDato datos = new AccesoDato();
+            try
+            {
+                datos.setearConsulta("UPDATE MARCAS SET Descripcion = @descrip WHERE Id = @id");
+                datos.setearParametro("@id", marcaMod.id);
+                datos.setearParametro("@descrip", marcaMod.descripcion);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+
+        }
     }
+
 
 }
