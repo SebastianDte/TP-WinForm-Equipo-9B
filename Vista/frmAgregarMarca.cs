@@ -14,10 +14,21 @@ namespace Vista
 {
     public partial class frmAgregarMarca : Form
     {
+        private Marca marca = null;
+
         public frmAgregarMarca()
         {
             InitializeComponent();
+            Text = "Nueva Marca";
         }
+
+        public frmAgregarMarca(Marca marca)
+        {
+            InitializeComponent();
+            this.marca = marca;
+            Text = "Modificar Marca";
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -25,15 +36,49 @@ namespace Vista
 
         private void btnAgregarNuevaMarca_Click(object sender, EventArgs e)
         {
+
             MarcaNegocio negocio = new MarcaNegocio();
-            Marca nuevaMarca = new Marca();
 
             try
             {
-                nuevaMarca.descripcion = txtbDescripcion.Text;
-                negocio.agregar(nuevaMarca);
-                MessageBox.Show("Marca agregada exitosamente");
+                if ( marca == null)
+                {
+                    marca = new Marca();
+                }
+                    
+                marca.descripcion = txtbDescripcion.Text;
+                
+                if ( marca.id != 0)
+                {
+                    negocio.modificar(marca);
+                    MessageBox.Show("Marca modifiacada exitosamente"+ marca.id);
+                }
+                else
+                {
+                    negocio.agregar(marca);
+                    MessageBox.Show("Marca agregada exitosamente");
+                }
+
                 Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void frmAgregarMarca_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if ( marca != null)
+                {
+                    txtbDescripcion.Text = marca.descripcion; 
+                }
+
+
             }
             catch (Exception ex)
             {

@@ -45,6 +45,9 @@
             this.pctBoxListImg = new System.Windows.Forms.PictureBox();
             this.pnlDGV = new System.Windows.Forms.Panel();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.btnEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnEliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnVerMas = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pxbAgregar = new System.Windows.Forms.PictureBox();
             this.picBoxLimpiar = new System.Windows.Forms.PictureBox();
@@ -75,9 +78,6 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.btnEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnEliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnVerMas = new System.Windows.Forms.DataGridViewImageColumn();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlArticulos.SuspendLayout();
@@ -112,6 +112,7 @@
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(1297, 534);
             this.materialTabControl1.TabIndex = 2;
+            this.materialTabControl1.SelectedIndexChanged += new System.EventHandler(this.materialTabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -200,6 +201,7 @@
             // lblImagenes
             // 
             this.lblImagenes.AutoSize = true;
+            this.lblImagenes.BackColor = System.Drawing.Color.Transparent;
             this.lblImagenes.Depth = 0;
             this.lblImagenes.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblImagenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -273,7 +275,70 @@
             this.dgvArticulos.Size = new System.Drawing.Size(640, 220);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellClick);
+            this.dgvArticulos.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellMouseEnter);
+            this.dgvArticulos.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellMouseLeave);
+            this.dgvArticulos.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dgvArticulos_CellToolTipTextNeeded);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle1;
+            this.btnEditar.FillWeight = 118.7817F;
+            this.btnEditar.HeaderText = "";
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.MinimumWidth = 40;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.ReadOnly = true;
+            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnEditar.ToolTipText = "Modificar";
+            this.btnEditar.Width = 40;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.btnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnEliminar.HeaderText = "";
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.MinimumWidth = 40;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.ReadOnly = true;
+            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnEliminar.ToolTipText = "Eliminar";
+            this.btnEliminar.Width = 40;
+            // 
+            // btnVerMas
+            // 
+            this.btnVerMas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.btnVerMas.FillWeight = 81.21828F;
+            this.btnVerMas.HeaderText = "";
+            this.btnVerMas.Image = ((System.Drawing.Image)(resources.GetObject("btnVerMas.Image")));
+            this.btnVerMas.MinimumWidth = 40;
+            this.btnVerMas.Name = "btnVerMas";
+            this.btnVerMas.ReadOnly = true;
+            this.btnVerMas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnVerMas.ToolTipText = "Ver más detalles";
+            this.btnVerMas.Width = 40;
             // 
             // pnlHeader
             // 
@@ -307,7 +372,7 @@
             this.pxbAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pxbAgregar.TabIndex = 14;
             this.pxbAgregar.TabStop = false;
-            this.toolTip1.SetToolTip(this.pxbAgregar, "Limpiar filtros");
+            this.toolTip1.SetToolTip(this.pxbAgregar, "Agregar Artículo");
             this.pxbAgregar.Click += new System.EventHandler(this.pxbAgregar_Click);
             // 
             // picBoxLimpiar
@@ -316,10 +381,10 @@
             this.picBoxLimpiar.BackColor = System.Drawing.Color.Transparent;
             this.picBoxLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBoxLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxLimpiar.Image")));
-            this.picBoxLimpiar.Location = new System.Drawing.Point(570, 33);
+            this.picBoxLimpiar.Location = new System.Drawing.Point(570, 30);
             this.picBoxLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.picBoxLimpiar.Name = "picBoxLimpiar";
-            this.picBoxLimpiar.Size = new System.Drawing.Size(32, 32);
+            this.picBoxLimpiar.Size = new System.Drawing.Size(35, 35);
             this.picBoxLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picBoxLimpiar.TabIndex = 9;
             this.picBoxLimpiar.TabStop = false;
@@ -359,6 +424,7 @@
             this.txtBoxFiltroAvanzado.TrailingIcon = null;
             this.txtBoxFiltroAvanzado.UseSystemPasswordChar = false;
             this.txtBoxFiltroAvanzado.Visible = false;
+            this.txtBoxFiltroAvanzado.TextChanged += new System.EventHandler(this.txtBoxFiltroAvanzado_TextChanged);
             // 
             // lblErrorCriterio
             // 
@@ -738,63 +804,6 @@
             this.timerHora.Enabled = true;
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
-            // btnEditar
-            // 
-            this.btnEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditar.DefaultCellStyle = dataGridViewCellStyle1;
-            this.btnEditar.FillWeight = 118.7817F;
-            this.btnEditar.HeaderText = "";
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.MinimumWidth = 40;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.ReadOnly = true;
-            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnEditar.Width = 40;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.btnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.btnEliminar.HeaderText = "";
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.MinimumWidth = 40;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.ReadOnly = true;
-            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnEliminar.Width = 40;
-            // 
-            // btnVerMas
-            // 
-            this.btnVerMas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.btnVerMas.DefaultCellStyle = dataGridViewCellStyle3;
-            this.btnVerMas.FillWeight = 81.21828F;
-            this.btnVerMas.HeaderText = "";
-            this.btnVerMas.Image = ((System.Drawing.Image)(resources.GetObject("btnVerMas.Image")));
-            this.btnVerMas.MinimumWidth = 40;
-            this.btnVerMas.Name = "btnVerMas";
-            this.btnVerMas.ReadOnly = true;
-            this.btnVerMas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnVerMas.Width = 40;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -803,12 +812,14 @@
             this.Controls.Add(this.materialTabControl1);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(0, 64, 0, 0);
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.pnlArticulos.ResumeLayout(false);
