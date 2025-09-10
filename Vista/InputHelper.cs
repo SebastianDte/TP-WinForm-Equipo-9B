@@ -1,5 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Vista
@@ -70,6 +71,11 @@ namespace Vista
             return true;
         }
 
+        //Quita los errores de los Texbox
+        public static void QuitarErrorAlEscribir(MaterialTextBox2 txtBox)
+        {
+            txtBox.TextChanged += (s, e) => txtBox.SetErrorState(false);
+        }
         public static void LimpiarFiltros(MaterialComboBox cboCampo, MaterialComboBox cboCriterio, MaterialTextBox2 txtFiltro,EventHandler eventoCambio = null)
         {
             if (eventoCambio != null)
@@ -85,6 +91,40 @@ namespace Vista
 
             cboCampo.Refresh();
             cboCriterio.Refresh();
+        }
+
+        public static bool ValidarUrlImagen(MaterialTextBox2 txtBox, int minLength = 1, int maxLength = 1000)
+        {
+            if (EstaVacio(txtBox, "El campo URL está vacío"))
+                return false;
+
+            if (LongitudMaxima(txtBox, maxLength) || LongitudMinima(txtBox, minLength))
+                return false;
+
+            txtBox.SetErrorState(false);          
+            txtBox.Hint = "URL de la imagen";     
+            return true;
+        }
+
+        public static void FormatearPrecio(MaterialTextBox2 txt)
+        {
+            InputHelper.QuitarErrorAlEscribir(txt);
+            txt.Hint = "Precio del Artículo";
+
+            int pos = txt.SelectionStart;
+            string texto = txt.Text;
+
+            string soloNumeros = new string(texto.Where(c => char.IsDigit(c)).ToArray());
+
+            if (string.IsNullOrEmpty(soloNumeros))
+            {
+                txt.Text = "";
+                return;
+            }
+
+            decimal valor = decimal.Parse(soloNumeros) / 100m;
+            txt.Text = valor.ToString("N2", new System.Globalization.CultureInfo("es-AR"));
+            txt.SelectionStart = txt.Text.Length;
         }
     }
 }

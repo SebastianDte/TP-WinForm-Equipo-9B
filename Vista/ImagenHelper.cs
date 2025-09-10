@@ -94,5 +94,36 @@ namespace Vista
                     : "Sin imágenes";
             }
         }
+
+        public void RefrescarUI(PictureBox pctBox, List<Imagen> imagenes, PictureBox picAtras, PictureBox picSiguiente, Label lblIndice)
+        {
+            Mostrar(pctBox, imagenes);
+
+            // Lógica para habilitar/deshabilitar los "botones" creados con PictureBox
+            if (imagenes == null || imagenes.Count <= 1)
+            {
+                picAtras.Enabled = false;
+                picSiguiente.Enabled = false;
+            }
+            else
+            {
+                picAtras.Enabled = IndiceActual > 0;
+                picSiguiente.Enabled = IndiceActual < imagenes.Count - 1;
+            }
+
+            if (lblIndice != null)
+            {
+                lblIndice.Text = (imagenes != null && imagenes.Count > 0)
+                    ? $"Imagen {IndiceActual + 1} / {imagenes.Count}"
+                    : "Sin imágenes";
+            }
+        }
+
+        public void IrAIndice(List<Imagen> imagenes, int indice)
+        {
+            if (imagenes != null && indice >= 0 && indice < imagenes.Count)
+                IndiceActual = indice;
+        }
+
     }
 }

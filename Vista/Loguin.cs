@@ -18,26 +18,48 @@ namespace Vista
         public Loguin()
         {
             InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            ConfigurarMaterialSkin();
+
+            this.AcceptButton = btnAceptarLoguin;
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text.Trim();
+           
+            bool valido = InputHelper.Validar(
+                txtNombre,
+                minLength: 4,
+                maxLength: 20  
+            );
 
-            if (string.IsNullOrEmpty(nombre) || nombre.Length < 4)
+            if (!valido)
             {
-                txtNombre.Hint = "Ingrese un nombre válido (mínimo 4 caracteres)";
+                txtNombre.Hint = "Ingrese un nombre válido (4 a 20 caracteres)";
                 return;
             }
-
-            NombreUsuario = nombre;
+            
+            NombreUsuario = txtNombre.Text.Trim();
             this.DialogResult = DialogResult.OK;
+
         }
 
-       
+        private void ConfigurarMaterialSkin()
+        {
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue700,
+                TextShade.WHITE
+            );
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            InputHelper.QuitarErrorAlEscribir(txtNombre);
+        }
     }
 }

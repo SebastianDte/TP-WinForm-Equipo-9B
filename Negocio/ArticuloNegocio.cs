@@ -8,9 +8,10 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        AccesoDato datos = new AccesoDato();
+        
         public List<Articulo> lista()
         {
+            AccesoDato datos = new AccesoDato();
             List<Articulo> lista = new List<Articulo>();
             try
             {
@@ -163,10 +164,15 @@ namespace Negocio
             {
                 throw;
             }
+            finally
+            {
+                datos.cerrarConexion(); 
+            }
         }
 
         public int agregar(Articulo nuevo)
         {
+            AccesoDato datos = new AccesoDato();
             try
             {
                 datos.setearConsulta("INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) " +
@@ -193,6 +199,7 @@ namespace Negocio
 
         public void eliminar(int id)
         {
+            AccesoDato datos = new AccesoDato();
             try
             {
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
@@ -212,6 +219,63 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void Modificar(Articulo articulo)
+        {
+            AccesoDato datos = new AccesoDato();
+            try
+            {
+                datos.setearConsulta("UPDATE ARTICULOS SET Codigo=@Codigo, Nombre=@Nombre, Descripcion=@Descripcion, " +
+                                     "Precio=@Precio, IdMarca=@IdMarca, IdCategoria=@IdCategoria WHERE Id=@Id");
+                datos.setearParametro("@Codigo", articulo.codigo);
+                datos.setearParametro("@Nombre", articulo.nombre);
+                datos.setearParametro("@Descripcion", articulo.descripcion);
+                datos.setearParametro("@Precio", articulo.precio);
+                datos.setearParametro("@IdMarca", articulo.marca.id);
+                datos.setearParametro("@IdCategoria", articulo.categoria.id);
+                datos.setearParametro("@Id", articulo.id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void SincronizarImagenes(Articulo articulo, List<Imagen> imagenesEnMemoria)
+        {
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+            List<Imagen> imagenesEnDB = imgNegocio.listarImagenes(articulo.id);
+
+            // Agregar o modificar
+            foreach (var img in imagenesEnMemoria)
+            {
+                if (img.id == 0) // nueva
+                {
+                    img.idArticulo = articulo.id;
+                    imgNegocio.AgregarImagen(img);
+                }
+                else // ya existía, revisar si cambió
+                {
+                    var imgDB = imagenesEnDB.FirstOrDefault(i => i.id == img.id);
+                    if (imgDB != null && imgDB.imageUrl != img.imageUrl)
+                        imgNegocio.ModificarImagen(img);
+                }
+            }
+
+            // Eliminar las que no están en memoria
+            foreach (var imgDB in imagenesEnDB)
+            {
+                if (!imagenesEnMemoria.Any(i => i.id == imgDB.id))
+                    imgNegocio.EliminarImagen(imgDB.id);
+            }
+        }
+
 
     }
 }
