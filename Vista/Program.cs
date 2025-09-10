@@ -23,6 +23,10 @@ namespace Vista
                 Application.Run(new Form1(login.NombreUsuario));
             }
 
+            //Application.Run(new frmAyuda());
+
+
+
 
         }
     }

@@ -244,6 +244,7 @@ namespace Vista
         {
 
             CargarFormularioEnTab(tabPage2, new frmCategorias());
+            CargarFormularioEnTab(tabPage4, new frmAyuda());
 
         }
         private void CargarFormularioEnTab(TabPage tab, Form form)
@@ -489,5 +490,7 @@ namespace Vista
         {
             InputHelper.QuitarErrorAlEscribir(txtBoxFiltroAvanzado);
         }
+
+    
     }
 }

@@ -398,7 +398,7 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSiguiente.BackColor = System.Drawing.Color.Transparent;
             this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));

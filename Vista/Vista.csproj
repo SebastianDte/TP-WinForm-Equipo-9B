@@ -68,6 +68,12 @@
     <Compile Include="frmAgregarMarca.Designer.cs">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAyuda.Designer.cs">
+      <DependentUpon>frmAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarMarca.resx">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAyuda.resx">
+      <DependentUpon>frmAyuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
@@ -149,6 +158,35 @@
       <Project>{93be8623-532c-4211-8bd6-008f6ba3233a}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\img\addImgbotones.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\AgregarArticuloSeccion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\ArticulosSeccion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\Bienvenida.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\checkFiltroAvanzado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\FiltroavanzadoBotonclean.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\footer Articulos.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\Menú.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\manual.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
