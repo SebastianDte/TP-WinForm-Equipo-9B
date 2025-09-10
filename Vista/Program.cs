@@ -20,7 +20,9 @@ namespace Vista
 
             if (login.ShowDialog() == DialogResult.OK)
             {
+             feature/sebastian
                 Application.Run(new Form1(login.NombreUsuario));
+
             }
 
 
