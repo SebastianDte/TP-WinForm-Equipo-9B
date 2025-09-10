@@ -47,30 +47,30 @@
             this.lblCodigo = new MaterialSkin.Controls.MaterialLabel();
             this.pnlBaseDrecho = new System.Windows.Forms.Panel();
             this.pnlPixtureBox = new System.Windows.Forms.Panel();
-            this.btnAgregarImagen = new System.Windows.Forms.PictureBox();
+            this.btnSiguiente = new System.Windows.Forms.PictureBox();
             this.lblIndice = new MaterialSkin.Controls.MaterialLabel();
+            this.btnAtras = new System.Windows.Forms.PictureBox();
             this.pxbImagen = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEliminarImagen = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImagen = new System.Windows.Forms.PictureBox();
             this.txtUrlImagen = new MaterialSkin.Controls.MaterialTextBox2();
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
-            this.btnAtras = new System.Windows.Forms.PictureBox();
-            this.btnSiguiente = new System.Windows.Forms.PictureBox();
-            this.btnEliminarImagen = new System.Windows.Forms.PictureBox();
             this.pnlBase.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlBaseIzquierdo.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.pnlBaseDrecho.SuspendLayout();
             this.pnlPixtureBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).BeginInit();
+            this.pnlBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBase
@@ -206,6 +206,7 @@
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNombre.TrailingIcon = null;
             this.txtNombre.UseSystemPasswordChar = false;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblPrecio
             // 
@@ -247,6 +248,7 @@
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPrecio.TrailingIcon = null;
             this.txtPrecio.UseSystemPasswordChar = false;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // lblCategoria
             // 
@@ -343,6 +345,7 @@
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCodigo.TrailingIcon = null;
             this.txtCodigo.UseSystemPasswordChar = false;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // lblMarca
             // 
@@ -391,19 +394,19 @@
             this.pnlPixtureBox.Size = new System.Drawing.Size(456, 428);
             this.pnlPixtureBox.TabIndex = 138;
             // 
-            // btnAgregarImagen
+            // btnSiguiente
             // 
-            this.btnAgregarImagen.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarImagen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAgregarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.Image")));
-            this.btnAgregarImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.InitialImage")));
-            this.btnAgregarImagen.Location = new System.Drawing.Point(424, 0);
-            this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.Size = new System.Drawing.Size(32, 53);
-            this.btnAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnAgregarImagen.TabIndex = 138;
-            this.btnAgregarImagen.TabStop = false;
-            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSiguiente.BackColor = System.Drawing.Color.Transparent;
+            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
+            this.btnSiguiente.Location = new System.Drawing.Point(421, 209);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(32, 32);
+            this.btnSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnSiguiente.TabIndex = 141;
+            this.btnSiguiente.TabStop = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // lblIndice
             // 
@@ -414,9 +417,22 @@
             this.lblIndice.Location = new System.Drawing.Point(376, 0);
             this.lblIndice.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblIndice.Name = "lblIndice";
-            this.lblIndice.Size = new System.Drawing.Size(77, 19);
+            this.lblIndice.Size = new System.Drawing.Size(1, 0);
             this.lblIndice.TabIndex = 135;
-            this.lblIndice.Text = "Url Imagen";
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.Location = new System.Drawing.Point(3, 209);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(32, 32);
+            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnAtras.TabIndex = 136;
+            this.btnAtras.TabStop = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // pxbImagen
             // 
@@ -438,6 +454,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(456, 53);
             this.panel1.TabIndex = 140;
+            // 
+            // btnEliminarImagen
+            // 
+            this.btnEliminarImagen.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarImagen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEliminarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.Image")));
+            this.btnEliminarImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.InitialImage")));
+            this.btnEliminarImagen.Location = new System.Drawing.Point(386, 0);
+            this.btnEliminarImagen.Name = "btnEliminarImagen";
+            this.btnEliminarImagen.Size = new System.Drawing.Size(35, 53);
+            this.btnEliminarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnEliminarImagen.TabIndex = 139;
+            this.btnEliminarImagen.TabStop = false;
+            this.btnEliminarImagen.Click += new System.EventHandler(this.btnEliminarImagen_Click);
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarImagen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAgregarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.Image")));
+            this.btnAgregarImagen.InitialImage = null;
+            this.btnAgregarImagen.Location = new System.Drawing.Point(421, 0);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(35, 53);
+            this.btnAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnAgregarImagen.TabIndex = 138;
+            this.btnAgregarImagen.TabStop = false;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
             // txtUrlImagen
             // 
@@ -468,6 +514,7 @@
             this.txtUrlImagen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUrlImagen.TrailingIcon = null;
             this.txtUrlImagen.UseSystemPasswordChar = false;
+            this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             // 
             // pnlBotones
             // 
@@ -522,46 +569,6 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // btnAtras
-            // 
-            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
-            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
-            this.btnAtras.Location = new System.Drawing.Point(3, 209);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(32, 32);
-            this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnAtras.TabIndex = 136;
-            this.btnAtras.TabStop = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSiguiente.BackColor = System.Drawing.Color.Transparent;
-            this.btnSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.Image")));
-            this.btnSiguiente.Location = new System.Drawing.Point(421, 209);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(32, 32);
-            this.btnSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnSiguiente.TabIndex = 141;
-            this.btnSiguiente.TabStop = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
-            // 
-            // btnEliminarImagen
-            // 
-            this.btnEliminarImagen.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminarImagen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEliminarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.Image")));
-            this.btnEliminarImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.InitialImage")));
-            this.btnEliminarImagen.Location = new System.Drawing.Point(392, 0);
-            this.btnEliminarImagen.Name = "btnEliminarImagen";
-            this.btnEliminarImagen.Size = new System.Drawing.Size(32, 53);
-            this.btnEliminarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnEliminarImagen.TabIndex = 139;
-            this.btnEliminarImagen.TabStop = false;
-            this.btnEliminarImagen.Click += new System.EventHandler(this.btnEliminarImagen_Click);
-            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,15 +587,15 @@
             this.pnlBaseDrecho.ResumeLayout(false);
             this.pnlPixtureBox.ResumeLayout(false);
             this.pnlPixtureBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.pnlBotones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAtras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).EndInit();
             this.ResumeLayout(false);
 
         }

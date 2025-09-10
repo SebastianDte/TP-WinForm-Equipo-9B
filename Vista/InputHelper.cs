@@ -70,8 +70,6 @@ namespace Vista
             return true;
         }
 
-        
-
         //Quita los errores de los Texbox
         public static void QuitarErrorAlEscribir(MaterialTextBox2 txtBox)
         {
@@ -92,6 +90,19 @@ namespace Vista
 
             cboCampo.Refresh();
             cboCriterio.Refresh();
+        }
+
+        public static bool ValidarUrlImagen(MaterialTextBox2 txtBox, int minLength = 1, int maxLength = 1000)
+        {
+            if (EstaVacio(txtBox, "El campo URL está vacío"))
+                return false;
+
+            if (LongitudMaxima(txtBox, maxLength) || LongitudMinima(txtBox, minLength))
+                return false;
+
+            txtBox.SetErrorState(false);          
+            txtBox.Hint = "URL de la imagen";     
+            return true;
         }
     }
 }

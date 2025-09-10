@@ -99,7 +99,7 @@ namespace Vista
         {
             Mostrar(pctBox, imagenes);
 
-            // Lógica para habilitar/deshabilitar los "botones" hechos con PictureBox
+            // Lógica para habilitar/deshabilitar los "botones" creados con PictureBox
             if (imagenes == null || imagenes.Count <= 1)
             {
                 picAtras.Enabled = false;

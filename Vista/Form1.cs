@@ -125,6 +125,11 @@ namespace Vista
                 Articulo seleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
                 Eliminar(seleccionado);
             }
+            else if (dgvArticulos.Columns[e.ColumnIndex].Name == "btnEditar")
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
+                Modificar(seleccionado);
+            }
         }
 
         private void dgvArticulos_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -300,7 +305,7 @@ namespace Vista
             agregar.FormBorderStyle = FormBorderStyle.None;
             agregar.Dock = DockStyle.Fill;
 
-            // Asignamos el evento Cancelado
+            
             agregar.Cancelado += () =>
             {
                 pnlAgregarArticulo.Controls.Clear();
@@ -314,19 +319,58 @@ namespace Vista
                 pnlAgregarArticulo.Visible = false;
                 pnlArticulos.Visible = true;
 
-                // Refrescamos la lista de artículos
+               
                 CargarArticulos();
             };
 
 
-            // Lo agregamos al panel
+           
             pnlAgregarArticulo.Controls.Add(agregar);
 
-            // Mostramos el panel y el form
+            
             pnlAgregarArticulo.Visible = true;
             agregar.Show();
             pnlAgregarArticulo.BringToFront();
         }
+
+        private void Modificar(Articulo seleccionado)
+        {
+            pnlArticulos.Visible = false;
+            pnlAgregarArticulo.Controls.Clear();
+
+            pnlAgregarArticulo.Parent = tabPage1;
+            pnlAgregarArticulo.Dock = DockStyle.Fill;
+
+            var modificar = new frmAgregarArticulo();
+            modificar.TopLevel = false;
+            modificar.FormBorderStyle = FormBorderStyle.None;
+            modificar.Dock = DockStyle.Fill;
+
+            // Cargamos el artículo seleccionado
+            modificar.CargarArticulo(seleccionado);
+
+            modificar.Cancelado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+            };
+
+            modificar.ArticuloAgregado += () =>
+            {
+                pnlAgregarArticulo.Controls.Clear();
+                pnlAgregarArticulo.Visible = false;
+                pnlArticulos.Visible = true;
+
+                CargarArticulos();
+            };
+
+            pnlAgregarArticulo.Controls.Add(modificar);
+            pnlAgregarArticulo.Visible = true;
+            modificar.Show();
+            pnlAgregarArticulo.BringToFront();
+        }
+
 
 
         //Metodo auxiliares-------------------------------------------------------------------------------------------------
