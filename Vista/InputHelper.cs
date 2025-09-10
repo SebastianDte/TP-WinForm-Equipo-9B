@@ -1,5 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Vista
@@ -103,6 +104,27 @@ namespace Vista
             txtBox.SetErrorState(false);          
             txtBox.Hint = "URL de la imagen";     
             return true;
+        }
+
+        public static void FormatearPrecio(MaterialTextBox2 txt)
+        {
+            InputHelper.QuitarErrorAlEscribir(txt);
+            txt.Hint = "Precio del Artículo";
+
+            int pos = txt.SelectionStart;
+            string texto = txt.Text;
+
+            string soloNumeros = new string(texto.Where(c => char.IsDigit(c)).ToArray());
+
+            if (string.IsNullOrEmpty(soloNumeros))
+            {
+                txt.Text = "";
+                return;
+            }
+
+            decimal valor = decimal.Parse(soloNumeros) / 100m;
+            txt.Text = valor.ToString("N2", new System.Globalization.CultureInfo("es-AR"));
+            txt.SelectionStart = txt.Text.Length;
         }
     }
 }

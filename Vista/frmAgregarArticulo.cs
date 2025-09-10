@@ -74,8 +74,8 @@ namespace Vista
             if (!InputHelper.Validar(txtCodigo, minLength: 3, maxLength: 20))
                 error = true;
 
-            if (!InputHelper.Validar(txtPrecio, minLength: 3, maxLength: 10, soloNumeros: true))
-                error = true;
+            if (!TryParsePrecio(out decimal precio))
+                return;
 
             // validación para el multiline
             if (txtDescripcion.Text.Length > 200)
@@ -90,8 +90,8 @@ namespace Vista
             // --- Asigna los datos ---
             articulo.nombre = txtNombre.Text.Trim();
             articulo.descripcion = txtDescripcion.Text.Trim();
-            articulo.codigo = txtCodigo.Text.Trim();
-            articulo.precio = decimal.Parse(txtPrecio.Text);
+            
+            articulo.precio = precio;
             articulo.marca = (Marca)cboMarca.SelectedItem;
             articulo.categoria = (Categoria)cboCategoria.SelectedItem;
 
@@ -125,36 +125,27 @@ namespace Vista
         
         }
 
-
         public void CargarArticulo(Articulo articuloExistente)
         {
             articulo = articuloExistente;
 
             txtNombre.Text = articulo.nombre;
             txtCodigo.Text = articulo.codigo;
-            txtPrecio.Text = articulo.precio.ToString();
+            txtPrecio.Text = articulo.precio.ToString("C2");
             txtDescripcion.Text = articulo.descripcion;
             cboMarca.SelectedItem = articulo.marca;
             cboCategoria.SelectedItem = articulo.categoria;
 
-            // Copiamos las imágenes a memoria
+          
             imagenesEnMemoria = new List<Imagen>(articulo.Imagenes);
 
-            // Refrescar UI para la primera imagen
+           
             if (imagenesEnMemoria.Count > 0)
             {
                 imagenHelper.IrAIndice(imagenesEnMemoria, 0);
                 imagenHelper.RefrescarUI(pxbImagen, imagenesEnMemoria, btnAtras, btnSiguiente, lblIndice);
             }
         }
-
-
-
-
-
-
-
-
 
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
@@ -210,29 +201,54 @@ namespace Vista
                 TextShade.WHITE
             );
         }
-
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             InputHelper.QuitarErrorAlEscribir(txtNombre);
             txtNombre.Hint = "Nombre del artículo";
         }
-
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
-            InputHelper.QuitarErrorAlEscribir(txtPrecio);
-            txtPrecio.Hint = "Precio del Artículo";
+            InputHelper.FormatearPrecio(txtPrecio);
         }
-
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
             InputHelper.QuitarErrorAlEscribir(txtCodigo);
             txtCodigo.Hint = "Código del Artículo";
         }
-
         private void txtUrlImagen_TextChanged(object sender, EventArgs e)
         {
             InputHelper.QuitarErrorAlEscribir(txtUrlImagen);
             txtUrlImagen.Hint = "URL de la imagen";
         }
+        private bool TryParsePrecio(out decimal precio)
+        {
+            precio = 0;
+
+            if (string.IsNullOrWhiteSpace(txtPrecio.Text))
+            {
+                txtPrecio.SetErrorState(true);
+                txtPrecio.Hint = "Ingrese un precio válido mayor a 0";
+                return false;
+            }
+
+            bool parseOk = decimal.TryParse(txtPrecio.Text,
+                              System.Globalization.NumberStyles.Currency,
+                              new System.Globalization.CultureInfo("es-AR"),
+                              out precio);
+
+            if (!parseOk || precio <= 0)
+            {
+                txtPrecio.SetErrorState(true);
+                txtPrecio.Hint = "Ingrese un precio válido mayor a 0";
+                return false;
+            }
+
+            return true;
+        }
+
+        
+
+
     }
+
 }

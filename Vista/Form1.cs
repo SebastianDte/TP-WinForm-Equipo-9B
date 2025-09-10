@@ -346,7 +346,7 @@ namespace Vista
             modificar.FormBorderStyle = FormBorderStyle.None;
             modificar.Dock = DockStyle.Fill;
 
-            // Cargamos el artículo seleccionado
+            
             modificar.CargarArticulo(seleccionado);
 
             modificar.Cancelado += () =>
@@ -424,7 +424,8 @@ namespace Vista
             dgvArticulos.Columns["id"].Visible = false;
             dgvArticulos.Columns["descripcion"].Visible = false;
             dgvArticulos.Columns["codigo"].Visible = false;
-
+            dgvArticulos.Columns["precio"].Visible = false;
+            
             //Esto es para mandar los botones al final de la DGV
             dgvArticulos.Columns["btnEditar"].DisplayIndex = dgvArticulos.Columns.Count - 1;
             dgvArticulos.Columns["btnEliminar"].DisplayIndex = dgvArticulos.Columns.Count - 1;

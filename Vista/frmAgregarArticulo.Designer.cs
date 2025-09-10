@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregarArticulo));
             this.pnlBase = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -58,6 +59,7 @@
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
+            this.toolTipAgregar = new System.Windows.Forms.ToolTip(this.components);
             this.pnlBase.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlBaseIzquierdo.SuspendLayout();
@@ -406,6 +408,7 @@
             this.btnSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnSiguiente.TabIndex = 141;
             this.btnSiguiente.TabStop = false;
+            this.toolTipAgregar.SetToolTip(this.btnSiguiente, "Siguiente");
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // lblIndice
@@ -432,6 +435,7 @@
             this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnAtras.TabIndex = 136;
             this.btnAtras.TabStop = false;
+            this.toolTipAgregar.SetToolTip(this.btnAtras, "Atras");
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // pxbImagen
@@ -468,6 +472,7 @@
             this.btnEliminarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnEliminarImagen.TabIndex = 139;
             this.btnEliminarImagen.TabStop = false;
+            this.toolTipAgregar.SetToolTip(this.btnEliminarImagen, "Quitar Imagen");
             this.btnEliminarImagen.Click += new System.EventHandler(this.btnEliminarImagen_Click);
             // 
             // btnAgregarImagen
@@ -483,6 +488,7 @@
             this.btnAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnAgregarImagen.TabIndex = 138;
             this.btnAgregarImagen.TabStop = false;
+            this.toolTipAgregar.SetToolTip(this.btnAgregarImagen, "Agregar Imagen");
             this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
             // txtUrlImagen
@@ -543,6 +549,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(96, 36);
             this.btnCancelar.TabIndex = 140;
             this.btnCancelar.Text = "Cancelar";
+            this.toolTipAgregar.SetToolTip(this.btnCancelar, "Cancelar cambios");
             this.btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnCancelar.UseAccentColor = false;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -564,6 +571,7 @@
             this.btnAceptar.Size = new System.Drawing.Size(86, 36);
             this.btnAceptar.TabIndex = 139;
             this.btnAceptar.Text = "Aceptar";
+            this.toolTipAgregar.SetToolTip(this.btnAceptar, "Confirmar Cambios");
             this.btnAceptar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAceptar.UseAccentColor = false;
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -631,5 +639,6 @@
         private System.Windows.Forms.PictureBox btnSiguiente;
         private System.Windows.Forms.PictureBox btnAtras;
         private System.Windows.Forms.PictureBox btnEliminarImagen;
+        private System.Windows.Forms.ToolTip toolTipAgregar;
     }
 }
