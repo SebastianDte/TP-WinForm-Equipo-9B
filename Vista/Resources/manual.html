@@ -17,34 +17,51 @@
             background-color: white;
             padding: 30px;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         h1, h2 {
             text-align: center;
             color: #2c3e50;
+            margin-bottom: 20px;
         }
 
         h3 {
             color: #34495e;
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         p {
             font-size: 15px;
             line-height: 1.7;
-            text-align: justify;
+            text-align: center;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
-            margin: 0 auto 20px auto;
+            margin: 10px auto 20px auto;
             text-align: center;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 15px;
         }
+
+        /* Para iconos al lado del texto en listas compatible con WebBrowser */
+        .inline-icon {
+            display: inline-block;
+        }
+
+            .inline-icon img {
+                width: 24px;
+                height: 24px;
+                vertical-align: middle;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
 
         .toc a {
             text-decoration: none;
@@ -76,6 +93,13 @@
             color: #555;
             margin-top: 5px;
             margin-bottom: 20px;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto 20px auto;
+            text-align: center;
         }
     </style>
 </head>
@@ -110,14 +134,7 @@
         <img src="img/Bienvenida.png" />
         <div class="caption">Pantalla de bienvenida</div>
 
-        <ul>
-            <li>Artículos</li>
-            <li>Marcas</li>
-            <li>Categorías</li>
-            <li>Ayuda</li>
-            <li>Acerca de</li>
-        </ul>
-
+        <h2>Menú</h2>
         <img src="img/Menú.png" />
         <div class="caption">Menú tipo hamburguesa</div>
 
@@ -127,11 +144,12 @@
         <h2 id="articulos">2. Gestión de Artículos</h2>
         <p>La sección de Artículos es el corazón de la aplicación. Aquí podrás ver todos tus productos en un panel central, donde se muestra de forma clara y ordenada cada artículo con su nombre, categoría, marca y precio.</p>
 
-        <p>Para cada artículo, tendrás opciones intuitivas para:</p>
+        <h3>Opciones por artículo</h3>
+        <p>Para cada artículo, tendrás opciones intuitivas:</p>
         <ul>
-            <li>Editar la información del producto.</li>
-            <li>Eliminar artículos que ya no necesites.</li>
-            <li>Ver más detalles y características del artículo.</li>
+            <li><span class="inline-icon">Editar la información del producto.<img src="img/editBrown.png" /></span></li>
+            <li><span class="inline-icon">Eliminar artículos.<img src="img/deleteRed.png" /></span></li>
+            <li><span class="inline-icon">Ver más detalles y características del artículo.<img src="img/vermas.png" /></span></li>
         </ul>
 
         <img src="img/ArticulosSeccion.png" />
@@ -139,10 +157,14 @@
 
         <p>La aplicación permite previsualizar las imágenes de cada artículo y recorrerlas fácilmente, ya sea que estén cargadas desde Internet o desde archivos locales.</p>
 
-        <p>Además, encontrarás herramientas de filtrado rápido y avanzado:</p>
+        <h2>Búsqueda de Artículos</h2>
+        <p>El sistema cuenta con un buscador rápido y un filtro avanzado.</p>
         <ul>
-            <li>Filtros rápidos.</li>
-            <li>Filtros avanzados activables con un simple Check, que permiten buscar por cualquier campo como nombre, categoría, marca o precio.</li>
+            <li>Filtro rápido: filtra por nombre de artículo.</li>
+            <li>
+                Filtro avanzado: se activa presionando el check de Filtrar; permite filtrar por campo y criterio.<br>
+                Limpiar entradas del filtro avanzado: <span class="inline-icon"><img src="img/clear.png" /></span>
+            </li>
         </ul>
 
         <img src="img/checkFiltroAvanzado.png" />
@@ -151,15 +173,31 @@
         <img src="img/FiltroavanzadoBotonclean.png" />
         <div class="caption">Botón para limpiar filtros</div>
 
+        <h2>Agregar Artículo</h2>
+        <p>Para agregar un artículo, haga clic en el ícono correspondiente:</p>
+        <ul>
+            <li><span class="inline-icon">Icono para agregar artículo.<img src="img/Agregararticulo.png" /></span></li>
+        </ul>
+
         <p>Al agregar un artículo, la aplicación gestiona automáticamente el formato de moneda argentina y valida los campos obligatorios, haciendo la carga de productos rápida y sin errores.</p>
 
         <img src="img/AgregarArticuloSeccion.png" />
         <div class="caption">Agregar un nuevo artículo</div>
 
-        <p>En la barra superior tienes la posibilidad de quitar una imagen o seguir agregando.</p>
+        <p>En la barra superior derecha tiene la posibilidad de agregar una imagen por URL:</p>
+        <ul>
+            <li><span class="inline-icon">Agregar imagen:<img src="img/addImagenUrl.png" /></span></li>
+            <li><span class="inline-icon">Quitar imagen:<img src="img/Borrar imagen.png" /></span></li>
+        </ul>
+
         <img src="img/addImgbotones.png" />
         <div class="caption">Botones de imagen superior</div>
 
+        <h2>Eliminar Artículo</h2>
+        <p>Debe tener en cuenta que la eliminación de un artículo es definitiva y no hay forma de recuperar el registro. Utilícelo con precaución; para su seguridad, el sistema le pedirá confirmar si realmente desea eliminar un registro.</p>
+        <img src="img/DeseaEliminar.png">
+
+        <h2>Footer</h2>
         <p>En la parte inferior de la sección, encontrarás un mensaje de bienvenida personalizado y la fecha y hora actual del sistema para que siempre sepas en qué momento estás trabajando.</p>
         <img src="img/footer Articulos.png" />
         <div class="caption">Mensaje de bienvenida y fecha/hora</div>
