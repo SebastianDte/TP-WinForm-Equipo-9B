@@ -100,5 +100,27 @@ namespace Vista
                 MessageBox.Show(ex.ToString());
             } 
         }
+
+
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Marca> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro.Length >= 2)
+            {
+                listaFiltrada = ListaMarca.FindAll(x => x.descripcion.ToLower().Contains(filtro.ToLower()));
+            }
+            else
+            {
+                listaFiltrada = ListaMarca;
+            }
+
+            dgvMarcas.DataSource = null;
+            dgvMarcas.DataSource = listaFiltrada;
+            dgvMarcas.Columns["Id"].Visible = false;
+
+        }
     }
 }
