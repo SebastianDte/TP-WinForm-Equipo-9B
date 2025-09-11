@@ -45,16 +45,23 @@ namespace Vista
                 {
                     marca = new Marca();
                 }
-                    
+
                 marca.descripcion = txtbDescripcion.Text;
-                
-                if ( marca.id != 0)
+
+                if (marca.id != 0)
                 {
                     negocio.modificar(marca);
                     MessageBox.Show("Marca modifiacada exitosamente.");
                 }
                 else
                 {
+                    
+                    if( string.IsNullOrEmpty(marca.descripcion))
+                    {
+                        MessageBox.Show("Debe ingresar el nombre de una marca.","Atención",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
                     negocio.agregar(marca);
                     MessageBox.Show("Marca agregada exitosamente.");
                 }
@@ -77,7 +84,6 @@ namespace Vista
                 {
                     txtbDescripcion.Text = marca.descripcion; 
                 }
-
 
             }
             catch (Exception ex)
