@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -244,7 +245,20 @@ namespace Vista
         {
 
             CargarFormularioEnTab(tabPage2, new frmCategorias());
+            InicializarWebBrowserEnTab(tabPage4, "manual.html");
+            InicializarWebBrowserEnTab(tabPage5, "info.html");
 
+        }
+        private void InicializarWebBrowserEnTab(TabPage tab, string nombreHtml)
+        {
+            WebBrowser webBrowser = new WebBrowser();
+            webBrowser.Dock = DockStyle.Fill;
+
+            string htmlPath = Path.Combine(Application.StartupPath, "Resources", nombreHtml);
+            webBrowser.Navigate(new Uri(htmlPath).AbsoluteUri);
+
+            tab.Controls.Clear();
+            tab.Controls.Add(webBrowser);
         }
         private void CargarFormularioEnTab(TabPage tab, Form form)
         {
@@ -489,5 +503,7 @@ namespace Vista
         {
             InputHelper.QuitarErrorAlEscribir(txtBoxFiltroAvanzado);
         }
+
+    
     }
 }

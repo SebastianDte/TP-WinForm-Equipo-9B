@@ -32,77 +32,76 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.lbFiltroRapido = new System.Windows.Forms.Label();
+            this.lblFiltro = new System.Windows.Forms.Label();
             this.dgvMarcas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAgregar.BackColor = System.Drawing.Color.Beige;
-            this.btnAgregar.Location = new System.Drawing.Point(393, 484);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(295, 393);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(146, 38);
-            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.Size = new System.Drawing.Size(100, 31);
+            this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.Beige;
-            this.btnEliminar.Location = new System.Drawing.Point(827, 484);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(619, 393);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(125, 38);
-            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Size = new System.Drawing.Size(100, 31);
+            this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // textBox1
+            // txtFiltro
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(393, 84);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(559, 22);
-            this.textBox1.TabIndex = 4;
+            this.txtFiltro.Location = new System.Drawing.Point(216, 79);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(558, 20);
+            this.txtFiltro.TabIndex = 1;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnModificar
             // 
-            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnModificar.BackColor = System.Drawing.Color.Beige;
-            this.btnModificar.Location = new System.Drawing.Point(606, 484);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Location = new System.Drawing.Point(457, 393);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(134, 38);
-            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Size = new System.Drawing.Size(100, 31);
+            this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // lbFiltroRapido
+            // lblFiltro
             // 
-            this.lbFiltroRapido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbFiltroRapido.AutoSize = true;
-            this.lbFiltroRapido.Location = new System.Drawing.Point(282, 84);
-            this.lbFiltroRapido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbFiltroRapido.Name = "lbFiltroRapido";
-            this.lbFiltroRapido.Size = new System.Drawing.Size(84, 16);
-            this.lbFiltroRapido.TabIndex = 7;
-            this.lbFiltroRapido.Tag = "";
-            this.lbFiltroRapido.Text = "Filtro Rapido";
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(128, 86);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(66, 13);
+            this.lblFiltro.TabIndex = 5;
+            this.lblFiltro.Tag = "";
+            this.lblFiltro.Text = "Filtro Rápido";
             // 
             // dgvMarcas
             // 
-            this.dgvMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMarcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMarcas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -116,7 +115,8 @@
             this.dgvMarcas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMarcas.Location = new System.Drawing.Point(393, 134);
+            this.dgvMarcas.Location = new System.Drawing.Point(216, 120);
+            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMarcas.MultiSelect = false;
             this.dgvMarcas.Name = "dgvMarcas";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -130,23 +130,22 @@
             this.dgvMarcas.RowHeadersWidth = 51;
             this.dgvMarcas.RowTemplate.Height = 24;
             this.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMarcas.Size = new System.Drawing.Size(559, 323);
-            this.dgvMarcas.TabIndex = 9;
+            this.dgvMarcas.Size = new System.Drawing.Size(558, 262);
+            this.dgvMarcas.TabIndex = 0;
             // 
             // frmMarcas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1324, 619);
+            this.ClientSize = new System.Drawing.Size(993, 503);
             this.Controls.Add(this.dgvMarcas);
-            this.Controls.Add(this.lbFiltroRapido);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1131, 632);
+            this.MinimumSize = new System.Drawing.Size(852, 521);
             this.Name = "frmMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcas";
@@ -160,9 +159,9 @@
         #endregion
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Label lbFiltroRapido;
+        private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.DataGridView dgvMarcas;
     }
 }
