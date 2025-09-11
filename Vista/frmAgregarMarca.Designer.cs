@@ -39,21 +39,19 @@
             this.lbDescripcionNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lbDescripcionNuevaMarca.AutoSize = true;
-            this.lbDescripcionNuevaMarca.Location = new System.Drawing.Point(3, 153);
-            this.lbDescripcionNuevaMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDescripcionNuevaMarca.Location = new System.Drawing.Point(2, 124);
             this.lbDescripcionNuevaMarca.Name = "lbDescripcionNuevaMarca";
-            this.lbDescripcionNuevaMarca.Size = new System.Drawing.Size(79, 16);
+            this.lbDescripcionNuevaMarca.Size = new System.Drawing.Size(44, 13);
             this.lbDescripcionNuevaMarca.TabIndex = 3;
-            this.lbDescripcionNuevaMarca.Text = "Descripcion";
+            this.lbDescripcionNuevaMarca.Text = "Nombre";
             // 
             // btnAceptarNuevaMarca
             // 
             this.btnAceptarNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAceptarNuevaMarca.BackColor = System.Drawing.Color.Beige;
-            this.btnAceptarNuevaMarca.Location = new System.Drawing.Point(90, 195);
-            this.btnAceptarNuevaMarca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptarNuevaMarca.Location = new System.Drawing.Point(68, 158);
             this.btnAceptarNuevaMarca.Name = "btnAceptarNuevaMarca";
-            this.btnAceptarNuevaMarca.Size = new System.Drawing.Size(95, 28);
+            this.btnAceptarNuevaMarca.Size = new System.Drawing.Size(71, 23);
             this.btnAceptarNuevaMarca.TabIndex = 6;
             this.btnAceptarNuevaMarca.Text = "Aceptar";
             this.btnAceptarNuevaMarca.UseVisualStyleBackColor = false;
@@ -63,10 +61,9 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.Beige;
-            this.btnCancelar.Location = new System.Drawing.Point(410, 195);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(308, 158);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -74,24 +71,24 @@
             // 
             // txtbDescripcion
             // 
-            this.txtbDescripcion.Location = new System.Drawing.Point(90, 153);
+            this.txtbDescripcion.Location = new System.Drawing.Point(68, 124);
+            this.txtbDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbDescripcion.Name = "txtbDescripcion";
-            this.txtbDescripcion.Size = new System.Drawing.Size(420, 22);
+            this.txtbDescripcion.Size = new System.Drawing.Size(316, 20);
             this.txtbDescripcion.TabIndex = 9;
             // 
             // frmAgregarMarca
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(575, 288);
+            this.ClientSize = new System.Drawing.Size(431, 234);
             this.Controls.Add(this.txtbDescripcion);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptarNuevaMarca);
             this.Controls.Add(this.lbDescripcionNuevaMarca);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(593, 595);
+            this.MaximumSize = new System.Drawing.Size(449, 491);
             this.Name = "frmAgregarMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarMarcas";
