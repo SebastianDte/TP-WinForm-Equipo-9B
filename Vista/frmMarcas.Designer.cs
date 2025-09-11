@@ -32,9 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.lbFiltroRapido = new System.Windows.Forms.Label();
+            this.lblFiltro = new System.Windows.Forms.Label();
             this.dgvMarcas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.SuspendLayout();
@@ -62,15 +62,16 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // textBox1
+            // txtFiltro
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(295, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(420, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtFiltro.Location = new System.Drawing.Point(295, 72);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(409, 20);
+            this.txtFiltro.TabIndex = 4;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnModificar
             // 
@@ -84,17 +85,17 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // lbFiltroRapido
+            // lblFiltro
             // 
-            this.lbFiltroRapido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbFiltroRapido.AutoSize = true;
-            this.lbFiltroRapido.Location = new System.Drawing.Point(212, 68);
-            this.lbFiltroRapido.Name = "lbFiltroRapido";
-            this.lbFiltroRapido.Size = new System.Drawing.Size(66, 13);
-            this.lbFiltroRapido.TabIndex = 7;
-            this.lbFiltroRapido.Tag = "";
-            this.lbFiltroRapido.Text = "Filtro Rapido";
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(213, 75);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(66, 13);
+            this.lblFiltro.TabIndex = 7;
+            this.lblFiltro.Tag = "";
+            this.lblFiltro.Text = "Filtro Rápido";
             // 
             // dgvMarcas
             // 
@@ -113,7 +114,7 @@
             this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMarcas.Location = new System.Drawing.Point(295, 109);
-            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMarcas.MultiSelect = false;
             this.dgvMarcas.Name = "dgvMarcas";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -137,9 +138,9 @@
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(993, 503);
             this.Controls.Add(this.dgvMarcas);
-            this.Controls.Add(this.lbFiltroRapido);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.MinimumSize = new System.Drawing.Size(852, 521);
@@ -156,9 +157,9 @@
         #endregion
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Label lbFiltroRapido;
+        private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.DataGridView dgvMarcas;
     }
 }
