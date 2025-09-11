@@ -18,15 +18,13 @@ namespace Vista
             Application.SetCompatibleTextRenderingDefault(false);
             Loguin login = new Loguin();
 
+
             if (login.ShowDialog() == DialogResult.OK)
             {
              
                 Application.Run(new Form1(login.NombreUsuario));
 
             }
-
-            //Application.Run(new frmAyuda());
-
 
 
 
