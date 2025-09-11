@@ -68,12 +68,6 @@
     <Compile Include="frmAgregarMarca.Designer.cs">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAyuda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAyuda.Designer.cs">
-      <DependentUpon>frmAyuda.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarMarca.resx">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAyuda.resx">
-      <DependentUpon>frmAyuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
@@ -206,6 +197,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\img\vermas.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\info.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\manual.html">
