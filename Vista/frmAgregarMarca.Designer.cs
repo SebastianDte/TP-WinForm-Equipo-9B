@@ -43,7 +43,8 @@
             this.txtbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbDescripcion.HideSelection = true;
             this.txtbDescripcion.LeadingIcon = null;
-            this.txtbDescripcion.Location = new System.Drawing.Point(121, 127);
+            this.txtbDescripcion.Location = new System.Drawing.Point(91, 103);
+            this.txtbDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbDescripcion.MaxLength = 32767;
             this.txtbDescripcion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtbDescripcion.Name = "txtbDescripcion";
@@ -55,7 +56,7 @@
             this.txtbDescripcion.SelectionLength = 0;
             this.txtbDescripcion.SelectionStart = 0;
             this.txtbDescripcion.ShortcutsEnabled = true;
-            this.txtbDescripcion.Size = new System.Drawing.Size(349, 48);
+            this.txtbDescripcion.Size = new System.Drawing.Size(262, 48);
             this.txtbDescripcion.TabIndex = 10;
             this.txtbDescripcion.TabStop = false;
             this.txtbDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -67,7 +68,8 @@
             this.lbDescripcionNuevaMarca.AutoSize = true;
             this.lbDescripcionNuevaMarca.Depth = 0;
             this.lbDescripcionNuevaMarca.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbDescripcionNuevaMarca.Location = new System.Drawing.Point(33, 140);
+            this.lbDescripcionNuevaMarca.Location = new System.Drawing.Point(25, 114);
+            this.lbDescripcionNuevaMarca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDescripcionNuevaMarca.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbDescripcionNuevaMarca.Name = "lbDescripcionNuevaMarca";
             this.lbDescripcionNuevaMarca.Size = new System.Drawing.Size(57, 19);
@@ -76,13 +78,15 @@
             // 
             // btnAceptarNuevaMarca
             // 
+            this.btnAceptarNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarNuevaMarca.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAceptarNuevaMarca.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnAceptarNuevaMarca.Depth = 0;
             this.btnAceptarNuevaMarca.HighEmphasis = true;
             this.btnAceptarNuevaMarca.Icon = null;
-            this.btnAceptarNuevaMarca.Location = new System.Drawing.Point(121, 210);
-            this.btnAceptarNuevaMarca.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAceptarNuevaMarca.Location = new System.Drawing.Point(91, 171);
+            this.btnAceptarNuevaMarca.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnAceptarNuevaMarca.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAceptarNuevaMarca.Name = "btnAceptarNuevaMarca";
             this.btnAceptarNuevaMarca.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -96,13 +100,15 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnCancelar.Depth = 0;
             this.btnCancelar.HighEmphasis = true;
             this.btnCancelar.Icon = null;
-            this.btnCancelar.Location = new System.Drawing.Point(346, 210);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCancelar.Location = new System.Drawing.Point(260, 171);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -116,19 +122,19 @@
             // 
             // frmAgregarMarca
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(575, 288);
+            this.ClientSize = new System.Drawing.Size(449, 240);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptarNuevaMarca);
             this.Controls.Add(this.lbDescripcionNuevaMarca);
             this.Controls.Add(this.txtbDescripcion);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(599, 604);
+            this.MaximumSize = new System.Drawing.Size(449, 491);
+            this.MinimumSize = new System.Drawing.Size(449, 240);
             this.Name = "frmAgregarMarca";
-            this.Padding = new System.Windows.Forms.Padding(3, 64, 4, 4);
+            this.Padding = new System.Windows.Forms.Padding(2, 52, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarMarcas";
             this.Load += new System.EventHandler(this.frmAgregarMarca_Load);
