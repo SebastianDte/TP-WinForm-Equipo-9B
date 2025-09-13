@@ -1,5 +1,7 @@
-﻿using Negocio;
-using Dominio;
+﻿using Dominio;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmAgregarMarca : Form
+    public partial class frmAgregarMarca : MaterialForm
     {
         private Marca marca = null;
 
@@ -20,6 +22,7 @@ namespace Vista
         {
             InitializeComponent();
             Text = "Nueva Marca";
+            configuracionMaterialSkin();
         }
 
         public frmAgregarMarca(Marca marca)
@@ -27,6 +30,7 @@ namespace Vista
             InitializeComponent();
             this.marca = marca;
             Text = "Modificar Marca";
+            configuracionMaterialSkin();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -92,5 +96,23 @@ namespace Vista
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        public void configuracionMaterialSkin()
+        {
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue700,
+                TextShade.WHITE
+            );
+        }
+
+
     }
+
+
 }
