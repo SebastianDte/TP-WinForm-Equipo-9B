@@ -80,12 +80,6 @@
     <Compile Include="frmMarcas.Designer.cs">
       <DependentUpon>frmMarcas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModificarMarca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModificarMarca.Designer.cs">
-      <DependentUpon>frmModificarMarca.cs</DependentUpon>
-    </Compile>
     <Compile Include="ImagenHelper.cs" />
     <Compile Include="InputHelper.cs" />
     <Compile Include="Loguin.cs">
@@ -110,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMarcas.resx">
       <DependentUpon>frmMarcas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmModificarMarca.resx">
-      <DependentUpon>frmModificarMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loguin.resx">
       <DependentUpon>Loguin.cs</DependentUpon>

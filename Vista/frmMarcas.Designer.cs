@@ -56,8 +56,8 @@
             this.dgvMarcas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMarcas.Location = new System.Drawing.Point(287, 185);
-            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvMarcas.Location = new System.Drawing.Point(215, 86);
+            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvMarcas.MultiSelect = false;
             this.dgvMarcas.Name = "dgvMarcas";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -71,7 +71,7 @@
             this.dgvMarcas.RowHeadersWidth = 51;
             this.dgvMarcas.RowTemplate.Height = 24;
             this.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMarcas.Size = new System.Drawing.Size(747, 281);
+            this.dgvMarcas.Size = new System.Drawing.Size(560, 292);
             this.dgvMarcas.TabIndex = 0;
             // 
             // txtFiltro
@@ -85,7 +85,8 @@
             this.txtFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtFiltro.HideSelection = true;
             this.txtFiltro.LeadingIcon = null;
-            this.txtFiltro.Location = new System.Drawing.Point(287, 95);
+            this.txtFiltro.Location = new System.Drawing.Point(215, 34);
+            this.txtFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFiltro.MaxLength = 32767;
             this.txtFiltro.MouseState = MaterialSkin.MouseState.OUT;
             this.txtFiltro.Name = "txtFiltro";
@@ -97,7 +98,7 @@
             this.txtFiltro.SelectionLength = 0;
             this.txtFiltro.SelectionStart = 0;
             this.txtFiltro.ShortcutsEnabled = true;
-            this.txtFiltro.Size = new System.Drawing.Size(743, 48);
+            this.txtFiltro.Size = new System.Drawing.Size(560, 48);
             this.txtFiltro.TabIndex = 6;
             this.txtFiltro.TabStop = false;
             this.txtFiltro.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -110,7 +111,8 @@
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Depth = 0;
             this.lblFiltro.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblFiltro.Location = new System.Drawing.Point(149, 124);
+            this.lblFiltro.Location = new System.Drawing.Point(110, 63);
+            this.lblFiltro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFiltro.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(91, 19);
@@ -125,8 +127,8 @@
             this.btnAgregar.Depth = 0;
             this.btnAgregar.HighEmphasis = true;
             this.btnAgregar.Icon = null;
-            this.btnAgregar.Location = new System.Drawing.Point(290, 489);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregar.Location = new System.Drawing.Point(218, 390);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -146,8 +148,8 @@
             this.btnModificar.Depth = 0;
             this.btnModificar.HighEmphasis = true;
             this.btnModificar.Icon = null;
-            this.btnModificar.Location = new System.Drawing.Point(609, 489);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnModificar.Location = new System.Drawing.Point(457, 390);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnModificar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -167,8 +169,8 @@
             this.btnEliminar.Depth = 0;
             this.btnEliminar.HighEmphasis = true;
             this.btnEliminar.Icon = null;
-            this.btnEliminar.Location = new System.Drawing.Point(946, 489);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEliminar.Location = new System.Drawing.Point(688, 390);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -182,21 +184,20 @@
             // 
             // frmMarcas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1327, 641);
+            this.ClientSize = new System.Drawing.Size(995, 521);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.dgvMarcas);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1136, 641);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.StatusAndActionBar_None;
+            this.MinimumSize = new System.Drawing.Size(852, 521);
             this.Name = "frmMarcas";
-            this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.Text = "Marcas";
             this.Load += new System.EventHandler(this.frmMarcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();
