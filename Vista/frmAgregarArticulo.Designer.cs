@@ -60,6 +60,7 @@
             this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
             this.toolTipAgregar = new System.Windows.Forms.ToolTip(this.components);
+            this.btnImagenLocal = new System.Windows.Forms.PictureBox();
             this.pnlBase.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlBaseIzquierdo.SuspendLayout();
@@ -73,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).BeginInit();
             this.pnlBotones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImagenLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBase
@@ -453,6 +455,7 @@
             this.panel1.Controls.Add(this.btnEliminarImagen);
             this.panel1.Controls.Add(this.btnAgregarImagen);
             this.panel1.Controls.Add(this.txtUrlImagen);
+            this.panel1.Controls.Add(this.btnImagenLocal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -466,7 +469,7 @@
             this.btnEliminarImagen.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEliminarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.Image")));
             this.btnEliminarImagen.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.InitialImage")));
-            this.btnEliminarImagen.Location = new System.Drawing.Point(386, 0);
+            this.btnEliminarImagen.Location = new System.Drawing.Point(354, 0);
             this.btnEliminarImagen.Name = "btnEliminarImagen";
             this.btnEliminarImagen.Size = new System.Drawing.Size(35, 53);
             this.btnEliminarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -482,7 +485,7 @@
             this.btnAgregarImagen.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAgregarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarImagen.Image")));
             this.btnAgregarImagen.InitialImage = null;
-            this.btnAgregarImagen.Location = new System.Drawing.Point(421, 0);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(389, 0);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(35, 53);
             this.btnAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -514,7 +517,7 @@
             this.txtUrlImagen.SelectionLength = 0;
             this.txtUrlImagen.SelectionStart = 0;
             this.txtUrlImagen.ShortcutsEnabled = true;
-            this.txtUrlImagen.Size = new System.Drawing.Size(418, 48);
+            this.txtUrlImagen.Size = new System.Drawing.Size(348, 48);
             this.txtUrlImagen.TabIndex = 128;
             this.txtUrlImagen.TabStop = false;
             this.txtUrlImagen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -577,6 +580,22 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // btnImagenLocal
+            // 
+            this.btnImagenLocal.BackColor = System.Drawing.Color.Transparent;
+            this.btnImagenLocal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImagenLocal.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImagenLocal.Image = ((System.Drawing.Image)(resources.GetObject("btnImagenLocal.Image")));
+            this.btnImagenLocal.InitialImage = null;
+            this.btnImagenLocal.Location = new System.Drawing.Point(424, 0);
+            this.btnImagenLocal.Name = "btnImagenLocal";
+            this.btnImagenLocal.Size = new System.Drawing.Size(32, 53);
+            this.btnImagenLocal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnImagenLocal.TabIndex = 140;
+            this.btnImagenLocal.TabStop = false;
+            this.toolTipAgregar.SetToolTip(this.btnImagenLocal, "Subir Img Local");
+            this.btnImagenLocal.Click += new System.EventHandler(this.btnImagenLocal_Click);
+            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,6 +623,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.pnlBotones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImagenLocal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,5 +660,6 @@
         private System.Windows.Forms.PictureBox btnAtras;
         private System.Windows.Forms.PictureBox btnEliminarImagen;
         private System.Windows.Forms.ToolTip toolTipAgregar;
+        private System.Windows.Forms.PictureBox btnImagenLocal;
     }
 }
