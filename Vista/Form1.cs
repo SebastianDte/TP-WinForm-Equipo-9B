@@ -449,6 +449,7 @@ namespace Vista
         }
         private void CargarComboxFiltro()
         {
+            cboCampo.Items.Clear();
             cboCampo.Items.Add("Categoria");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Precio");
