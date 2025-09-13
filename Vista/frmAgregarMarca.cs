@@ -40,8 +40,12 @@ namespace Vista
 
         private void btnAgregarNuevaMarca_Click(object sender, EventArgs e)
         {
+            bool error = false;
 
             MarcaNegocio negocio = new MarcaNegocio();
+            if (!InputHelper.Validar(txtbDescripcion, minLength: 4, maxLength: 30))
+                error = true;
+            if (error) return;
 
             try
             {

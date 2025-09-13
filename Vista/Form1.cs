@@ -246,7 +246,7 @@ namespace Vista
 
 
             CargarFormularioEnTab(tabPage3, new frmCategorias());
-
+            CargarFormularioEnTab(tabPage2, new frmMarcas());
             InicializarWebBrowserEnTab(tabPage4, "manual.html");
             InicializarWebBrowserEnTab(tabPage5, "info.html");
 
