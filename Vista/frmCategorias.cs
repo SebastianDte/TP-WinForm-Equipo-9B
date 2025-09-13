@@ -1,5 +1,6 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace Vista
         {
             InitializeComponent();
             ConfigurarMaterialSkin();
+            cargar();
 
         }
 
@@ -37,6 +39,20 @@ namespace Vista
             );
         }
 
+        private void cargar()
+        {
+            CategoriaNegocio negocio = new CategoriaNegocio();
 
+            try
+            {
+                dgvCategoria.DataSource = negocio.listar();
+                dgvCategoria.Columns["Id"].Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

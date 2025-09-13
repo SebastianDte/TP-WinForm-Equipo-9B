@@ -126,7 +126,7 @@
             this.tabPage1.ImageKey = "Articulos.png";
             this.tabPage1.Location = new System.Drawing.Point(4, 45);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1289, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Artículos";
@@ -155,10 +155,10 @@
             this.cardDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cardDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cardDgv.Location = new System.Drawing.Point(0, 76);
-            this.cardDgv.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.cardDgv.Margin = new System.Windows.Forms.Padding(14);
             this.cardDgv.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardDgv.Name = "cardDgv";
-            this.cardDgv.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.cardDgv.Padding = new System.Windows.Forms.Padding(14);
             this.cardDgv.Size = new System.Drawing.Size(1283, 248);
             this.cardDgv.TabIndex = 17;
             // 
@@ -372,7 +372,7 @@
             this.pxbAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pxbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pxbAgregar.Image")));
             this.pxbAgregar.Location = new System.Drawing.Point(619, 30);
-            this.pxbAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pxbAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.pxbAgregar.Name = "pxbAgregar";
             this.pxbAgregar.Size = new System.Drawing.Size(35, 35);
             this.pxbAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -388,7 +388,7 @@
             this.picBoxLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBoxLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxLimpiar.Image")));
             this.picBoxLimpiar.Location = new System.Drawing.Point(570, 30);
-            this.picBoxLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBoxLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.picBoxLimpiar.Name = "picBoxLimpiar";
             this.picBoxLimpiar.Size = new System.Drawing.Size(35, 35);
             this.picBoxLimpiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -620,10 +620,10 @@
             this.cardVerMas.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cardVerMas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cardVerMas.Location = new System.Drawing.Point(0, 334);
-            this.cardVerMas.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.cardVerMas.Margin = new System.Windows.Forms.Padding(14);
             this.cardVerMas.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardVerMas.Name = "cardVerMas";
-            this.cardVerMas.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.cardVerMas.Padding = new System.Windows.Forms.Padding(14);
             this.cardVerMas.Size = new System.Drawing.Size(1283, 85);
             this.cardVerMas.TabIndex = 14;
             this.cardVerMas.Visible = false;
@@ -735,10 +735,10 @@
             this.cardFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cardFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cardFooter.Location = new System.Drawing.Point(0, 419);
-            this.cardFooter.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.cardFooter.Margin = new System.Windows.Forms.Padding(14);
             this.cardFooter.MouseState = MaterialSkin.MouseState.HOVER;
             this.cardFooter.Name = "cardFooter";
-            this.cardFooter.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.cardFooter.Padding = new System.Windows.Forms.Padding(14);
             this.cardFooter.Size = new System.Drawing.Size(1283, 60);
             this.cardFooter.TabIndex = 15;
             // 
@@ -776,7 +776,7 @@
             this.tabPage2.ImageKey = "marcas.png";
             this.tabPage2.Location = new System.Drawing.Point(4, 45);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1289, 485);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Marcas";
@@ -807,7 +807,7 @@
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1289, 485);
