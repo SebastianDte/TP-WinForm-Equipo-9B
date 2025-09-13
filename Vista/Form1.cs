@@ -41,7 +41,7 @@ namespace Vista
             InicializarTabs();
             CargarTituloForm();
             InicializarEventosDgv();
-            this.AcceptButton = btnBuscar;
+            this.AcceptButton = btnBuscar;        
         }
 
         //--------------------------DGV------------------------------------------------------//
@@ -244,7 +244,9 @@ namespace Vista
         private void InicializarTabs()
         {
 
-            CargarFormularioEnTab(tabPage2, new frmCategorias());
+
+            CargarFormularioEnTab(tabPage3, new frmCategorias());
+            CargarFormularioEnTab(tabPage2, new frmMarcas());
             InicializarWebBrowserEnTab(tabPage4, "manual.html");
             InicializarWebBrowserEnTab(tabPage5, "info.html");
 
@@ -447,6 +449,7 @@ namespace Vista
         }
         private void CargarComboxFiltro()
         {
+            cboCampo.Items.Clear();
             cboCampo.Items.Add("Categoria");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Precio");
@@ -502,8 +505,7 @@ namespace Vista
         private void txtBoxFiltroAvanzado_TextChanged(object sender, EventArgs e)
         {
             InputHelper.QuitarErrorAlEscribir(txtBoxFiltroAvanzado);
-        }
+        }    
 
-    
     }
 }

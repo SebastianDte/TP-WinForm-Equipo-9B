@@ -62,6 +62,12 @@
     <Compile Include="frmAgregarArticulo.Designer.cs">
       <DependentUpon>frmAgregarArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAgregarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarCategoria.Designer.cs">
+      <DependentUpon>frmAgregarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAgregarMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +86,6 @@
     <Compile Include="frmMarcas.Designer.cs">
       <DependentUpon>frmMarcas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModificarMarca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModificarMarca.Designer.cs">
-      <DependentUpon>frmModificarMarca.cs</DependentUpon>
-    </Compile>
     <Compile Include="ImagenHelper.cs" />
     <Compile Include="InputHelper.cs" />
     <Compile Include="Loguin.cs">
@@ -102,6 +102,9 @@
     <EmbeddedResource Include="frmAgregarArticulo.resx">
       <DependentUpon>frmAgregarArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarCategoria.resx">
+      <DependentUpon>frmAgregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarMarca.resx">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,9 +113,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMarcas.resx">
       <DependentUpon>frmMarcas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmModificarMarca.resx">
-      <DependentUpon>frmModificarMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loguin.resx">
       <DependentUpon>Loguin.cs</DependentUpon>
@@ -191,6 +191,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\img\footer Articulos.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\img\logoUtn.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\img\Menú.png">
