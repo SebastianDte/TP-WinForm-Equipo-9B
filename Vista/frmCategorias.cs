@@ -11,14 +11,11 @@ namespace Vista
     public partial class frmCategorias : MaterialForm
     {
         private List<Categoria> ListaCategoria;
-
         public frmCategorias()
         {
             InitializeComponent();
             ConfigurarMaterialSkin();
         }
-
-
         private void ConfigurarMaterialSkin()
         {
             var materialSkinManager = MaterialSkinManager.Instance;

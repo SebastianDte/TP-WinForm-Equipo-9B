@@ -174,4 +174,13 @@
         RK5CYII=
 </value>
   </data>
+  <data name="btnImagenLocal.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACpSURBVFhH7Zc9CoAwDIUzOnoER0eP6E08gkfxOI5KwEIJbazJcyn54C0tvH5Q6A9RoDMR0fIh
+        UC5DTlliZS+UtwYicTxlm5xQgEp4BdwSCAGXBErALIEUMEmgBTjc2YxFoAZ39CuwPtH4VSDtr0YIwAQG
+        IhpFkoAcz4EJ8H2fFnxL/jboR6BEWlAjBPoWaCEETAKeZ3kt3NkMH7uywBsTX79mpcyyNMi5AROF9Qyk
+        wiQEAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

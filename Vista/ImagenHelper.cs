@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Vista
 {
@@ -19,10 +20,18 @@ namespace Vista
 
             try
             {
-                using (var client = new WebClient())
+                // Caso 1: Imagen local
+                if (File.Exists(url))
                 {
-                    client.Headers.Add("user-agent", "Mozilla/5.0");
-                    byte[] data = client.DownloadData(url);
+                    return Image.FromFile(url);
+                }
+
+                // Caso 2: Imagen remota (URL)
+                using (var client = new System.Net.Http.HttpClient())
+                {
+                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0");
+                    var data = client.GetByteArrayAsync(url).Result;
+
                     using (var ms = new System.IO.MemoryStream(data))
                     {
                         return Image.FromStream(ms);
@@ -31,14 +40,23 @@ namespace Vista
             }
             catch
             {
-                using (var client = new WebClient())
+                // Caso 3: fallback
+                try
                 {
-                    client.Headers.Add("user-agent", "Mozilla/5.0");
-                    byte[] data = client.DownloadData(fallbackUrl);
-                    using (var ms = new System.IO.MemoryStream(data))
+                    using (var client = new System.Net.Http.HttpClient())
                     {
-                        return Image.FromStream(ms);
+                        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0");
+                        var data = client.GetByteArrayAsync(fallbackUrl).Result;
+
+                        using (var ms = new System.IO.MemoryStream(data))
+                        {
+                            return Image.FromStream(ms);
+                        }
                     }
+                }
+                catch
+                {
+                    return null; // última defensa
                 }
             }
         }
