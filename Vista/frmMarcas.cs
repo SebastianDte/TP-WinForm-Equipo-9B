@@ -118,7 +118,7 @@ namespace Vista
 
                 foreach (Articulo item in listaArticulos)
                 {
-                    if (item.marca.id == seleccionada.id)
+                    if (item.categoria.id == seleccionada.id)
                     {
                         MessageBox.Show("La marca seleccionada no se pudo eliminar debido a que tiene registros de articulos relacionados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;

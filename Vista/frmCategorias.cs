@@ -94,7 +94,7 @@ namespace Vista
             {
                 foreach (Articulo item in listaArticulos)
                 {
-                    if (item.categoria.id == seleccionada.id)
+                    if ( item.categoria.id == seleccionada.id )
                     {
                         MessageBox.Show("La categoría seleccionada no se puede eliminar porque tiene artículos relacionados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
