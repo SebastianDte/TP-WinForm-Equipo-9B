@@ -1,4 +1,6 @@
 ﻿using Dominio;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -12,14 +14,24 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmMarcas : Form
+    public partial class frmMarcas : MaterialForm
     {
         
-
         private List<Marca> ListaMarca;
         public frmMarcas()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue700,
+                TextShade.WHITE
+            );
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -106,7 +118,7 @@ namespace Vista
 
                 foreach (Articulo item in listaArticulos)
                 {
-                    if (item.id == seleccionada.id)
+                    if (item.marca.id == seleccionada.id)
                     {
                         MessageBox.Show("La marca seleccionada no se pudo eliminar debido a que tiene registros de articulos relacionados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -166,5 +178,7 @@ namespace Vista
         {
             cargar();
         }
+
+
     }
 }
