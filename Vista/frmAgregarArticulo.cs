@@ -246,9 +246,27 @@ namespace Vista
             return true;
         }
 
-        
+        private void btnImagenLocal_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog archivo = new OpenFileDialog())
+            {
+                archivo.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                archivo.Title = "Seleccionar imagen local";
 
+                if (archivo.ShowDialog() == DialogResult.OK)
+                {
+                    string rutaLocal = archivo.FileName;
 
+                    // Creamos un objeto Imagen con la ruta local
+                    var imgLocal = new Imagen { imageUrl = rutaLocal };
+                    imagenesEnMemoria.Add(imgLocal);
+
+                    // Mostramos la imagen agregada
+                    imagenHelper.IrAIndice(imagenesEnMemoria, imagenesEnMemoria.Count - 1);
+                    imagenHelper.RefrescarUI(pxbImagen, imagenesEnMemoria, btnAtras, btnSiguiente, lblIndice);
+                }
+            }
+        }
     }
 
 }
