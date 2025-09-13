@@ -41,7 +41,7 @@ namespace Vista
             InicializarTabs();
             CargarTituloForm();
             InicializarEventosDgv();
-            this.AcceptButton = btnBuscar;
+            this.AcceptButton = btnBuscar;        
         }
 
         //--------------------------DGV------------------------------------------------------//
@@ -244,8 +244,9 @@ namespace Vista
         private void InicializarTabs()
         {
 
-            CargarFormularioEnTab(tabPage2, new frmMarcas());
+
             CargarFormularioEnTab(tabPage3, new frmCategorias());
+
             InicializarWebBrowserEnTab(tabPage4, "manual.html");
             InicializarWebBrowserEnTab(tabPage5, "info.html");
 
@@ -503,8 +504,7 @@ namespace Vista
         private void txtBoxFiltroAvanzado_TextChanged(object sender, EventArgs e)
         {
             InputHelper.QuitarErrorAlEscribir(txtBoxFiltroAvanzado);
-        }
-
+        }    
 
     }
 }
