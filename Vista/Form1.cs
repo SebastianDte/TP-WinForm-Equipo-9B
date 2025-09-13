@@ -244,7 +244,9 @@ namespace Vista
         private void InicializarTabs()
         {
 
-            CargarFormularioEnTab(tabPage2, new frmMarcas());
+
+            CargarFormularioEnTab(tabPage3, new frmCategorias());
+
             InicializarWebBrowserEnTab(tabPage4, "manual.html");
             InicializarWebBrowserEnTab(tabPage5, "info.html");
 
@@ -504,5 +506,6 @@ namespace Vista
         {
             InputHelper.QuitarErrorAlEscribir(txtBoxFiltroAvanzado);
         }    
+
     }
 }
