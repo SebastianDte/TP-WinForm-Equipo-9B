@@ -517,7 +517,7 @@
             this.txtUrlImagen.SelectionLength = 0;
             this.txtUrlImagen.SelectionStart = 0;
             this.txtUrlImagen.ShortcutsEnabled = true;
-            this.txtUrlImagen.Size = new System.Drawing.Size(418, 48);
+            this.txtUrlImagen.Size = new System.Drawing.Size(348, 48);
             this.txtUrlImagen.TabIndex = 128;
             this.txtUrlImagen.TabStop = false;
             this.txtUrlImagen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
