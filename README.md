@@ -12,9 +12,11 @@ La aplicación implementa **arquitectura en capas**, manejo de excepciones y val
 ### Funcionalidades principales
 - Listado de artículos  
 - Búsqueda por distintos criterios  
-- Agregar, modificar y eliminar artículos  
+- Agregar, modificar y eliminar artículos
+- Agregar, modificar y eliminar marcas
+- Agregar, modificar y eliminar categorías  
 - Ver detalle de un artículo  
-- Persistencia en base de datos existente  
+- Persistencia en base de datos existente 
 
 ---
 
