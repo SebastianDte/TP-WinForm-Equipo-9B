@@ -56,11 +56,11 @@
             this.btnEliminarImagen = new System.Windows.Forms.PictureBox();
             this.btnAgregarImagen = new System.Windows.Forms.PictureBox();
             this.txtUrlImagen = new MaterialSkin.Controls.MaterialTextBox2();
+            this.btnImagenLocal = new System.Windows.Forms.PictureBox();
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
             this.toolTipAgregar = new System.Windows.Forms.ToolTip(this.components);
-            this.btnImagenLocal = new System.Windows.Forms.PictureBox();
             this.pnlBase.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlBaseIzquierdo.SuspendLayout();
@@ -73,8 +73,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).BeginInit();
-            this.pnlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImagenLocal)).BeginInit();
+            this.pnlBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBase
@@ -525,6 +525,22 @@
             this.txtUrlImagen.UseSystemPasswordChar = false;
             this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             // 
+            // btnImagenLocal
+            // 
+            this.btnImagenLocal.BackColor = System.Drawing.Color.Transparent;
+            this.btnImagenLocal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImagenLocal.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImagenLocal.Image = ((System.Drawing.Image)(resources.GetObject("btnImagenLocal.Image")));
+            this.btnImagenLocal.InitialImage = null;
+            this.btnImagenLocal.Location = new System.Drawing.Point(424, 0);
+            this.btnImagenLocal.Name = "btnImagenLocal";
+            this.btnImagenLocal.Size = new System.Drawing.Size(32, 53);
+            this.btnImagenLocal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnImagenLocal.TabIndex = 140;
+            this.btnImagenLocal.TabStop = false;
+            this.toolTipAgregar.SetToolTip(this.btnImagenLocal, "Subir Img Local");
+            this.btnImagenLocal.Click += new System.EventHandler(this.btnImagenLocal_Click);
+            // 
             // pnlBotones
             // 
             this.pnlBotones.Controls.Add(this.btnCancelar);
@@ -580,22 +596,6 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // btnImagenLocal
-            // 
-            this.btnImagenLocal.BackColor = System.Drawing.Color.Transparent;
-            this.btnImagenLocal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImagenLocal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnImagenLocal.Image = ((System.Drawing.Image)(resources.GetObject("btnImagenLocal.Image")));
-            this.btnImagenLocal.InitialImage = null;
-            this.btnImagenLocal.Location = new System.Drawing.Point(424, 0);
-            this.btnImagenLocal.Name = "btnImagenLocal";
-            this.btnImagenLocal.Size = new System.Drawing.Size(32, 53);
-            this.btnImagenLocal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnImagenLocal.TabIndex = 140;
-            this.btnImagenLocal.TabStop = false;
-            this.toolTipAgregar.SetToolTip(this.btnImagenLocal, "Subir Img Local");
-            this.btnImagenLocal.Click += new System.EventHandler(this.btnImagenLocal_Click);
-            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,9 +621,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminarImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImagenLocal)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.pnlBotones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImagenLocal)).EndInit();
             this.ResumeLayout(false);
 
         }

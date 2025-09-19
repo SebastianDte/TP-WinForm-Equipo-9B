@@ -90,7 +90,7 @@ namespace Vista
             // --- Asigna los datos ---
             articulo.nombre = txtNombre.Text.Trim();
             articulo.descripcion = txtDescripcion.Text.Trim();
-            
+            articulo.codigo = txtCodigo.Text.Trim();
             articulo.precio = precio;
             articulo.marca = (Marca)cboMarca.SelectedItem;
             articulo.categoria = (Categoria)cboCategoria.SelectedItem;
